@@ -1,25 +1,29 @@
 {
-  "name": "@deskpro-apps/my-app",
-  "title": "My App",
-  "description": "My Deskpro app",
-  "version": "0.0.5",
+  "name": "@deskpro-apps/sage",
+  "title": "Sage",
+  "description": "",
+  "version": "0.0.0",
   "scope": "agent",
   "isSingleInstall": false,
   "hasDevMode": true,
-  "targets": [{ "target": "ticket_sidebar", "entrypoint": "index.html" }],
-  "settings": {
-    "example": {
-      "title": "Example Setting",
-      "description": "Example backend only setting",
-      "type": "string",
-      "isRequired": false,
-      "isBackendOnly": true
+  "targets": [{ "target": "user_sidebar", "entrypoint": "index.html" }],
+  "entityAssociations": {
+    "linkedSageContact": {
+      "entity": "person",
+      "type": "external_id",
+      "title": "Linked Sage Contact"
     }
   },
+  "settings": {},
   "proxy": {
     "whitelist": [
       {
-        "url": "https://jsonplaceholder.typicode.com/.*",
+        "url": "https://oauth.accounting.sage.com/.*",
+        "methods": ["POST"],
+        "timeout": 20
+      },
+      {
+        "url": "https://api.accounting.sage.com/v3.1/.*",
         "methods": ["GET"],
         "timeout": 20
       }
