@@ -9,7 +9,15 @@ import {
   useDeskproAppEvents,
 } from "@deskpro/app-sdk";
 import { isNavigatePayload } from "./utils";
-import { LoadingAppPage } from "./pages";
+import { useLogout } from "./hooks";
+import {
+  HomePage,
+  LoginPage,
+  LoadingAppPage,
+  LinkContactPage,
+  AdminCallbackPage,
+  NoLinkedContactPage,
+} from "./pages";
 import type { FC } from "react";
 import type { EventPayload } from "./types";
 
@@ -17,6 +25,7 @@ const App: FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { client } = useDeskproAppClient();
+  const { logout, isLoading } = useLogout();
   const isAdmin = useMemo(() => pathname.includes("/admin/"), [pathname]);
 
   useDeskproElements(({ registerElement }) => {
@@ -30,6 +39,7 @@ const App: FC = () => {
           navigate(payload.path);
         }
       })
+      .with("logout", logout)
       .run();
   }, 500);
 
@@ -42,7 +52,7 @@ const App: FC = () => {
     onElementEvent: debounceElementEvent,
   }, [client]);
 
-  if (!client) {
+  if (!client || isLoading) {
     return (
       <LoadingSpinner/>
     );
@@ -51,6 +61,11 @@ const App: FC = () => {
   return (
     <>
       <Routes>
+        <Route path="/admin/callback" element={<AdminCallbackPage/>}/>)
+        <Route path="/login" element={<LoginPage/>}/>)
+        <Route path="/home" element={<HomePage/>}/>)
+        <Route path="/no-linked" element={<NoLinkedContactPage/>}/>
+        <Route path="/contact/link" element={<LinkContactPage/>} />
         <Route index element={<LoadingAppPage/>} />
       </Routes>
       {!isAdmin && (<><br/><br/><br/></>)}

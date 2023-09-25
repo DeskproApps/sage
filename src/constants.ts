@@ -21,6 +21,8 @@ export const placeholders = {
   CLIENT_SECRET: "__client_secret__",
 };
 
+export const DEFAULT_ERROR = "There was an error!"
+
 /** Sage */
 export const BASE_URL = "https://api.accounting.sage.com/v3.1";
 export const AUTH_URL = "https://oauth.accounting.sage.com";
