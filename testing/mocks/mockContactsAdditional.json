@@ -1,0 +1,113 @@
+{
+  "$total": 1,
+  "$page": 1,
+  "$next": null,
+  "$back": null,
+  "$itemsPerPage": 200,
+  "$items": [
+    {
+      "id": "8dd3cacd5d14441cadf7dad7a56903fc",
+      "displayed_as": "Macolm Hall Associates (MAC001)",
+      "$path": "/contacts/8dd3cacd5d14441cadf7dad7a56903fc",
+      "created_at": "2023-09-22T08:01:13Z",
+      "updated_at": "2023-09-22T08:01:13Z",
+      "links": [
+        {
+          "href": "https://accounts-extra.sageone.com/contacts/contacts/145570491",
+          "rel": "alternate",
+          "type": "text/html"
+        }
+      ],
+      "contact_types": [
+        {
+          "id": "CUSTOMER",
+          "displayed_as": "Customer",
+          "$path": "/contact_types/CUSTOMER"
+        }
+      ],
+      "name": "Macolm Hall Associates",
+      "reference": "MAC001",
+      "default_sales_ledger_account": {
+        "id": "ab017ea9586c11ee99d406a292aa1b05",
+        "displayed_as": "Other income (4900)",
+        "$path": "/ledger_accounts/ab017ea9586c11ee99d406a292aa1b05"
+      },
+      "default_sales_tax_rate": {
+        "id": "GB_STANDARD",
+        "displayed_as": "Standard 20.00%",
+        "$path": "/tax_rates/GB_STANDARD"
+      },
+      "tax_number": "GB938484382",
+      "notes": "",
+      "locale": "en",
+      "main_address": {
+        "id": "da30b563712c44b185700d7d20feb0e1",
+        "displayed_as": "",
+        "$path": "/addresses/da30b563712c44b185700d7d20feb0e1"
+      },
+      "preferred_address": {
+        "id": "da30b563712c44b185700d7d20feb0e1",
+        "displayed_as": "",
+        "$path": "/addresses/da30b563712c44b185700d7d20feb0e1"
+      },
+      "delivery_address": null,
+      "main_contact_person": {
+        "id": "870e842e23b94f09a36944419e3e6152",
+        "displayed_as": "Main Contact",
+        "$path": "/contact_persons/870e842e23b94f09a36944419e3e6152"
+      },
+      "preferred_contact_person": {
+        "id": "870e842e23b94f09a36944419e3e6152",
+        "displayed_as": "Main Contact",
+        "$path": "/contact_persons/870e842e23b94f09a36944419e3e6152"
+      },
+      "bank_account_details": {
+        "account_name": null,
+        "account_number": null,
+        "sort_code": null,
+        "bic": null,
+        "iban": null
+      },
+      "credit_limit": "4000.0",
+      "credit_days": 30,
+      "credit_terms": null,
+      "credit_terms_and_conditions": "null",
+      "product_sales_price_type": {
+        "id": "d12e17b6156849b78b6fdced95cf5515",
+        "displayed_as": "Sales Price",
+        "$path": "/product_sales_price_types/d12e17b6156849b78b6fdced95cf5515"
+      },
+      "source_guid": null,
+      "currency": {
+        "id": "GBP",
+        "displayed_as": "Pound Sterling (GBP)",
+        "$path": "/currencies/GBP"
+      },
+      "registered_number": null,
+      "deletable": true,
+      "tax_treatment": {
+        "home_tax": true,
+        "eu_tax_registered": false,
+        "eu_not_tax_registered": false,
+        "rest_of_world_tax": false,
+        "is_importer": null
+      },
+      "email": null,
+      "tax_calculation": "",
+      "gdpr_obfuscated": false,
+      "system": false,
+      "cis_registered": false,
+      "ni_based": false,
+      "is_active": true,
+      "gb_based": true,
+      "cis_settings": null,
+      "destination_vat_blocking": false,
+      "mandate_active": false,
+      "send_statements": true,
+      "statement_run": {
+        "id": "statement_delivery_method_email",
+        "name": "Sent by email"
+      }
+    }
+  ]
+}

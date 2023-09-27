@@ -1,6 +1,17 @@
-import type { DateTime } from "../../types";
+import type { Maybe, DateTime } from "../../types";
+
+export type { paths, definitions, operations, external } from "./schema";
 
 export type Response<T> = Promise<T>;
+
+export type Pagination<T> = {
+  $page: number,
+  $total: number,
+  $itemsPerPage: number,
+  $back: Maybe<string>,
+  $next: Maybe<string>, // "/contacts?page=2&items_per_page=5",
+  $items: T[],
+}
 
 export type ErrorType = {
   $severity: "error",
@@ -31,8 +42,4 @@ export type User = {
   locale: string,
   created_at: DateTime,
   updated_at: DateTime,
-};
-
-export type Contact = {
-  //..
 };

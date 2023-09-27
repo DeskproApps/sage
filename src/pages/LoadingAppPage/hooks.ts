@@ -5,13 +5,14 @@ import {
   useDeskproLatestAppContext,
   useInitialisedDeskproAppClient,
 } from "@deskpro/app-sdk";
-import { getEntityListService } from "../../services/deskpro";
+import { useContact } from "../../hooks";
 import { getCurrentUserService } from "../../services/sage";
 import type { UserContext } from "../../types";
 
 const useCheckAuth = () => {
   const navigate = useNavigate();
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
+  const { findContact, linkContact } = useContact();
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
 
   useInitialisedDeskproAppClient((client) => {
@@ -20,10 +21,13 @@ const useCheckAuth = () => {
     }
 
     getCurrentUserService(client)
-      .then(() => getEntityListService(client, dpUserId))
-      .then((entityIds) => {
-        const contactId = get(entityIds, [0]);
-        navigate(contactId ? `/home?contactId=${contactId}` : "/contact/link");
+      .then(() => findContact())
+      .then((contactId) => {
+        if (contactId) {
+          linkContact(contactId).then(() => navigate("/home"));
+        } else {
+          navigate("/contact/link");
+        }
       })
       .catch(() => navigate("/login"));
   }, [dpUserId]);

@@ -1,0 +1,290 @@
+{
+  "$total": 1,
+  "$page": 1,
+  "$next": null,
+  "$back": null,
+  "$itemsPerPage": 200,
+  "$items": [
+    {
+      "id": "6ba85bcca57148eebb5ec563dba84753",
+      "displayed_as": "Kinghorn & French (KIN001)",
+      "$path": "/contacts/6ba85bcca57148eebb5ec563dba84753",
+      "created_at": "2023-09-22T08:01:12Z",
+      "updated_at": "2023-09-22T08:01:12Z",
+      "links": [
+        {
+          "href": "https://accounts-extra.sageone.com/contacts/contacts/145570487",
+          "rel": "alternate",
+          "type": "text/html"
+        }
+      ],
+      "contact_types": [
+        {
+          "id": "CUSTOMER",
+          "displayed_as": "Customer",
+          "$path": "/contact_types/CUSTOMER"
+        }
+      ],
+      "name": "Kinghorn & French",
+      "reference": "KIN001",
+      "default_sales_ledger_account": {
+        "id": "ab017ea9586c11ee99d406a292aa1b05",
+        "displayed_as": "Other income (4900)",
+        "$path": "/ledger_accounts/ab017ea9586c11ee99d406a292aa1b05"
+      },
+      "default_sales_tax_rate": {
+        "id": "GB_STANDARD",
+        "displayed_as": "Standard 20.00%",
+        "$path": "/tax_rates/GB_STANDARD"
+      },
+      "tax_number": "GB938484382",
+      "notes": "",
+      "locale": "en",
+      "main_address": {
+        "id": "e23f38733c554380a092288b7c5a58f7",
+        "displayed_as": "",
+        "$path": "/addresses/e23f38733c554380a092288b7c5a58f7"
+      },
+      "preferred_address": {
+        "id": "e23f38733c554380a092288b7c5a58f7",
+        "displayed_as": "",
+        "$path": "/addresses/e23f38733c554380a092288b7c5a58f7"
+      },
+      "delivery_address": null,
+      "main_contact_person": {
+        "id": "66e9e06469f344558aa4c1c76dd0a48c",
+        "displayed_as": "Main Contact",
+        "$path": "/contact_persons/66e9e06469f344558aa4c1c76dd0a48c"
+      },
+      "preferred_contact_person": {
+        "id": "66e9e06469f344558aa4c1c76dd0a48c",
+        "displayed_as": "Main Contact",
+        "$path": "/contact_persons/66e9e06469f344558aa4c1c76dd0a48c"
+      },
+      "bank_account_details": {
+        "account_name": null,
+        "account_number": null,
+        "sort_code": null,
+        "bic": null,
+        "iban": null
+      },
+      "credit_limit": "6000.0",
+      "credit_days": 30,
+      "credit_terms": null,
+      "credit_terms_and_conditions": "null",
+      "product_sales_price_type": {
+        "id": "d12e17b6156849b78b6fdced95cf5515",
+        "displayed_as": "Sales Price",
+        "$path": "/product_sales_price_types/d12e17b6156849b78b6fdced95cf5515"
+      },
+      "source_guid": null,
+      "currency": {
+        "id": "GBP",
+        "displayed_as": "Pound Sterling (GBP)",
+        "$path": "/currencies/GBP"
+      },
+      "registered_number": null,
+      "deletable": true,
+      "tax_treatment": {
+        "home_tax": true,
+        "eu_tax_registered": false,
+        "eu_not_tax_registered": false,
+        "rest_of_world_tax": false,
+        "is_importer": null
+      },
+      "email": null,
+      "tax_calculation": "",
+      "gdpr_obfuscated": false,
+      "system": false,
+      "cis_registered": false,
+      "ni_based": false,
+      "is_active": true,
+      "gb_based": true,
+      "cis_settings": null,
+      "destination_vat_blocking": false,
+      "mandate_active": false,
+      "send_statements": true,
+      "statement_run": {
+        "id": "statement_delivery_method_email",
+        "name": "Sent by email"
+      }
+    },
+    {
+      "id": "1cac14f87be34979aa7783038c023340",
+      "displayed_as": "HMRC Payments (HMRC Pay)",
+      "$path": "/contacts/1cac14f87be34979aa7783038c023340",
+      "created_at": "2023-09-22T06:57:44Z",
+      "updated_at": "2023-09-27T17:55:11Z",
+      "links": [
+        {
+          "href": "https://accounts-extra.sageone.com/contacts/contacts/145569012",
+          "rel": "alternate",
+          "type": "text/html"
+        }
+      ],
+      "contact_types": [
+        {
+          "id": "VENDOR",
+          "displayed_as": "Supplier",
+          "$path": "/contact_types/VENDOR"
+        }
+      ],
+      "name": "HMRC Payments",
+      "reference": "HMRC Pay",
+      "default_purchase_ledger_account": {
+        "id": "ab01ce00586c11ee99d406a292aa1b05",
+        "displayed_as": "Cost of Sales - Goods (5000)",
+        "$path": "/ledger_accounts/ab01ce00586c11ee99d406a292aa1b05"
+      },
+      "tax_number": null,
+      "notes": null,
+      "locale": "en",
+      "main_address": {
+        "id": "01ddbc245a7f495787fd5a35d714a80b",
+        "displayed_as": "",
+        "$path": "/addresses/01ddbc245a7f495787fd5a35d714a80b"
+      },
+      "main_contact_person": {
+        "id": "4b4ae8e029914235ac4a62d5bffc75e7",
+        "displayed_as": "Cormac McCarthy",
+        "$path": "/contact_persons/4b4ae8e029914235ac4a62d5bffc75e7"
+      },
+      "bank_account_details": {
+        "account_name": null,
+        "account_number": null,
+        "sort_code": null,
+        "bic": null,
+        "iban": null
+      },
+      "credit_limit": null,
+      "credit_days": null,
+      "credit_terms": null,
+      "source_guid": null,
+      "currency": {
+        "id": "GBP",
+        "displayed_as": "Pound Sterling (GBP)",
+        "$path": "/currencies/GBP"
+      },
+      "registered_number": null,
+      "deletable": true,
+      "tax_treatment": {
+        "home_tax": true,
+        "eu_tax_registered": false,
+        "eu_not_tax_registered": false,
+        "rest_of_world_tax": false,
+        "is_importer": false
+      },
+      "email": "cormac.mccarthy@example.org",
+      "tax_calculation": "",
+      "gdpr_obfuscated": false,
+      "system": true,
+      "cis_registered": false,
+      "ni_based": false,
+      "is_active": true,
+      "gb_based": true,
+      "cis_settings": null,
+      "destination_vat_blocking": false,
+      "mandate_active": false
+    },
+    {
+      "id": "e295e984de0946378ca776f5052c884f",
+      "displayed_as": "HMRC Reclaimed (HMRC Rec)",
+      "$path": "/contacts/e295e984de0946378ca776f5052c884f",
+      "created_at": "2023-09-22T06:57:44Z",
+      "updated_at": "2023-09-22T06:57:44Z",
+      "links": [
+        {
+          "href": "https://accounts-extra.sageone.com/contacts/contacts/145569010",
+          "rel": "alternate",
+          "type": "text/html"
+        }
+      ],
+      "contact_types": [
+        {
+          "id": "CUSTOMER",
+          "displayed_as": "Customer",
+          "$path": "/contact_types/CUSTOMER"
+        }
+      ],
+      "name": "HMRC Reclaimed",
+      "reference": "HMRC Rec",
+      "default_sales_ledger_account": {
+        "id": "ab017ea9586c11ee99d406a292aa1b05",
+        "displayed_as": "Other income (4900)",
+        "$path": "/ledger_accounts/ab017ea9586c11ee99d406a292aa1b05"
+      },
+      "default_sales_tax_rate": null,
+      "tax_number": null,
+      "notes": null,
+      "locale": "en",
+      "main_address": {
+        "id": "54dfa8e48f414778a51a192c946f407f",
+        "displayed_as": "",
+        "$path": "/addresses/54dfa8e48f414778a51a192c946f407f"
+      },
+      "preferred_address": {
+        "id": "54dfa8e48f414778a51a192c946f407f",
+        "displayed_as": "",
+        "$path": "/addresses/54dfa8e48f414778a51a192c946f407f"
+      },
+      "delivery_address": null,
+      "main_contact_person": {
+        "id": "32b51633828c458f8174a2ca78cde4ae",
+        "displayed_as": "Main Contact",
+        "$path": "/contact_persons/32b51633828c458f8174a2ca78cde4ae"
+      },
+      "preferred_contact_person": {
+        "id": "32b51633828c458f8174a2ca78cde4ae",
+        "displayed_as": "Main Contact",
+        "$path": "/contact_persons/32b51633828c458f8174a2ca78cde4ae"
+      },
+      "bank_account_details": {
+        "account_name": null,
+        "account_number": null,
+        "sort_code": null,
+        "bic": null,
+        "iban": null
+      },
+      "credit_limit": null,
+      "credit_days": null,
+      "credit_terms": null,
+      "credit_terms_and_conditions": null,
+      "product_sales_price_type": {
+        "id": "d12e17b6156849b78b6fdced95cf5515",
+        "displayed_as": "Sales Price",
+        "$path": "/product_sales_price_types/d12e17b6156849b78b6fdced95cf5515"
+      },
+      "source_guid": null,
+      "currency": {
+        "id": "GBP",
+        "displayed_as": "Pound Sterling (GBP)",
+        "$path": "/currencies/GBP"
+      },
+      "registered_number": null,
+      "deletable": true,
+      "tax_treatment": {
+        "home_tax": true,
+        "eu_tax_registered": false,
+        "eu_not_tax_registered": false,
+        "rest_of_world_tax": false,
+        "is_importer": null
+      },
+      "email": null,
+      "tax_calculation": "",
+      "gdpr_obfuscated": false,
+      "system": true,
+      "cis_registered": false,
+      "ni_based": false,
+      "is_active": true,
+      "gb_based": true,
+      "cis_settings": null,
+      "destination_vat_blocking": false,
+      "mandate_active": false,
+      "send_statements": true,
+      "statement_run": {
+        "id": "statement_delivery_method_email",
+        "name": "Sent by email"
+      }
+    }
+  ]
+}
