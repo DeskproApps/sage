@@ -1,3 +1,4 @@
+import { DEFAULT_ERROR } from "../../constants";
 import type { SageAPIError } from "./types";
 
 export type InitData = {
@@ -10,8 +11,7 @@ class SageError extends Error {
   data: SageAPIError;
 
   constructor({ status, data }: InitData) {
-    const message = "Sage Api Error";
-    super(message);
+    super(DEFAULT_ERROR);
 
     this.data = data;
     this.status = status;

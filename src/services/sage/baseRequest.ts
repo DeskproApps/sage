@@ -2,6 +2,7 @@ import isEmpty from "lodash/isEmpty";
 import { proxyFetch } from "@deskpro/app-sdk";
 import { BASE_URL, placeholders } from "../../constants";
 import { getQueryParams } from "../../utils";
+import { renewAccessTokenService } from "./renewAccessTokenService";
 import { SageError } from "./SageError";
 import type { Request } from "../../types";
 
@@ -18,7 +19,7 @@ const baseRequest: Request = async (client, {
   const baseUrl = rawUrl ? rawUrl : `${BASE_URL}${url}`;
   const params = getQueryParams(queryParams);
 
-  const requestUrl = `${baseUrl}.json${isEmpty(params) ? "": `?${params}`}`;
+  const requestUrl = `${baseUrl}${isEmpty(params) ? "": `?${params}`}`;
   const options: RequestInit = {
     method,
     headers: {
@@ -37,12 +38,26 @@ const baseRequest: Request = async (client, {
     };
   }
 
-  const res = await dpFetch(requestUrl, options);
+  let res = await dpFetch(requestUrl, options);
+
+  if ([401].includes(res.status)) {
+    await renewAccessTokenService(client);
+
+    res = await dpFetch(requestUrl, options);
+  }
 
   if (res.status < 200 || res.status > 399) {
+    let errorData;
+
+    try {
+       errorData = await res.json();
+    } catch (e) {
+      errorData = {};
+    }
+
     throw new SageError({
       status: res.status,
-      data: await res.json(),
+      data: errorData,
     });
   }
 
