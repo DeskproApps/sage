@@ -8,15 +8,9 @@ import {
   useDeskproLatestAppContext,
   useInitialisedDeskproAppClient,
 } from "@deskpro/app-sdk";
-import {
-  getEntityListService,
-  setAccessTokenService,
-  setRefreshTokenService,
-} from "../../services/deskpro";
-import {
-  getAccessTokenService,
-  getCurrentUserService,
-} from "../../services/sage";
+import { setAccessTokenService, setRefreshTokenService } from "../../services/deskpro";
+import { getAccessTokenService, getCurrentUserService } from "../../services/sage";
+import { useContact } from "../../hooks";
 import { getQueryParams } from "../../utils";
 import { DEFAULT_ERROR } from "../../constants";
 import type { OAuth2StaticCallbackUrl } from "@deskpro/app-sdk";
@@ -38,6 +32,7 @@ const useLogin = (): Result => {
   const [isLoading, setIsLoading] = useState(false);
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
   const { client } = useDeskproAppClient();
+  const { findContact } = useContact();
   const clientId = useMemo(() => get(context, ["settings", "client_id"]), [context]);
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
 
@@ -78,11 +73,8 @@ const useLogin = (): Result => {
         setRefreshTokenService(client, refresh_token),
       ]))
       .then(() => getCurrentUserService(client))
-      .then(() => getEntityListService(client, dpUserId))
-      .then((entityIds) => {
-        const contactId = get(entityIds, [0]);
-        navigate(contactId ? `/home?contactId=${contactId}` : "/contact/link");
-      })
+      .then(() => findContact())
+      .then((contactId) => navigate(contactId ? "/home" : "/contact/link"))
       .catch((err) => {
         const error = get(err, ["data"]);
         const message = get(error, [0, "$message"]) || get(error, ["$message"]) || DEFAULT_ERROR;
@@ -90,7 +82,7 @@ const useLogin = (): Result => {
         setIsLoading(false);
         setError(capitalize(message));
       });
-  }, [client, callback, navigate, dpUserId]);
+  }, [client, callback, navigate, dpUserId, findContact]);
 
   return { authUrl, poll, error, isLoading };
 };

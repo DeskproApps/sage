@@ -1,0 +1,1 @@
+export { SageLogo } from "./SageLogo";
