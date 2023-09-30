@@ -15,14 +15,14 @@ import { filterPaginatedContacts } from "../utils";
 import type { UserContext } from "../types";
 import type { definitions } from "../services/sage/types";
 
-export type UseContactResult = {
+export type Result = {
   findContact: () => Promise<void|definitions["Contact"]["id"]>,
   linkContact: (contactId: Required<definitions["Contact"]>["id"]) => Promise<void>,
 };
 
-type UseContact = () => UseContactResult;
+type UseLinkedContact = () => Result;
 
-const useContact: UseContact = () => {
+const useLinkedContact: UseLinkedContact = () => {
   const { client } = useDeskproAppClient();
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
@@ -67,6 +67,10 @@ const useContact: UseContact = () => {
       throw Error("Deskpro apps client is not ready yet");
     }
 
+    if (!contactId) {
+      throw Error("No contact to be linked");
+    }
+
     // 1. get linked contacts
     const entityIds = await getEntityListService(client, dpUserId);
 
@@ -82,4 +86,4 @@ const useContact: UseContact = () => {
   return { findContact, linkContact };
 };
 
-export { useContact };
+export { useLinkedContact };

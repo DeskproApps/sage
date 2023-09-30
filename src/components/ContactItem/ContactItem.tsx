@@ -6,7 +6,7 @@ import { Link, Secondary, SageLogo } from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { definitions } from "../../services/sage/types";
 
-type Props = {
+export type Props = {
   contact: definitions["Contact"],
   onChangeSelectedContact: (contactId: definitions["Contact"]["id"]) => void,
 };
@@ -27,12 +27,12 @@ const ContactItem: FC<Props> = ({ contact, onChangeSelectedContact }) => {
       <Title
         marginBottom={0}
         title={(
-          <Link href="#" onClick={onClick}>{contact.displayed_as}</Link>
+          <Link href="#" onClick={onClick}>{get(contact, ["displayed_as"], "-") || "-"}</Link>
         )}
         {...(!link ? {} : { icon: <SageLogo/> })}
         {...(!link ? {} : { link })}
       />
-      <Secondary>{contact.email}</Secondary>
+      <Secondary>{get(contact, ["email"]) || "-"}</Secondary>
     </>
   );
 };

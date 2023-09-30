@@ -5,14 +5,14 @@ import {
   useDeskproLatestAppContext,
   useInitialisedDeskproAppClient,
 } from "@deskpro/app-sdk";
-import { useContact } from "../../hooks";
+import { useLinkedContact } from "../../hooks";
 import { getCurrentUserService } from "../../services/sage";
 import type { UserContext } from "../../types";
 
 const useCheckAuth = () => {
   const navigate = useNavigate();
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
-  const { findContact, linkContact } = useContact();
+  const { findContact, linkContact } = useLinkedContact();
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
 
   useInitialisedDeskproAppClient((client) => {

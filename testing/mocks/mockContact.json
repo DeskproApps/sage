@@ -1,0 +1,174 @@
+{
+  "id": "1cac14f87be34979aa7783038c023340",
+  "displayed_as": "HMRC Payments (HMRC Pay)",
+  "$path": "/contacts/1cac14f87be34979aa7783038c023340",
+  "created_at": "2023-09-22T06:57:44Z",
+  "updated_at": "2023-09-27T17:55:11Z",
+  "links": [
+    {
+      "href": "https://accounts-extra.sageone.com/contacts/suppliers/145569012",
+      "rel": "alternate",
+      "type": "text/html"
+    }
+  ],
+  "contact_types": [
+    {
+      "id": "VENDOR",
+      "displayed_as": "Supplier",
+      "$path": "/contact_types/VENDOR"
+    }
+  ],
+  "name": "HMRC Payments",
+  "reference": "HMRC Pay",
+  "default_purchase_ledger_account": {
+    "id": "ab01ce00586c11ee99d406a292aa1b05",
+    "displayed_as": "Cost of Sales - Goods (5000)",
+    "$path": "/ledger_accounts/ab01ce00586c11ee99d406a292aa1b05",
+    "created_at": "2023-09-21T10:50:24Z",
+    "updated_at": "2023-09-21T10:50:24Z",
+    "ledger_account_group": {
+      "id": "EXPENSE",
+      "displayed_as": "Expenditure"
+    },
+    "name": "Cost of Sales - Goods",
+    "display_name": "Cost of Sales - Goods",
+    "visible_scopes": [
+      "journals",
+      "other_payment",
+      "purchasing",
+      "reporting"
+    ],
+    "included_in_chart": true,
+    "nominal_code": 5000,
+    "ledger_account_type": {
+      "id": "DIRECT_EXPENSES",
+      "displayed_as": "Direct Expenses",
+      "$path": "/ledger_account_types/DIRECT_EXPENSES"
+    },
+    "ledger_account_classification": null,
+    "tax_rate": {
+      "id": "GB_STANDARD",
+      "displayed_as": "Standard 20.00%",
+      "$path": "/tax_rates/GB_STANDARD"
+    },
+    "fixed_tax_rate": true,
+    "visible_in_banking": false,
+    "visible_in_expenses": true,
+    "visible_in_journals": true,
+    "visible_in_other_payments": true,
+    "visible_in_other_receipts": false,
+    "visible_in_reporting": true,
+    "visible_in_sales": false,
+    "balance_details": null,
+    "is_control_account": false,
+    "control_name": null,
+    "display_formatted": "5000 - Cost of Sales - Goods",
+    "tax_recoverable": null,
+    "recoverable_percentage": null,
+    "non_recoverable_ledger_account": null,
+    "cis_materials": false,
+    "tax_instalment": false,
+    "cis_labour": false,
+    "gifi_code": null
+  },
+  "tax_number": null,
+  "notes": null,
+  "locale": "en",
+  "main_address": {
+    "id": "01ddbc245a7f495787fd5a35d714a80b",
+    "displayed_as": "",
+    "$path": "/addresses/01ddbc245a7f495787fd5a35d714a80b",
+    "contact": {
+      "id": "1cac14f87be34979aa7783038c023340",
+      "displayed_as": "HMRC Payments (HMRC Pay)",
+      "$path": "/contacts/1cac14f87be34979aa7783038c023340"
+    },
+    "address_type": {
+      "id": "DELIVERY",
+      "displayed_as": "Delivery",
+      "$path": "/address_types/DELIVERY"
+    },
+    "name": "Main Address",
+    "address_line_1": null,
+    "address_line_2": null,
+    "city": null,
+    "region": null,
+    "postal_code": null,
+    "country": {
+      "id": "GB",
+      "displayed_as": "United Kingdom (GB)",
+      "$path": "/countries/GB"
+    },
+    "country_group": {
+      "id": "GBIE",
+      "displayed_as": "UK & Ireland",
+      "$path": "/country_groups/GBIE"
+    },
+    "is_main_address": true,
+    "created_at": "2023-09-22T06:57:44Z",
+    "updated_at": "2023-09-22T06:57:44Z"
+  },
+  "main_contact_person": {
+    "id": "4b4ae8e029914235ac4a62d5bffc75e7",
+    "displayed_as": "Cormac McCarthy",
+    "$path": "/contact_persons/4b4ae8e029914235ac4a62d5bffc75e7",
+    "contact_person_types": [
+      {
+        "id": "ACCOUNTS",
+        "displayed_as": "Accounts",
+        "$path": "/contact_person_types/ACCOUNTS"
+      }
+    ],
+    "name": "Cormac McCarthy",
+    "job_title": "",
+    "telephone": "",
+    "mobile": "",
+    "email": "cormac.mccarthy@example.org",
+    "fax": "",
+    "is_main_contact": true,
+    "address": {
+      "id": "01ddbc245a7f495787fd5a35d714a80b",
+      "displayed_as": "",
+      "$path": "/addresses/01ddbc245a7f495787fd5a35d714a80b"
+    },
+    "created_at": "2023-09-22T06:57:44Z",
+    "updated_at": "2023-09-27T17:55:11Z"
+  },
+  "bank_account_details": {
+    "account_name": null,
+    "account_number": null,
+    "sort_code": null,
+    "bic": null,
+    "iban": null
+  },
+  "credit_limit": null,
+  "credit_days": null,
+  "credit_terms": null,
+  "source_guid": null,
+  "currency": {
+    "id": "GBP",
+    "displayed_as": "Pound Sterling (GBP)",
+    "$path": "/currencies/GBP"
+  },
+  "registered_number": null,
+  "deletable": true,
+  "tax_treatment": {
+    "home_tax": true,
+    "eu_tax_registered": false,
+    "eu_not_tax_registered": false,
+    "rest_of_world_tax": false,
+    "is_importer": false
+  },
+  "email": "cormac.mccarthy@example.org",
+  "tax_calculation": "",
+  "gdpr_obfuscated": false,
+  "system": true,
+  "has_unfinished_recurring_invoices": false,
+  "cis_registered": false,
+  "ni_based": false,
+  "is_active": true,
+  "gb_based": true,
+  "cis_settings": null,
+  "destination_vat_blocking": false,
+  "mandate_active": false
+}

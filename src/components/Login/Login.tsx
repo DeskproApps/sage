@@ -5,7 +5,7 @@ import { Container, AnchorButton, Invalid } from "../common";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
 
-type Props = {
+export type Props = {
   authUrl: string|null,
   onLogin: () => void,
   isLoading: boolean,

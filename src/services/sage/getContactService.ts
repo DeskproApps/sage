@@ -4,10 +4,14 @@ import type { definitions } from "./types";
 
 const getContactService = (
   client: IDeskproClient,
-  contactId: definitions["Contact"]["id"],
+  contactId: Required<definitions["Contact"]>["id"],
 ) => {
   return baseRequest<definitions["Contact"]>(client, {
     url: `/contacts/${contactId}`,
+    queryParams: {
+      attributes: "all",
+      nested_attributes: "all",
+    },
   });
 };
 

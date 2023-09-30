@@ -10,7 +10,7 @@ const filterPaginatedContacts = (
     return [];
   }
 
-  return flatten(items.filter(({ $items }) => size($items)).map(({ $items }) => $items));
+  return flatten((items || []).filter(({ $items }) => size($items)).map(({ $items }) => $items));
 };
 
 export { filterPaginatedContacts };
