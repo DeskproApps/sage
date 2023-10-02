@@ -8,7 +8,7 @@ import type { FC } from "react";
 import type { Maybe } from "../../../types";
 import type { definitions } from "../../../services/sage/types";
 
-type Props = {
+export type Props = {
   isLoading: boolean,
   contacts: Array<definitions["Contact"]>,
   selectContact: Maybe<definitions["Contact"]["id"]>,

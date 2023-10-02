@@ -9,7 +9,7 @@ import {
   useDeskproAppEvents,
 } from "@deskpro/app-sdk";
 import { isNavigatePayload } from "./utils";
-import { useLogout } from "./hooks";
+import { useLogout, useUnlinkContact } from "./hooks";
 import {
   HomePage,
   LoginPage,
@@ -25,8 +25,10 @@ const App: FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { client } = useDeskproAppClient();
-  const { logout, isLoading } = useLogout();
+  const { logout, isLoading: isLoadingLogout } = useLogout();
+  const { unlink, isLoading: isLoadingUnlink } = useUnlinkContact();
   const isAdmin = useMemo(() => pathname.includes("/admin/"), [pathname]);
+  const isLoading = [isLoadingLogout, isLoadingUnlink].some(Boolean)
 
   useDeskproElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
@@ -40,6 +42,7 @@ const App: FC = () => {
         }
       })
       .with("logout", logout)
+      .with("unlink", unlink)
       .run();
   }, 500);
 

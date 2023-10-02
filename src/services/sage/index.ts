@@ -4,3 +4,4 @@ export { getCurrentUserService } from "./getCurrentUserService";
 export { renewAccessTokenService } from "./renewAccessTokenService";
 export { getContactsService } from "./getContactsService";
 export { getContactService } from "./getContactService";
+export { getSalesInvoicesService } from "./getSalesInvoicesService";

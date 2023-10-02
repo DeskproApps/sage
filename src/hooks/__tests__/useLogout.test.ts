@@ -17,7 +17,7 @@ describe("useLogout", () => {
     cleanup();
   });
 
-  test("should remove token and navigate to login page", async () => {
+  test("should remove tokens and navigate to login page", async () => {
     const mockNavigate = jest.fn();
     (useNavigate as jest.Mock).mockImplementation(() => mockNavigate);
     (removeAccessTokenService as jest.Mock).mockResolvedValueOnce("");
@@ -34,7 +34,7 @@ describe("useLogout", () => {
     expect(mockNavigate).toHaveBeenCalledWith("/login");
   });
 
-  test("should navigate to the login page even if the remove token failed", async () => {
+  test("should navigate to the login page even if one of removed token failed", async () => {
     const mockNavigate = jest.fn();
     (useNavigate as jest.Mock).mockImplementation(() => mockNavigate);
     (removeAccessTokenService as jest.Mock).mockRejectedValueOnce("");

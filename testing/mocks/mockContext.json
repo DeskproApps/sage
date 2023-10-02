@@ -12,7 +12,9 @@
       "isAgent": false,
       "isConfirmed": true,
       "emails": [
-        "cormac.mccarthy@example.org"
+        "cormac.mccarthy@example.org",
+        "lesia.ukrainka@me.ukr",
+        "armen.tamzarian@me.com"
       ],
       "primaryEmail": "cormac.mccarthy@example.org",
       "customFields": {},

@@ -4,7 +4,7 @@ import type { FC } from "react";
 import type { Maybe } from "../../../types";
 import type { definitions } from "../../../services/sage/types";
 
-type Props = {
+export type Props = {
   selectedContact?: Maybe<definitions["Contact"]["id"]>,
   isSubmitting?: boolean,
   onLinkContact?: () => void,
@@ -15,7 +15,7 @@ const Buttons: FC<Props> = ({ isSubmitting, selectedContact, onLinkContact, onCa
   <Stack justify="space-between">
     <Button
       type="button"
-      text="Link Cards"
+      text="Link Contact"
       disabled={!selectedContact || isSubmitting}
       loading={isSubmitting}
       onClick={onLinkContact}

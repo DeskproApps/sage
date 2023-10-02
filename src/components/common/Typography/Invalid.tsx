@@ -11,10 +11,8 @@ const InvalidStyled = styled(TSpan)`
   color: ${({ theme }) => theme.colors.red100};
 `;
 
-const Invalid: FC<Props> = ({ type = "p1", ...props }) => {
-  return (
-    <InvalidStyled type={type} {...props} />
-  );
-};
+const Invalid: FC<Props> = ({ type = "p1", ...props }) => (
+  <InvalidStyled type={type} {...props} />
+);
 
 export { Invalid };

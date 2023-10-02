@@ -10,7 +10,7 @@ import {
 } from "@deskpro/app-sdk";
 import { setAccessTokenService, setRefreshTokenService } from "../../services/deskpro";
 import { getAccessTokenService, getCurrentUserService } from "../../services/sage";
-import { useContact } from "../../hooks";
+import { useLinkedContact } from "../../hooks";
 import { getQueryParams } from "../../utils";
 import { DEFAULT_ERROR } from "../../constants";
 import type { OAuth2StaticCallbackUrl } from "@deskpro/app-sdk";
@@ -32,7 +32,7 @@ const useLogin = (): Result => {
   const [isLoading, setIsLoading] = useState(false);
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
   const { client } = useDeskproAppClient();
-  const { findContact } = useContact();
+  const { findContact } = useLinkedContact();
   const clientId = useMemo(() => get(context, ["settings", "client_id"]), [context]);
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
 
