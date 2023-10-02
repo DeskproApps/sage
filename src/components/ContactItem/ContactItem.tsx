@@ -1,8 +1,8 @@
 import get from "lodash/get";
 import { useCallback } from "react";
-import { Title } from "@deskpro/app-sdk";
-import { getSageLink } from "../../utils";
-import { Link, Secondary, SageLogo } from "../common";
+import { Title, Property, TwoProperties } from "@deskpro/app-sdk";
+import { getSageLink, getContactType } from "../../utils";
+import { Link, SageLogo } from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { definitions } from "../../services/sage/types";
 
@@ -27,12 +27,21 @@ const ContactItem: FC<Props> = ({ contact, onChangeSelectedContact }) => {
       <Title
         marginBottom={0}
         title={(
-          <Link href="#" onClick={onClick}>{get(contact, ["displayed_as"], "-") || "-"}</Link>
+          <Link href="#" onClick={onClick}>{get(contact, ["name"], "-") || "-"}</Link>
         )}
         {...(!link ? {} : { icon: <SageLogo/> })}
         {...(!link ? {} : { link })}
       />
-      <Secondary>{get(contact, ["email"]) || "-"}</Secondary>
+      <TwoProperties
+        leftLabel="Reference"
+        leftText={get(contact, ["reference"])}
+        rightLabel="Type"
+        rightText={getContactType(get(contact, ["contact_types"]))}
+      />
+      <Property
+        label="Email"
+        text={get(contact, ["email"])}
+      />
     </>
   );
 };

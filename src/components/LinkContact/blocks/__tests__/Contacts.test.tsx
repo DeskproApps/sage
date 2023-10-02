@@ -22,9 +22,9 @@ describe("LinkContact", () => {
     test("render", async () => {
       const { findByText } = renderContacts({ contacts: mockContacts.$items as never });
 
-      expect(await findByText(/Kinghorn & French \(KIN001\)/i)).toBeInTheDocument();
-      expect(await findByText(/HMRC Payments \(HMRC Pay\)/i)).toBeInTheDocument();
-      expect(await findByText(/HMRC Reclaimed \(HMRC Rec\)/i)).toBeInTheDocument();
+      expect(await findByText(/Kinghorn & French/i)).toBeInTheDocument();
+      expect(await findByText(/HMRC Payments/i)).toBeInTheDocument();
+      expect(await findByText(/HMRC Reclaimed/i)).toBeInTheDocument();
     });
 
     test("should show \"No found\" id wrong contacts", async () => {
