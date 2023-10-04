@@ -1,6 +1,6 @@
-import { HorizontalDivider } from "@deskpro/app-sdk";
+import { HorizontalDivider, Search } from "@deskpro/app-sdk";
 import { Container } from "../common";
-import { SearchStyled, Buttons, Contacts } from "./blocks";
+import { Buttons, Contacts } from "./blocks";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
 import type { definitions } from "../../services/sage/schema";
@@ -29,7 +29,10 @@ const LinkContact: FC<Props> = ({
   return (
     <>
       <Container>
-        <SearchStyled onChange={onChangeSearch} />
+        <Search
+          onChange={onChangeSearch}
+          inputProps={{ variant: "normal" }}
+        />
         <Buttons
           onLinkContact={onLinkContact}
           selectedContact={selectedContact}

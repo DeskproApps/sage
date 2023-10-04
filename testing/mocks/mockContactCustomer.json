@@ -1,0 +1,284 @@
+{
+  "id": "be4de860ee2c447288cc31385ffa9d73",
+  "displayed_as": "Deskpro BV Customer (DP-002)",
+  "$path": "/contacts/be4de860ee2c447288cc31385ffa9d73",
+  "created_at": "2023-09-22T08:01:07Z",
+  "updated_at": "2023-10-02T14:27:23Z",
+  "links": [
+    {
+      "href": "https://accounts-extra.sageone.com/contacts/customers/145570473",
+      "rel": "alternate",
+      "type": "text/html"
+    }
+  ],
+  "contact_types": [
+    {
+      "id": "CUSTOMER",
+      "displayed_as": "Customer",
+      "$path": "/contact_types/CUSTOMER"
+    }
+  ],
+  "name": "Deskpro BV Customer",
+  "reference": "DP-002",
+  "default_sales_ledger_account": {
+    "id": "ab017ea9586c11ee99d406a292aa1b05",
+    "displayed_as": "Other income (4900)",
+    "$path": "/ledger_accounts/ab017ea9586c11ee99d406a292aa1b05",
+    "created_at": "2023-09-21T10:50:24Z",
+    "updated_at": "2023-09-21T10:50:24Z",
+    "ledger_account_group": {
+      "id": "INCOME",
+      "displayed_as": "Income"
+    },
+    "name": "Other income",
+    "display_name": "Other income",
+    "visible_scopes": [
+      "journals",
+      "other_receipt",
+      "reporting",
+      "sales"
+    ],
+    "included_in_chart": true,
+    "nominal_code": 4900,
+    "ledger_account_type": {
+      "id": "OTHER_INCOME",
+      "displayed_as": "Other Income",
+      "$path": "/ledger_account_types/OTHER_INCOME"
+    },
+    "ledger_account_classification": null,
+    "tax_rate": {
+      "id": "GB_STANDARD",
+      "displayed_as": "Standard 20.00%",
+      "$path": "/tax_rates/GB_STANDARD"
+    },
+    "fixed_tax_rate": true,
+    "visible_in_banking": false,
+    "visible_in_expenses": false,
+    "visible_in_journals": true,
+    "visible_in_other_payments": false,
+    "visible_in_other_receipts": true,
+    "visible_in_reporting": true,
+    "visible_in_sales": true,
+    "balance_details": null,
+    "is_control_account": false,
+    "control_name": null,
+    "display_formatted": "4900 - Other income",
+    "tax_recoverable": null,
+    "recoverable_percentage": null,
+    "non_recoverable_ledger_account": null,
+    "cis_materials": false,
+    "tax_instalment": false,
+    "cis_labour": false,
+    "gifi_code": null
+  },
+  "default_sales_tax_rate": {
+    "id": "GB_STANDARD",
+    "displayed_as": "Standard 20.00%",
+    "$path": "/tax_rates/GB_STANDARD"
+  },
+  "tax_number": "GB938484382",
+  "notes": "",
+  "locale": "en",
+  "main_address": {
+    "id": "8fcd72f7d8ab4e4487d0f1dee8f989bc",
+    "displayed_as": "Unit 12\nCorporation Buildings\nNorth Shields\nNorth Tyneside\nNE12 6GH",
+    "$path": "/addresses/8fcd72f7d8ab4e4487d0f1dee8f989bc",
+    "contact": {
+      "id": "be4de860ee2c447288cc31385ffa9d73",
+      "displayed_as": "Deskpro BV Customer (DP-002)",
+      "$path": "/contacts/be4de860ee2c447288cc31385ffa9d73"
+    },
+    "address_type": {
+      "id": "DELIVERY",
+      "displayed_as": "Delivery",
+      "$path": "/address_types/DELIVERY"
+    },
+    "name": "Peter Quigley",
+    "address_line_1": "Unit 12",
+    "address_line_2": "Corporation Buildings",
+    "city": "North Shields",
+    "region": "North Tyneside",
+    "postal_code": "NE12 6GH",
+    "country": {
+      "id": "GB",
+      "displayed_as": "United Kingdom (GB)",
+      "$path": "/countries/GB"
+    },
+    "country_group": {
+      "id": "ALL",
+      "displayed_as": "Other",
+      "$path": "/country_groups/ALL"
+    },
+    "is_main_address": true,
+    "created_at": "2023-09-22T08:01:07Z",
+    "updated_at": "2023-09-29T15:16:07Z"
+  },
+  "preferred_address": {
+    "id": "8fcd72f7d8ab4e4487d0f1dee8f989bc",
+    "displayed_as": "Unit 12\nCorporation Buildings\nNorth Shields\nNorth Tyneside\nNE12 6GH",
+    "$path": "/addresses/8fcd72f7d8ab4e4487d0f1dee8f989bc",
+    "contact": {
+      "id": "be4de860ee2c447288cc31385ffa9d73",
+      "displayed_as": "Deskpro BV Customer (DP-002)",
+      "$path": "/contacts/be4de860ee2c447288cc31385ffa9d73"
+    },
+    "address_type": {
+      "id": "DELIVERY",
+      "displayed_as": "Delivery",
+      "$path": "/address_types/DELIVERY"
+    },
+    "name": "Peter Quigley",
+    "address_line_1": "Unit 12",
+    "address_line_2": "Corporation Buildings",
+    "city": "North Shields",
+    "region": "North Tyneside",
+    "postal_code": "NE12 6GH",
+    "country": {
+      "id": "GB",
+      "displayed_as": "United Kingdom (GB)",
+      "$path": "/countries/GB"
+    },
+    "country_group": {
+      "id": "ALL",
+      "displayed_as": "Other",
+      "$path": "/country_groups/ALL"
+    },
+    "is_main_address": true,
+    "created_at": "2023-09-22T08:01:07Z",
+    "updated_at": "2023-09-29T15:16:07Z"
+  },
+  "delivery_address": {
+    "id": "96599fc9bc6a4189901a894d4009600c",
+    "displayed_as": "599 Church Road\nHounslow\nUnited Kingdom (GB)\nTW8 7TY",
+    "$path": "/addresses/96599fc9bc6a4189901a894d4009600c",
+    "contact": {
+      "id": "be4de860ee2c447288cc31385ffa9d73",
+      "displayed_as": "Deskpro BV Customer (DP-002)",
+      "$path": "/contacts/be4de860ee2c447288cc31385ffa9d73"
+    },
+    "address_type": {
+      "id": "DELIVERY",
+      "displayed_as": "Delivery",
+      "$path": "/address_types/DELIVERY"
+    },
+    "name": "Kevin Jefferson",
+    "address_line_1": "599 Church Road",
+    "address_line_2": "",
+    "city": "Hounslow",
+    "region": "United Kingdom (GB)",
+    "postal_code": "TW8 7TY",
+    "country": {
+      "id": "GB",
+      "displayed_as": "United Kingdom (GB)",
+      "$path": "/countries/GB"
+    },
+    "country_group": {
+      "id": "GBIE",
+      "displayed_as": "UK & Ireland",
+      "$path": "/country_groups/GBIE"
+    },
+    "is_main_address": false,
+    "created_at": "2023-09-29T15:17:22Z",
+    "updated_at": "2023-10-02T14:27:23Z"
+  },
+  "main_contact_person": {
+    "id": "1778d9c2a9a245c99835ac6e25390ef4",
+    "displayed_as": "Dorcas McCullough",
+    "$path": "/contact_persons/1778d9c2a9a245c99835ac6e25390ef4",
+    "contact_person_types": [
+      {
+        "id": "ACCOUNTS",
+        "displayed_as": "Accounts",
+        "$path": "/contact_person_types/ACCOUNTS"
+      }
+    ],
+    "name": "Dorcas McCullough",
+    "job_title": "",
+    "telephone": "+44 2035 111111",
+    "mobile": "+44 2035 222222",
+    "email": "beatty.irving@example.org",
+    "fax": "+44 2035 333333",
+    "is_main_contact": true,
+    "address": {
+      "id": "8fcd72f7d8ab4e4487d0f1dee8f989bc",
+      "displayed_as": "Unit 12\nCorporation Buildings\nNorth Shields\nNorth Tyneside\nNE12 6GH",
+      "$path": "/addresses/8fcd72f7d8ab4e4487d0f1dee8f989bc"
+    },
+    "created_at": "2023-09-22T08:01:07Z",
+    "updated_at": "2023-09-29T11:35:30Z"
+  },
+  "preferred_contact_person": {
+    "id": "1778d9c2a9a245c99835ac6e25390ef4",
+    "displayed_as": "Dorcas McCullough",
+    "$path": "/contact_persons/1778d9c2a9a245c99835ac6e25390ef4",
+    "contact_person_types": [
+      {
+        "id": "ACCOUNTS",
+        "displayed_as": "Accounts",
+        "$path": "/contact_person_types/ACCOUNTS"
+      }
+    ],
+    "name": "Dorcas McCullough",
+    "job_title": "",
+    "telephone": "",
+    "mobile": "",
+    "email": "beatty.irving@example.org",
+    "fax": "",
+    "is_main_contact": true,
+    "address": {
+      "id": "8fcd72f7d8ab4e4487d0f1dee8f989bc",
+      "displayed_as": "Unit 12\nCorporation Buildings\nNorth Shields\nNorth Tyneside\nNE12 6GH",
+      "$path": "/addresses/8fcd72f7d8ab4e4487d0f1dee8f989bc"
+    },
+    "created_at": "2023-09-22T08:01:07Z",
+    "updated_at": "2023-09-29T11:35:30Z"
+  },
+  "bank_account_details": {
+    "account_name": "McNally Computer Supplies",
+    "account_number": "56565656",
+    "sort_code": "997888",
+    "bic": null,
+    "iban": null
+  },
+  "credit_limit": "2000.0",
+  "credit_days": 30,
+  "credit_terms": null,
+  "credit_terms_and_conditions": "null",
+  "product_sales_price_type": {
+    "id": "d12e17b6156849b78b6fdced95cf5515",
+    "displayed_as": "Sales Price",
+    "$path": "/product_sales_price_types/d12e17b6156849b78b6fdced95cf5515"
+  },
+  "source_guid": null,
+  "currency": {
+    "id": "GBP",
+    "displayed_as": "Pound Sterling (GBP)",
+    "$path": "/currencies/GBP"
+  },
+  "registered_number": null,
+  "deletable": false,
+  "tax_treatment": {
+    "home_tax": true,
+    "eu_tax_registered": false,
+    "eu_not_tax_registered": false,
+    "rest_of_world_tax": false,
+    "is_importer": null
+  },
+  "email": "beatty.irving@example.org",
+  "tax_calculation": "",
+  "gdpr_obfuscated": false,
+  "system": false,
+  "has_unfinished_recurring_invoices": false,
+  "cis_registered": false,
+  "ni_based": false,
+  "is_active": true,
+  "gb_based": true,
+  "cis_settings": null,
+  "destination_vat_blocking": false,
+  "mandate_active": false,
+  "send_statements": true,
+  "statement_run": {
+    "id": "statement_delivery_method_email",
+    "name": "Sent by email"
+  }
+}

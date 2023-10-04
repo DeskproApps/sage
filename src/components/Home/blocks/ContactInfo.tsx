@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import get from "lodash/get";
-import { Title, Property } from "@deskpro/app-sdk";
-import { getSageLink } from "../../../utils";
-import { SageLogo } from "../../common";
+import { Title, Property, TwoProperties } from "@deskpro/app-sdk";
+import { getSageLink, getContactType } from "../../../utils";
+import { SageLogo, RouterLink } from "../../common";
 import type { FC } from "react";
 import type { Maybe } from "../../../types";
 import type { definitions } from "../../../services/sage/types";
@@ -13,13 +13,24 @@ export type Props = {
 
 const ContactInfo: FC<Props> = ({ contact }) => {
   const link = useMemo(() => getSageLink(get(contact, ["links"])), [contact]);
+  const contactId = useMemo(() => get(contact, ["id"]), [contact]);
+  const contactName = useMemo(() => get(contact, ["name"], "-"), [contact]);
 
   return (
     <>
       <Title
-        title={get(contact, ["displayed_as"], "-") || "-"}
+        title={!contactId
+          ? contactName
+          : <RouterLink to={`/contact/view/${contactId}`}>{contactName}</RouterLink>
+        }
         {...(!link ? {} : { icon: <SageLogo/> })}
         {...(!link ? {} : { link })}
+      />
+      <TwoProperties
+        leftLabel="Reference"
+        leftText={get(contact, ["reference"])}
+        rightLabel="Type"
+        rightText={getContactType(get(contact, ["contact_types"]))}
       />
       <Property
         label="Primary Person"

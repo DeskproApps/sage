@@ -3,3 +3,4 @@ export { Login } from "./Login";
 export { LinkContact } from "./LinkContact";
 export { ContactItem } from "./ContactItem";
 export { Home } from "./Home";
+export { ViewContact } from "./ViewContact";

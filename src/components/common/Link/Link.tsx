@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Link as NativeRouterLink } from "react-router-dom";
+import type { FC } from "react";
+import type { LinkProps } from "react-router-dom";
 import type { IconProps, ThemeColors } from "@deskpro/deskpro-ui";
 
 export type Props = {
@@ -12,4 +15,8 @@ const Link = styled.a<{ color?: keyof ThemeColors }>`
   text-decoration: none;
 `;
 
-export { Link };
+const RouterLink: FC<LinkProps & Props> = (props) => (
+  <Link {...props} as={NativeRouterLink} />
+);
+
+export { Link, RouterLink };
