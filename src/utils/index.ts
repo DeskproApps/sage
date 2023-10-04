@@ -5,3 +5,4 @@ export { filterPaginatedContacts } from "./filterPaginatedContacts";
 export { getSageLink } from "./getSageLink";
 export { isLast } from "./isLast";
 export { getContactType } from "./getContactType";
+export { retryUntilHavePagination } from "./retryUntilHavePagination";

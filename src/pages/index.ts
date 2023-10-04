@@ -5,3 +5,4 @@ export { HomePage } from "./HomePage";
 export { NoLinkedContactPage } from "./NoLinkedContactPage";
 export { LinkContactPage } from "./LinkContactPage";
 export { ViewContactPage } from "./ViewContactPage";
+export { CreateContactPage } from "./CreateContactPage";

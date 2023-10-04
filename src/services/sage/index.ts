@@ -5,3 +5,6 @@ export { renewAccessTokenService } from "./renewAccessTokenService";
 export { getContactsService } from "./getContactsService";
 export { getContactService } from "./getContactService";
 export { getSalesInvoicesService } from "./getSalesInvoicesService";
+export { createContactService } from "./createContactService";
+export { getContactTypesService } from "./getContactTypesService";
+export { getCountriesService } from "./getCountriesService";

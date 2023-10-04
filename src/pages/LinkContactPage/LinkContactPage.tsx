@@ -31,6 +31,8 @@ const LinkContactPage: FC = () => {
 
   const onCancel = useCallback(() => navigate("/home"), [navigate]);
 
+  const onNavigateToCreate = useCallback(() => navigate("/contact/create"), [navigate]);
+
   const onLinkContact = useCallback(() => {
     if (!client || !selectedContact || !dpUserId) {
       return;
@@ -65,6 +67,7 @@ const LinkContactPage: FC = () => {
       isLoading={isLoading}
       contacts={contacts}
       onChangeSelectedContact={setSelectedContact}
+      onNavigateToCreate={onNavigateToCreate}
     />
   );
 };

@@ -32,7 +32,7 @@ const useLogin = (): Result => {
   const [isLoading, setIsLoading] = useState(false);
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
   const { client } = useDeskproAppClient();
-  const { findContact } = useLinkedContact();
+  const { findContact, linkContact } = useLinkedContact();
   const clientId = useMemo(() => get(context, ["settings", "client_id"]), [context]);
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
 
@@ -74,7 +74,13 @@ const useLogin = (): Result => {
       ]))
       .then(() => getCurrentUserService(client))
       .then(() => findContact())
-      .then((contactId) => navigate(contactId ? "/home" : "/contact/link"))
+      .then((contactId) => {
+        if (contactId) {
+          return linkContact(contactId).then(() => navigate("/home"));
+        } else {
+          navigate("/contact/link");
+        }
+      })
       .catch((err) => {
         const error = get(err, ["data"]);
         const message = get(error, [0, "$message"]) || get(error, ["$message"]) || DEFAULT_ERROR;
@@ -82,7 +88,7 @@ const useLogin = (): Result => {
         setIsLoading(false);
         setError(capitalize(message));
       });
-  }, [client, callback, navigate, dpUserId, findContact]);
+  }, [client, callback, navigate, dpUserId, findContact, linkContact]);
 
   return { authUrl, poll, error, isLoading };
 };
