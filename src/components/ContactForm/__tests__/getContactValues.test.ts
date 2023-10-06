@@ -11,6 +11,21 @@ describe("ContactForm", () => {
         name: "Test Contact",
         contact_type_ids: ["CUSTOMER"],
         reference: "TEST-001",
+        main_contact_person:  {
+          name: "",
+          email: "",
+          telephone: "",
+          mobile: "",
+          fax: "",
+        },
+        main_address: {
+          name: "",
+          address_line_1: "",
+          city: "",
+          country_id: "",
+          postal_code: "",
+          is_main_address: true,
+        },
       });
     });
 
@@ -49,6 +64,17 @@ describe("ContactForm", () => {
         main_contact_person: {
           name: "Armen Tamzarian",
           mobile: "+380505555577",
+          email: "",
+          telephone: "",
+          fax: "",
+        },
+        main_address: {
+          name: "",
+          address_line_1: "",
+          city: "",
+          country_id: "",
+          postal_code: "",
+          is_main_address: true,
         },
       });
     });
@@ -62,9 +88,19 @@ describe("ContactForm", () => {
         name: "Test Contact",
         contact_type_ids: ["CUSTOMER"],
         reference: "TEST-001",
+        main_contact_person: {
+          name: "",
+          mobile: "",
+          email: "",
+          telephone: "",
+          fax: "",
+        },
         main_address: {
+          name: "",
           address_line_1: "Shevchenko, 1",
+          city: "",
           country_id: "UA",
+          postal_code: "",
           is_main_address: true,
         },
       });

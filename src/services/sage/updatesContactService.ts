@@ -1,6 +1,7 @@
 import { baseRequest } from "./baseRequest";
 import type { IDeskproClient } from "@deskpro/app-sdk";
-import type { Contact, ContactType, ContactPerson, Address } from "./types";
+import type { Contact } from "./types";
+import {Address, ContactPerson, ContactType} from "./types";
 
 type Data = {
   name: Contact["name"],
@@ -18,17 +19,18 @@ type Data = {
   },
 };
 
-const createContactService = (
+const updatesContactService = (
   client: IDeskproClient,
+  contactId: Contact["id"],
   data: Data,
 ) => {
-  return baseRequest<Contact>(client, {
-    url: "/contacts",
-    method: "POST",
+  return baseRequest(client, {
+    url: `/contacts/${contactId}`,
+    method: "PUT",
     data: {
       contact: data,
     },
   });
 };
 
-export { createContactService };
+export { updatesContactService };

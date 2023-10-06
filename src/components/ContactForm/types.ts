@@ -31,4 +31,5 @@ export type Props = {
   onCancel?: () => void,
   isEditMode?: boolean,
   error?: Maybe<string|string[]>,
+  contact?: Contact,
 };

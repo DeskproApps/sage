@@ -31,7 +31,9 @@ const CreateContactPage: FC = () => {
       return Promise.resolve();
     }
 
-    return createContactService(client, getContactValues(values))
+    setError(null);
+
+    return createContactService(client, getContactValues(values) as never)
       .then((contact) => setEntityService(client, dpUserId, contact.id))
       .then(() => navigate("/home"))
       .catch((err) => setError(getErrors(get(err, ["data"]))));

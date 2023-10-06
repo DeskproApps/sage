@@ -16,6 +16,7 @@ import {
   LoadingAppPage,
   LinkContactPage,
   ViewContactPage,
+  EditContactPage,
   CreateContactPage,
   AdminCallbackPage,
   NoLinkedContactPage,
@@ -73,6 +74,7 @@ const App: FC = () => {
         <Route path="/contact/link" element={<LinkContactPage/>} />
         <Route path="/contact/view/:contactId" element={<ViewContactPage/>} />
         <Route path="/contact/create" element={<CreateContactPage/>} />
+        <Route path="/contact/edit/:contactId" element={<EditContactPage/>} />
         <Route index element={<LoadingAppPage/>} />
       </Routes>
       {!isAdmin && (<><br/><br/><br/></>)}
