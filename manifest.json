@@ -47,7 +47,7 @@
       },
       {
         "url": "https://api.accounting.sage.com/v3.1/.*",
-        "methods": ["GET", "POST"],
+        "methods": ["GET", "POST", "PUT"],
         "timeout": 20
       }
     ]

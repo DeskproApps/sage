@@ -5,8 +5,7 @@ import {
   LoadingSpinner,
   useDeskproElements,
 } from "@deskpro/app-sdk";
-import { useSetTitle } from "../../hooks";
-import { useContact } from "./hooks";
+import { useSetTitle, useContact } from "../../hooks";
 import { ViewContact } from "../../components";
 import type { FC } from "react";
 
@@ -24,7 +23,11 @@ const ViewContactPage: FC = () => {
       type: "home_button",
       payload: { type: "changePage", path: "/home" },
     });
-  });
+    registerElement("edit", {
+      type: "edit_button",
+      payload: { type: "changePage", path: `/contact/edit/${contactId}` },
+    });
+  }, [contactId]);
 
   if (isLoading) {
     return (

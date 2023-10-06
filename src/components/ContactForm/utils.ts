@@ -1,16 +1,16 @@
 import get from "lodash/get";
 import size from "lodash/size";
 import uniq from "lodash/uniq";
-import isEmpty from "lodash/isEmpty";
 import { z } from "zod";
 import { ErrorType } from "../../services/sage/types";
 import { getOption } from "../../utils";
 import { DEFAULT_ERROR } from "../../constants";
 import type { FormValidationSchema, ContactValues } from "./types";
+import type { Contact } from "../../services/sage/types";
 
 const validationSchema = z.object({
-  name: z.string().nonempty(),
-  contact_type: z.string().nonempty(),
+  name: z.string().min(1),
+  contact_type: z.string().min(1),
   reference: z.string().optional(),
   person_name: z.string().optional(),
   person_email: z.string().optional(),
@@ -25,47 +25,44 @@ const validationSchema = z.object({
 
 });
 
-const getInitValues = (): FormValidationSchema => {
+const getInitValues = (contact?: Contact): FormValidationSchema => {
   return {
-    name: "",
-    contact_type: "",
-    reference: "",
-    person_name: "",
-    person_email: "",
-    person_telephone: "",
-    person_mobile: "",
-    person_fax: "",
-    address_name: "",
-    address_line_1: "",
-    address_city: "",
-    address_country_id: "",
-    address_postal_code: "",
+    name: get(contact, ["name"], "") || "",
+    contact_type: get(contact, ["contact_types", 0, "id"], "") || "",
+    reference: get(contact, ["reference"], "") || "",
+    person_name: get(contact, ["main_contact_person", "name"], "") || "",
+    person_email: get(contact, ["main_contact_person", "email"], "") || "",
+    person_telephone: get(contact, ["main_contact_person", "telephone"], "") || "",
+    person_mobile: get(contact, ["main_contact_person", "mobile"], "") || "",
+    person_fax: get(contact, ["main_contact_person", "fax"], "") || "",
+    address_name: get(contact, ["main_address", "name"], "") || "",
+    address_line_1: get(contact, ["main_address", "address_line_1"], "") || "",
+    address_city: get(contact, ["main_address", "city"], "") || "",
+    address_country_id: get(contact, ["main_address", "country", "id"], "") || "",
+    address_postal_code: get(contact, ["main_address", "postal_code"], "") || "",
   };
 };
 
 const getContactValues = (values: FormValidationSchema): ContactValues => {
-  const person = {
-    ...(!values.person_name ? {} : { name: values.person_name }),
-    ...(!values.person_email ? {} : { email: values.person_email }),
-    ...(!values.person_telephone ? {} : { telephone: values.person_telephone }),
-    ...(!values.person_mobile ? {} : { mobile: values.person_mobile }),
-    ...(!values.person_fax ? {} : { fax: values.person_fax }),
-  };
-
-  const address = {
-    ...(!values.address_name ? {} : { name: values.address_name }),
-    ...(!values.address_line_1 ? {} : { address_line_1: values.address_line_1 }),
-    ...(!values.address_city ? {} : { city: values.address_city }),
-    ...(!values.address_country_id ? {} : { country_id: values.address_country_id }),
-    ...(!values.address_postal_code ? {} : { postal_code: values.address_postal_code }),
-  };
-
   return {
     name: get(values, ["name"]),
     contact_type_ids: [get(values, ["contact_type"])],
-    ...(!values.reference ? {} : { reference: values.reference }),
-    ...(isEmpty(person) ? {} : { main_contact_person: person }),
-    ...(isEmpty(address) ? {} : { main_address: { ...address, is_main_address: true }}),
+    reference: values.reference || "",
+    main_contact_person: {
+      name: values.person_name || "",
+      email: values.person_email || "",
+      telephone: values.person_telephone || "",
+      mobile: values.person_mobile || "",
+      fax: values.person_fax || "",
+    },
+    main_address: {
+      name: values.address_name || "",
+      address_line_1: values.address_line_1 || "",
+      city: values.address_city || "",
+      country_id: values.address_country_id || "",
+      postal_code: values.address_postal_code || "",
+      is_main_address: true,
+    },
   };
 };
 

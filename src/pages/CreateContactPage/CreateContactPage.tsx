@@ -7,6 +7,7 @@ import {
   useDeskproLatestAppContext,
 } from "@deskpro/app-sdk";
 import { useSetTitle } from "../../hooks";
+import { useDeskproUserAsContact } from "./hooks";
 import { setEntityService } from "../../services/deskpro";
 import { createContactService } from "../../services/sage";
 import { getContactValues, getErrors } from "../../components/ContactForm";
@@ -19,6 +20,7 @@ const CreateContactPage: FC = () => {
   const navigate = useNavigate();
   const { client } = useDeskproAppClient();
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
+  const { contact } = useDeskproUserAsContact();
   const [error, setError] = useState<Maybe<string|string[]>>(null);
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
 
@@ -31,7 +33,9 @@ const CreateContactPage: FC = () => {
       return Promise.resolve();
     }
 
-    return createContactService(client, getContactValues(values))
+    setError(null);
+
+    return createContactService(client, getContactValues(values) as never)
       .then((contact) => setEntityService(client, dpUserId, contact.id))
       .then(() => navigate("/home"))
       .catch((err) => setError(getErrors(get(err, ["data"]))));
@@ -50,6 +54,7 @@ const CreateContactPage: FC = () => {
 
   return (
     <CreateContact
+      contact={contact}
       error={error}
       onSubmit={onSubmit}
       onCancel={onCancel}

@@ -11,11 +11,11 @@ import type { FormValidationSchema, Props } from "./types";
 
 const ContactForm: FC<Props> = ({
   error,
+  contact,
   onSubmit,
   onCancel,
   isEditMode,
 }) => {
-
   const {
     watch,
     register,
@@ -23,7 +23,7 @@ const ContactForm: FC<Props> = ({
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValidationSchema>({
-    defaultValues: getInitValues(),
+    defaultValues: getInitValues(contact),
     resolver: zodResolver(validationSchema),
   });
   const { isLoading, contactTypeOptions, countyOptions } = useFormDeps();
@@ -145,7 +145,7 @@ const ContactForm: FC<Props> = ({
 
       <br/>
 
-      <Title title="Main Addres" />
+      <Title title="Main Address" />
 
       <Label htmlFor="address_name" label="Address Name">
         <Input
