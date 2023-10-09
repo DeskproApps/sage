@@ -29,6 +29,7 @@ const useCheckAuth = () => {
           navigate("/contact/link");
         }
       })
+      // .then(() => navigate("/sales-invoices/9c5ba5b37adf4bc29487931ffee67d5f"))
       .catch(() => navigate("/login"));
   }, [dpUserId]);
 };

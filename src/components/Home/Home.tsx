@@ -3,16 +3,18 @@ import { Container } from "../common";
 import { ContactInfo, SalesInvoices } from "./blocks";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
-import type { definitions } from "../../services/sage/types";
+import type { Contact, SalesInvoice } from "../../services/sage/types";
 
 type Props = {
-  contact: Maybe<definitions["Contact"]>,
-  salesInvoices: Array<definitions["SalesInvoice"]>,
+  contact: Maybe<Contact>,
+  salesInvoices: Array<SalesInvoice>,
+  onNavigateToSalesInvoices: () => void,
 };
 
 const Home: FC<Props> = ({
   contact,
   salesInvoices,
+  onNavigateToSalesInvoices,
 }) => {
   return (
     <>
@@ -23,7 +25,10 @@ const Home: FC<Props> = ({
       <HorizontalDivider />
 
       <Container>
-        <SalesInvoices salesInvoices={salesInvoices} />
+        <SalesInvoices
+          salesInvoices={salesInvoices}
+          onNavigateToSalesInvoices={onNavigateToSalesInvoices}
+        />
       </Container>
 
       <HorizontalDivider />

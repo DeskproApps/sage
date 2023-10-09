@@ -5,10 +5,10 @@ import { getSageLink, getContactType } from "../../../utils";
 import { SageLogo, RouterLink } from "../../common";
 import type { FC } from "react";
 import type { Maybe } from "../../../types";
-import type { definitions } from "../../../services/sage/types";
+import type { Contact } from "../../../services/sage/types";
 
 export type Props = {
-  contact: Maybe<definitions["Contact"]>;
+  contact: Maybe<Contact>;
 };
 
 const ContactInfo: FC<Props> = ({ contact }) => {
@@ -30,7 +30,7 @@ const ContactInfo: FC<Props> = ({ contact }) => {
         leftLabel="Reference"
         leftText={get(contact, ["reference"])}
         rightLabel="Type"
-        rightText={getContactType(get(contact, ["contact_types"]))}
+        rightText={getContactType(get(contact, ["contact_types"]) as never)}
       />
       <Property
         label="Primary Person"

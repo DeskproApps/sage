@@ -4,11 +4,11 @@ import { Title, Property, TwoProperties } from "@deskpro/app-sdk";
 import { getSageLink, getContactType } from "../../utils";
 import { Link, SageLogo } from "../common";
 import type { FC, MouseEventHandler } from "react";
-import type { definitions } from "../../services/sage/types";
+import type { Contact } from "../../services/sage/types";
 
 export type Props = {
-  contact: definitions["Contact"],
-  onChangeSelectedContact: (contactId: definitions["Contact"]["id"]) => void,
+  contact: Contact,
+  onChangeSelectedContact: (contactId: Contact["id"]) => void,
 };
 
 const ContactItem: FC<Props> = ({ contact, onChangeSelectedContact }) => {
@@ -36,7 +36,7 @@ const ContactItem: FC<Props> = ({ contact, onChangeSelectedContact }) => {
         leftLabel="Reference"
         leftText={get(contact, ["reference"])}
         rightLabel="Type"
-        rightText={getContactType(get(contact, ["contact_types"]))}
+        rightText={getContactType(get(contact, ["contact_types"]) as never)}
       />
       <Property
         label="Email"

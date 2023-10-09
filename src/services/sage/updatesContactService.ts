@@ -1,7 +1,6 @@
 import { baseRequest } from "./baseRequest";
 import type { IDeskproClient } from "@deskpro/app-sdk";
-import type { Contact } from "./types";
-import {Address, ContactPerson, ContactType} from "./types";
+import type { Contact, Address, ContactPerson, ContactType } from "./types";
 
 type Data = {
   name: Contact["name"],

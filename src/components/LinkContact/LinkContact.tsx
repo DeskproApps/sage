@@ -3,16 +3,16 @@ import { Container, Navigation } from "../common";
 import { Buttons, Contacts } from "./blocks";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
-import type { definitions } from "../../services/sage/schema";
+import type { Contact } from "../../services/sage/types";
 
 type Props = {
   onChangeSearch: (search: string) => void,
-  selectedContact: Maybe<definitions["Contact"]["id"]>,
+  selectedContact: Maybe<Contact["id"]>,
   isSubmitting: boolean,
   onLinkContact: () => void,
   isLoading: boolean,
-  contacts: Array<definitions["Contact"]>,
-  onChangeSelectedContact: (contactId: definitions["Contact"]["id"]) => void,
+  contacts: Array<Contact>,
+  onChangeSelectedContact: (contactId: Contact["id"]) => void,
   onNavigateToCreate: () => void,
   onCancel?: () => void,
 };

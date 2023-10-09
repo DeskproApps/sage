@@ -6,13 +6,13 @@ import { ContactItem } from "../../ContactItem";
 import { NoFound, Card } from "../../common";
 import type { FC } from "react";
 import type { Maybe } from "../../../types";
-import type { definitions } from "../../../services/sage/types";
+import type { Contact } from "../../../services/sage/types";
 
 export type Props = {
   isLoading: boolean,
-  contacts: Array<definitions["Contact"]>,
-  selectContact: Maybe<definitions["Contact"]["id"]>,
-  onChangeSelectedContact: (contactId: definitions["Contact"]["id"]) => void,
+  contacts: Array<Contact>,
+  selectContact: Maybe<Contact["id"]>,
+  onChangeSelectedContact: (contactId: Contact["id"]) => void,
 };
 
 const Contacts: FC<Props> = ({

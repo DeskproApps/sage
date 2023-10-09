@@ -1,6 +1,6 @@
 import { baseRequest } from "./baseRequest";
 import type { IDeskproClient } from "@deskpro/app-sdk";
-import type { Pagination, definitions } from "./types";
+import type { Pagination, Contact } from "./types";
 
 type Options = {
   email?: string,
@@ -11,7 +11,7 @@ const getContactsService = (
   client: IDeskproClient,
   options?: Options,
 ) => {
-  return baseRequest<Pagination<definitions["Contact"]>>(client, {
+  return baseRequest<Pagination<Contact>>(client, {
     url: "/contacts",
     queryParams: {
       items_per_page: "200",

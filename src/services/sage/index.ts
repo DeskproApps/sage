@@ -9,3 +9,4 @@ export { createContactService } from "./createContactService";
 export { getContactTypesService } from "./getContactTypesService";
 export { getCountriesService } from "./getCountriesService";
 export { updatesContactService } from "./updatesContactService";
+export { getSalesInvoiceService } from "./getSalesInvoiceService";

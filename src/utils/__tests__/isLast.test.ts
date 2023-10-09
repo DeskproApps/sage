@@ -3,6 +3,7 @@ import { isLast } from "../isLast";
 describe("isLast", () => {
   test("should return true if pass last index of array", () => {
     expect(isLast([1 ,2, 3] as never, 2)).toBeTruthy();
+    expect(isLast([1] as never, 0)).toBeTruthy();
   });
 
   test("should return false if pass not last index", () => {

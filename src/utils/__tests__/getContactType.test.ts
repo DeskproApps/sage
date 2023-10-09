@@ -26,6 +26,6 @@ describe("getContactType", () => {
   test.each(
     [undefined, null, "", 0, true, false, {}, []]
   )("wrong value: %p", (value) => {
-    expect(getContactType(value)).toBeUndefined();
+    expect(getContactType(value as never)).toBeUndefined();
   });
 });

@@ -11,7 +11,7 @@ import { useSearchContacts } from "./hooks";
 import { LinkContact } from "../../components";
 import type { FC } from "react";
 import type { Maybe, UserContext } from "../../types";
-import type { definitions } from "../../services/sage/types";
+import type { Contact } from "../../services/sage/types";
 import get from "lodash/get";
 
 const LinkContactPage: FC = () => {
@@ -20,7 +20,7 @@ const LinkContactPage: FC = () => {
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
   const { asyncErrorHandler } = useAsyncError();
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [selectedContact, setSelectedContact] = useState<Maybe<definitions["Contact"]["id"]>>(null);
+  const [selectedContact, setSelectedContact] = useState<Maybe<Contact["id"]>>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { contacts, isLoading } = useSearchContacts(searchQuery);
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);

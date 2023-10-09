@@ -56,8 +56,12 @@ export type Contact = Required<definitions["Contact"]>;
 
 export type ContactPerson = Required<definitions["ContactPerson"]>;
 
+export type ContactPersonType = Required<definitions["ContactPersonType"]>;
+
 export type Address = Required<definitions["Address"]> & {
   country: Required<definitions["Address"]["country"]>,
 };
 
 export type Country = Required<definitions["Base"]>;
+
+export type SalesInvoice = Required<definitions["SalesInvoice"]>;
