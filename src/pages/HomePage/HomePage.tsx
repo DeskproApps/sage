@@ -19,8 +19,8 @@ const HomePage: FC = () => {
     registerElement("menu", {
       type: "menu",
       items: [
-        { title: "Log Out", payload: { type: "logout" }},
         { title: "Unlink Contact", payload: { type: "unlink" }},
+        { title: "Log Out", payload: { type: "logout" }},
       ],
     });
   });

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { P5, Stack } from "@deskpro/deskpro-ui";
+import { P5 } from "@deskpro/deskpro-ui";
 import type { FC, JSX } from "react";
 import type { Maybe } from "../../../types";
 
@@ -7,8 +7,7 @@ type Props = {
   text?: Maybe<string|JSX.Element|Array<string|JSX.Element>>,
 }
 
-const StyledErrorBlock = styled(Stack)`
-  width: 100%;
+const StyledErrorBlock = styled(P5)`
   margin-bottom: 8px;
   padding: 4px 6px;
   border-radius: 4px;
@@ -17,12 +16,12 @@ const StyledErrorBlock = styled(Stack)`
 `;
 
 const ErrorBlock: FC<Props> = ({ text = "An error occurred" }) => (
-  <StyledErrorBlock>
+  <>
     {Array.isArray(text)
-      ? text.map((msg, idx) => (<P5 key={idx}>{msg}</P5>))
-      : <P5>{text}</P5>
+      ? text.map((msg, idx) => (<StyledErrorBlock key={idx}>{msg}</StyledErrorBlock>))
+      : <StyledErrorBlock>{text}</StyledErrorBlock>
     }
-  </StyledErrorBlock>
+  </>
 );
 
 export { ErrorBlock };

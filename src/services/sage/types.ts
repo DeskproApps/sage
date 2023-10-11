@@ -1,4 +1,5 @@
 import type { Maybe, DateTime } from "../../types";
+import type { definitions } from "./schema";
 
 export type { paths, definitions, operations, external } from "./schema";
 
@@ -20,7 +21,12 @@ export type ErrorType = {
   $message: string,
 };
 
-export type SageAPIError = ErrorType|ErrorType[];
+export type AuthErrorType = {
+  error: string,
+  error_description: string,
+};
+
+export type SageAPIError = AuthErrorType|ErrorType|ErrorType[];
 
 export type AccessToken = {
   token_type: "bearer"
@@ -43,3 +49,15 @@ export type User = {
   created_at: DateTime,
   updated_at: DateTime,
 };
+
+export type ContactType = Required<definitions["Base"]>;
+
+export type Contact = Required<definitions["Contact"]>;
+
+export type ContactPerson = Required<definitions["ContactPerson"]>;
+
+export type Address = Required<definitions["Address"]> & {
+  country: Required<definitions["Address"]["country"]>,
+};
+
+export type Country = Required<definitions["Base"]>;

@@ -1,5 +1,5 @@
 import { HorizontalDivider, Search } from "@deskpro/app-sdk";
-import { Container } from "../common";
+import { Container, Navigation } from "../common";
 import { Buttons, Contacts } from "./blocks";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
@@ -13,6 +13,7 @@ type Props = {
   isLoading: boolean,
   contacts: Array<definitions["Contact"]>,
   onChangeSelectedContact: (contactId: definitions["Contact"]["id"]) => void,
+  onNavigateToCreate: () => void,
   onCancel?: () => void,
 };
 
@@ -24,11 +25,16 @@ const LinkContact: FC<Props> = ({
   isSubmitting,
   onLinkContact,
   selectedContact,
+  onNavigateToCreate,
   onChangeSelectedContact,
 }) => {
   return (
     <>
       <Container>
+        <Navigation
+          selected="link"
+          onNavigateToCreate={onNavigateToCreate}
+        />
         <Search
           onChange={onChangeSearch}
           inputProps={{ variant: "normal" }}
