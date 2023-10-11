@@ -7,7 +7,7 @@ import type { FC } from "react";
 const LoginPage: FC = () => {
   const { poll, authUrl, isLoading, error } = useLogin();
 
-  useSetTitle("Basecamp");
+  useSetTitle("Sage");
 
   useDeskproElements(({ clearElements, registerElement }) => {
     clearElements();
