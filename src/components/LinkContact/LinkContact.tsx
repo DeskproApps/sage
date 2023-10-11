@@ -5,7 +5,7 @@ import type { FC } from "react";
 import type { Maybe } from "../../types";
 import type { Contact } from "../../services/sage/types";
 
-type Props = {
+export type Props = {
   onChangeSearch: (search: string) => void,
   selectedContact: Maybe<Contact["id"]>,
   isSubmitting: boolean,

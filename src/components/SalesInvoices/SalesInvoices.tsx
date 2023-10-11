@@ -6,7 +6,7 @@ import { SalesInvoiceItem } from "../SalesInvoiceItem";
 import type { FC } from "react";
 import type { SalesInvoice } from "../../services/sage/types";
 
-type Props = {
+export type Props = {
   salesInvoices: Array<SalesInvoice>;
 };
 

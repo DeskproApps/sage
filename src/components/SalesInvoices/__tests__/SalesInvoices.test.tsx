@@ -1,16 +1,11 @@
 import { cleanup } from "@testing-library/react";
-import { render, mockSalesInvoices } from "../../../../../testing";
+import { render, mockSalesInvoices } from "../../../../testing";
 import { SalesInvoices } from "../SalesInvoices";
 import type { Props } from "../SalesInvoices";
 
 const renderSalesInvoices = (props?: Partial<Props>) => render((
-  <SalesInvoices
-    salesInvoices={props?.salesInvoices || []}
-    onNavigateToSalesInvoices={props?.onNavigateToSalesInvoices || jest.fn()}
-  />
+  <SalesInvoices salesInvoices={props?.salesInvoices || []} />
 ), { wrappers: { theme: true, router: true } });
-
-
 
 describe("SalesInvoices", () => {
   afterEach(() => {
@@ -19,7 +14,9 @@ describe("SalesInvoices", () => {
   });
 
   test("render", async () => {
-    const { findByText } = renderSalesInvoices({ salesInvoices: mockSalesInvoices.$items as never });
+    const { findByText } = renderSalesInvoices({
+      salesInvoices: mockSalesInvoices.$items,
+    } as never);
 
     expect(await findByText(/Sales Invoices \(3\)/i)).toBeInTheDocument();
     expect(await findByText(/SI-2/i)).toBeInTheDocument();
@@ -27,5 +24,10 @@ describe("SalesInvoices", () => {
     expect(await findByText(/SI-5/i)).toBeInTheDocument();
   });
 
-  test.todo("should navigate to SalesInvoice page");
+  test("should show no found", async () => {
+    const { findByText } = renderSalesInvoices();
+    
+    expect(await findByText(/Sales Invoices \(0\)/i)).toBeInTheDocument();
+    expect(await findByText(/No Sales Invoices found/i)).toBeInTheDocument();
+  });
 });

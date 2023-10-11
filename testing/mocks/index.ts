@@ -5,3 +5,6 @@ export { default as mockContactsAdditional } from "./mockContactsAdditional.json
 export { default as mockContactCustomer } from "./mockContactCustomer.json";
 export { default as mockContactSupplier } from "./mockContactSupplier.json";
 export { default as mockSalesInvoices } from "./mockSalesInvoices.json";
+export { default as mockSalesInvoice } from "./mockSalesInvoice.json";
+export { default as mockCurrentUser } from "./mockCurrentUser.json";
+export { default as mockContactTypes } from "./mockContactTypes.json";

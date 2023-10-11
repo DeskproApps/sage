@@ -8,6 +8,10 @@ const getSalesInvoiceService = (
 ) => {
   return baseRequest(client, {
     url: `/sales_invoices/${salesInvoiceId}`,
+    queryParams: {
+      attributes: "all",
+      nested_attributes: "all",
+    },
   });
 };
 

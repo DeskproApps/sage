@@ -1,0 +1,19 @@
+{
+  "$total": 2,
+  "$page": 1,
+  "$next": null,
+  "$back": null,
+  "$itemsPerPage": 20,
+  "$items": [
+    {
+      "id": "CUSTOMER",
+      "displayed_as": "Customer",
+      "$path": "/contact_types/CUSTOMER"
+    },
+    {
+      "id": "VENDOR",
+      "displayed_as": "Supplier",
+      "$path": "/contact_types/VENDOR"
+    }
+  ]
+}

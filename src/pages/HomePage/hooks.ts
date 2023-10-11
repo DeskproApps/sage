@@ -11,7 +11,7 @@ import { QueryKey } from "../../query";
 import type { UserContext } from "../../types";
 import type { Contact } from "../../services/sage/types";
 
-type Result = {
+export type Result = {
   isLoading: boolean,
   contactId: Contact["id"],
 };
@@ -29,7 +29,7 @@ const useContactId: UseContactId = () => {
     {
       onSuccess: (items) => {
         if (!size(items)) {
-          navigate(`/no-linked`);
+          navigate("/no-linked");
         }
       },
     },

@@ -64,4 +64,8 @@ export type Address = Required<definitions["Address"]> & {
 
 export type Country = Required<definitions["Base"]>;
 
-export type SalesInvoice = Required<definitions["SalesInvoice"]>;
+export type SalesInvoiceLineItem = Required<definitions["SalesInvoiceLineItem"]>;
+
+export type SalesInvoice = Omit<Required<definitions["SalesInvoice"]>, "invoice_lines"> & {
+  invoice_lines?: SalesInvoiceLineItem[],
+};

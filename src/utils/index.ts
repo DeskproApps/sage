@@ -6,4 +6,4 @@ export { getSageLink } from "./getSageLink";
 export { isLast } from "./isLast";
 export { getContactType } from "./getContactType";
 export { retryUntilHavePagination } from "./retryUntilHavePagination";
-
+export { formatPrice } from "./formatPrice";

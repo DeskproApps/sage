@@ -14,7 +14,7 @@ describe("SalesInvoiceItem", () => {
     const { findByText } = renderSalesInvoiceItem();
 
     expect(await findByText(/SI-2/i)).toBeInTheDocument();
-    expect(await findByText(/DST001/i)).toBeInTheDocument();
+    expect(await findByText(/DP-002/i)).toBeInTheDocument();
     expect(await findByText(/Unpaid/i)).toBeInTheDocument();
     expect(await findByText(/29 Sep, 2023/i)).toBeInTheDocument();
     expect(await findByText(/29 Oct, 2023/i)).toBeInTheDocument();
