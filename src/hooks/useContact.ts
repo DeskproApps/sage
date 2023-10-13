@@ -2,9 +2,10 @@ import get from "lodash/get";
 import { useQueryWithClient } from "@deskpro/app-sdk";
 import { getContactService } from "../services/sage";
 import { QueryKey } from "../query";
+import type { Maybe } from "../types";
 import type { Contact } from "../services/sage/types";
 
-type UseContact = (contactId?: Contact["id"]) => {
+type UseContact = (contactId: Maybe<Contact["id"]>) => {
   isLoading: boolean,
   contact: Contact,
 };

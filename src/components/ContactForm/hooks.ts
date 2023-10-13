@@ -6,8 +6,7 @@ import {
   getContactTypesService,
 } from "../../services/sage";
 import { QueryKey } from "../../query";
-import { retryUntilHavePagination } from "../../utils";
-import { getOptions } from "./utils";
+import { retryUntilHavePagination, getOptions } from "../../utils";
 import type { Option } from "../../types";
 import type { Country, ContactType } from "../../services/sage/types";
 

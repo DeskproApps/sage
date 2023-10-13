@@ -1,12 +1,11 @@
 import { useState, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  useDeskproElements,
   useDeskproAppClient,
   useDeskproLatestAppContext,
 } from "@deskpro/app-sdk";
 import { setEntityService } from "../../services/deskpro";
-import { useSetTitle, useAsyncError } from "../../hooks";
+import { useSetTitle, useAsyncError, useRegisterElements } from "../../hooks";
 import { useSearchContacts } from "./hooks";
 import { LinkContact } from "../../components";
 import type { FC } from "react";
@@ -48,8 +47,7 @@ const LinkContactPage: FC = () => {
 
   useSetTitle("Link Contact");
 
-  useDeskproElements(({ registerElement, clearElements }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
     registerElement("home", {
       type: "home_button",

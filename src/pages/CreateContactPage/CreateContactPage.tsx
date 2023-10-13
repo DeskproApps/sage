@@ -2,14 +2,14 @@ import { useState, useMemo, useCallback } from "react";
 import get from "lodash/get";
 import { useNavigate } from "react-router-dom";
 import {
-  useDeskproElements,
   useDeskproAppClient,
   useDeskproLatestAppContext,
 } from "@deskpro/app-sdk";
-import { useSetTitle } from "../../hooks";
+import { useSetTitle, useRegisterElements } from "../../hooks";
 import { setEntityService } from "../../services/deskpro";
 import { createContactService } from "../../services/sage";
-import { getContactValues, getErrors } from "../../components/ContactForm";
+import { getContactValues } from "../../components/ContactForm";
+import { getErrors } from "../../utils";
 import { CreateContact } from "../../components";
 import type { FC } from "react";
 import type { Maybe, UserContext } from "../../types";
@@ -41,8 +41,7 @@ const CreateContactPage: FC = () => {
 
   useSetTitle("Link Contact");
 
-  useDeskproElements(({ registerElement, clearElements }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
     registerElement("home", {
       type: "home_button",

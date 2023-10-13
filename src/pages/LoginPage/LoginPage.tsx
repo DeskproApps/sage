@@ -1,5 +1,4 @@
-import { useDeskproElements } from "@deskpro/app-sdk";
-import { useSetTitle } from "../../hooks";
+import { useSetTitle, useRegisterElements } from "../../hooks";
 import { useLogin } from "./hooks";
 import { Login } from "../../components";
 import type { FC } from "react";
@@ -9,8 +8,7 @@ const LoginPage: FC = () => {
 
   useSetTitle("Basecamp");
 
-  useDeskproElements(({ clearElements, registerElement }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
   });
 

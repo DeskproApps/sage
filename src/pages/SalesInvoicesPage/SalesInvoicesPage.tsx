@@ -1,21 +1,24 @@
 import { useSearchParams } from "react-router-dom";
+import { LoadingSpinner } from "@deskpro/app-sdk";
 import {
-  LoadingSpinner,
-  useDeskproElements,
-} from "@deskpro/app-sdk";
-import { useSetTitle, useSalesInvoices } from "../../hooks";
+  useSetTitle,
+  useSalesInvoices,
+  useSageExternalLink,
+  useRegisterElements,
+} from "../../hooks";
 import { SalesInvoices } from "../../components";
 import type { FC } from "react";
 
 const SalesInvoicesPage: FC = () => {
   const [searchParams] = useSearchParams();
   const contactId = searchParams.get("contactId");
-  const { salesInvoices, isLoading } = useSalesInvoices(contactId);
+  const { salesInvoices, isLoading: isLoadingInvoice } = useSalesInvoices(contactId);
+  const { newSalesInvoiceLink, isLoading: isLoadingLink } = useSageExternalLink(contactId);
+  const isLoading = [isLoadingInvoice, isLoadingLink].some(Boolean);
 
   useSetTitle("Sales Invoices");
 
-  useDeskproElements(({ clearElements, registerElement }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
     registerElement("home", {
       type: "home_button",
@@ -32,6 +35,7 @@ const SalesInvoicesPage: FC = () => {
   return (
     <SalesInvoices
       salesInvoices={salesInvoices}
+      newSalesInvoiceLink={newSalesInvoiceLink}
     />
   );
 };

@@ -5,3 +5,5 @@ export { useLinkedContact } from "./useLinkedContact";
 export { useUnlinkContact } from "./useUnlinkContact";
 export { useContact } from "./useContact";
 export { useSalesInvoices } from "./useSalesInvoices";
+export { useRegisterElements } from "./useRegisterElements";
+export { useSageExternalLink } from "./useSageExternalLink";

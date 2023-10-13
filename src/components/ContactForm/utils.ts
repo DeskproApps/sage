@@ -1,10 +1,5 @@
 import get from "lodash/get";
-import size from "lodash/size";
-import uniq from "lodash/uniq";
 import { z } from "zod";
-import { ErrorType } from "../../services/sage/types";
-import { getOption } from "../../utils";
-import { DEFAULT_ERROR } from "../../constants";
 import type { FormValidationSchema, ContactValues } from "./types";
 import type { Contact } from "../../services/sage/types";
 
@@ -22,7 +17,6 @@ const validationSchema = z.object({
   address_country_id: z.string().optional(),
   address_postal_code: z.string().optional(),
   address_name: z.string().optional(),
-
 });
 
 const getInitValues = (contact?: Contact): FormValidationSchema => {
@@ -66,50 +60,8 @@ const getContactValues = (values: FormValidationSchema): ContactValues => {
   };
 };
 
-const getOptions = <T>(items?: T[]) => {
-  if (!Array.isArray(items) || !size(items)) {
-    return [];
-  }
-
-  return items.map((item) => {
-    return getOption(get(item, ["id"]), get(item, ["displayed_as"]));
-  });
-};
-
-const generateErrorMessage = (err: ErrorType) => {
-  const message = get(err, ["$message"], "");
-  const source = get(err, ["$source"], "");
-
-  if (source && message) {
-    return `${source}: ${message}`;
-  } else if (!source && message) {
-    return message;
-  } else {
-    return DEFAULT_ERROR;
-  }
-};
-
-const getErrors = (errors: ErrorType|ErrorType[]): string[] => {
-  const result: string[] = [];
-
-  if (!Array.isArray(errors)) {
-    result.push(generateErrorMessage(errors));
-  }
-
-  if (Array.isArray(errors)) {
-    errors.forEach((err) => {
-      result.push(generateErrorMessage(err));
-    });
-  }
-
-  return uniq(result);
-};
-
 export {
-  getErrors,
-  getOptions,
   getInitValues,
   getContactValues,
   validationSchema,
-  generateErrorMessage,
 };

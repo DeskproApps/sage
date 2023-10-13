@@ -1,20 +1,24 @@
 import { useCallback} from "react";
 import size from "lodash/size";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Title } from "@deskpro/app-sdk";
 import { isLast } from "../../../utils";
 import { nbsp } from "../../../constants";
-import { NoFound, Link } from "../../common";
+import { NoFound, Link, LinkIcon } from "../../common";
 import { SalesInvoiceItem } from "../../SalesInvoiceItem";
 import type { FC, MouseEvent } from "react";
+import type { Maybe } from "../../../types";
 import type { SalesInvoice } from "../../../services/sage/types";
 
 export type Props = {
   salesInvoices: Array<SalesInvoice>,
+  newSalesInvoiceLink?: Maybe<string>,
   onNavigateToSalesInvoices?: () => void,
 };
 
 const SalesInvoices: FC<Props> = ({
   salesInvoices,
+  newSalesInvoiceLink,
   onNavigateToSalesInvoices,
 }) => {
   const onClick = useCallback((e: MouseEvent) => {
@@ -26,11 +30,17 @@ const SalesInvoices: FC<Props> = ({
     <>
       <Title
         title={(
-          <Link href="#" onClick={onClick}>
-            Sales Invoices
+          <>
+            <Link href="#" onClick={onClick}>
+              Sales Invoices
+              {nbsp}
+              ({size(salesInvoices)})
+            </Link>
             {nbsp}
-            ({size(salesInvoices)})
-          </Link>
+            {newSalesInvoiceLink && (
+              <LinkIcon href={newSalesInvoiceLink} icon={faPlus} />
+            )}
+          </>
         )}
       />
 

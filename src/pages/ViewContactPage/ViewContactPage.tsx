@@ -1,11 +1,8 @@
 import { useMemo } from "react";
 import get from "lodash/get";
 import { useParams } from "react-router-dom";
-import {
-  LoadingSpinner,
-  useDeskproElements,
-} from "@deskpro/app-sdk";
-import { useSetTitle, useContact } from "../../hooks";
+import { LoadingSpinner } from "@deskpro/app-sdk";
+import { useSetTitle, useContact, useRegisterElements } from "../../hooks";
 import { ViewContact } from "../../components";
 import type { FC } from "react";
 
@@ -16,8 +13,7 @@ const ViewContactPage: FC = () => {
 
   useSetTitle(title);
 
-  useDeskproElements(({ clearElements, registerElement }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
     registerElement("home", {
       type: "home_button",

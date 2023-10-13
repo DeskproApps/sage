@@ -1,11 +1,8 @@
 import { useMemo } from "react";
 import get from "lodash/get";
 import { useParams } from "react-router-dom";
-import {
-  LoadingSpinner,
-  useDeskproElements,
-} from "@deskpro/app-sdk";
-import { useSetTitle } from "../../hooks";
+import { LoadingSpinner } from "@deskpro/app-sdk";
+import { useSetTitle, useRegisterElements } from "../../hooks";
 import { useSalesInvoice } from "./hooks";
 import { getSageLink } from "../../utils";
 import { ViewSalesInvoice } from "../../components";
@@ -19,8 +16,7 @@ const ViewSalesInvoicePage: FC = () => {
 
   useSetTitle(get(salesInvoice, ["displayed_as"], ""));
 
-  useDeskproElements(({ clearElements, registerElement }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("home", {
       type: "home_button",
       payload: { type: "changePage", path: "/home" },

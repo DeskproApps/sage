@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { Link as NativeRouterLink } from "react-router-dom";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { Icon } from "@deskpro/deskpro-ui";
 import type { FC } from "react";
 import type { LinkProps } from "react-router-dom";
-import type { IconProps, ThemeColors } from "@deskpro/deskpro-ui";
+import type { IconProps, ThemeColors, AnyIcon } from "@deskpro/deskpro-ui";
 
 export type Props = {
   href?: string,
@@ -19,4 +21,18 @@ const RouterLink: FC<LinkProps & Props> = (props) => (
   <Link {...props} as={NativeRouterLink} />
 );
 
-export { Link, RouterLink };
+const LinkIcon: FC<Props & { icon?: AnyIcon }> = ({
+  size = 10,
+  color = "grey40",
+  icon = faArrowUpRightFromSquare,
+  href,
+  ...props
+}) => {
+  return !href ? <></> : (
+    <Link target="_blank" color={color} href={href} {...props}>
+      <Icon size={size} icon={icon} />
+    </Link>
+  )
+};
+
+export { Link, RouterLink, LinkIcon };

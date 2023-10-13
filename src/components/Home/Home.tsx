@@ -8,12 +8,14 @@ import type { Contact, SalesInvoice } from "../../services/sage/types";
 type Props = {
   contact: Maybe<Contact>,
   salesInvoices: Array<SalesInvoice>,
+  newSalesInvoiceLink: Maybe<string>,
   onNavigateToSalesInvoices: () => void,
 };
 
 const Home: FC<Props> = ({
   contact,
   salesInvoices,
+  newSalesInvoiceLink,
   onNavigateToSalesInvoices,
 }) => {
   return (
@@ -27,6 +29,7 @@ const Home: FC<Props> = ({
       <Container>
         <SalesInvoices
           salesInvoices={salesInvoices}
+          newSalesInvoiceLink={newSalesInvoiceLink}
           onNavigateToSalesInvoices={onNavigateToSalesInvoices}
         />
       </Container>

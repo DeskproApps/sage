@@ -3,12 +3,12 @@ import get from "lodash/get";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   LoadingSpinner,
-  useDeskproElements,
   useDeskproAppClient,
 } from "@deskpro/app-sdk";
 import { updatesContactService } from "../../services/sage";
-import { useSetTitle, useContact } from "../../hooks";
-import { getContactValues, getErrors} from "../../components/ContactForm";
+import { useSetTitle, useContact, useRegisterElements } from "../../hooks";
+import { getErrors } from "../../utils";
+import { getContactValues } from "../../components/ContactForm";
 import { EditContact } from "../../components";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
@@ -39,8 +39,7 @@ const EditContactPage: FC = () => {
 
   useSetTitle("Edit Contact");
 
-  useDeskproElements(({ registerElement, clearElements }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
     registerElement("home", {
       type: "home_button",

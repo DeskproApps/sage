@@ -15,7 +15,7 @@ type UseSearchContacts = (q?: string) => Result;
 const useSearchContacts: UseSearchContacts = (query) => {
   const contacts = useQueryWithClient(
     [QueryKey.SEARCH_QUERY, query as string],
-    (client) => getContactsService(client, { search: query }),
+    (client) => getContactsService(client, { search: query || "" }),
     { enabled: size(query) > 2 },
   );
 

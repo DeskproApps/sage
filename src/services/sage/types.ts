@@ -50,7 +50,9 @@ export type User = {
   updated_at: DateTime,
 };
 
-export type ContactType = Required<definitions["Base"]>;
+export type Base = Required<definitions["Base"]>;
+
+export type ContactType = Base; // Required<definitions["Base"]>;
 
 export type Contact = Required<definitions["Contact"]>;
 
@@ -62,7 +64,7 @@ export type Address = Required<definitions["Address"]> & {
   country: Required<definitions["Address"]["country"]>,
 };
 
-export type Country = Required<definitions["Base"]>;
+export type Country = Base; // Required<definitions["Base"]>;
 
 export type SalesInvoiceLineItem = Required<definitions["SalesInvoiceLineItem"]>;
 

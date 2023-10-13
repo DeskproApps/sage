@@ -1,4 +1,5 @@
 export { getOption } from "./getOption";
+export { getOptions } from "./getOptions";
 export { getQueryParams } from "./getQueryParams";
 export { isNavigatePayload } from "./isNavigatePayload";
 export { filterPaginatedContacts } from "./filterPaginatedContacts";
@@ -7,3 +8,4 @@ export { isLast } from "./isLast";
 export { getContactType } from "./getContactType";
 export { retryUntilHavePagination } from "./retryUntilHavePagination";
 export { formatPrice } from "./formatPrice";
+export { getErrors } from "./getErrors";

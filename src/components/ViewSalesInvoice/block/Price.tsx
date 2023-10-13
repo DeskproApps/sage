@@ -18,7 +18,7 @@ const Price: FC<Props> = ({ invoice, currency }) => {
         <P4>{formatPrice(get(invoice, ["net_amount"]), currency)}</P4>
       </Stack>
       <Stack justify="space-between" style={{ marginBottom: 10 }}>
-        <P5>discount</P5>
+        <P5>Discount</P5>
         <P4>{formatPrice(get(invoice, ["total_discount_amount"]), currency)}</P4>
       </Stack>
       <Stack justify="space-between" style={{ marginBottom: 10 }}>
