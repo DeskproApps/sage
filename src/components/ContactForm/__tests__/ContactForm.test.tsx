@@ -43,7 +43,7 @@ describe("ContactItem", () => {
     expect(await findByText(/Fax/i)).toBeInTheDocument();
     expect(await findByText(/Main Addres/i)).toBeInTheDocument();
     expect(await findByText(/Address Name/i)).toBeInTheDocument();
-    expect(await findAllByText(/Address/i)).toHaveLength(2);
+    expect(await findAllByText(/Address/i)).toHaveLength(3);
     expect(await findByText(/City/i)).toBeInTheDocument();
     expect(await findByText(/Country/i)).toBeInTheDocument();
     expect(await findByText(/Postal Code/i)).toBeInTheDocument();

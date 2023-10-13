@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import get from "lodash/get";
+import isEmpty from "lodash/isEmpty";
 import { P5 } from "@deskpro/deskpro-ui";
 import { Title, Property } from "@deskpro/app-sdk";
 import { getSageLink, getContactType } from "../../utils";
@@ -12,6 +14,14 @@ export type Props = {
 
 const ViewContact: FC<Props> = ({ contact }) => {
   const link = getSageLink(get(contact, ["links"]));
+  const address = useMemo(() => {
+    const rawAddress = [
+      get(contact, ["main_address", "name"]),
+      get(contact, ["main_address", "displayed_as"]),
+    ].filter(Boolean);
+
+    return isEmpty(rawAddress) ? "-" : rawAddress.join("\n");
+  }, [contact]);
 
   return (
     <Container>
@@ -57,11 +67,11 @@ const ViewContact: FC<Props> = ({ contact }) => {
       />
 
       <Property
-        label="Primary Address"
+        label="Main Address"
         text={(
           <P5
             style={{ whiteSpace: "pre-line" }}
-            dangerouslySetInnerHTML={{ __html: get(contact, ["main_address", "displayed_as"]) || "-" }}
+            dangerouslySetInnerHTML={{ __html: address }}
           />
         )}
       />

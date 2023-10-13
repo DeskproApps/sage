@@ -145,7 +145,7 @@ const ContactForm: FC<Props> = ({
 
       <br/>
 
-      <Title title="Main Addres" />
+      <Title title="Main Address" />
 
       <Label htmlFor="address_name" label="Address Name">
         <Input
