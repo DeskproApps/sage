@@ -19,7 +19,11 @@ const HomePage: FC = () => {
   const { contact, isLoading: isLoadingContact } = useContact(contactId);
   const { salesInvoices, isLoading: isLoadingSalesInvoices } = useSalesInvoices(contactId);
   const { purchaseInvoices, isLoading: isLoadingPurchaseInvoices } = usePurchaseInvoices(contactId);
-  const { newSalesInvoiceLink, isLoading: isLoadingLink } = useSageExternalLink(contactId);
+  const {
+    newSalesInvoiceLink,
+    newPurchaseInvoiceLink,
+    isLoading: isLoadingLink,
+  } = useSageExternalLink(contactId);
   const isLoading = [
     isLoadingId,
     isLoadingLink,
@@ -31,6 +35,15 @@ const HomePage: FC = () => {
   const onNavigateToSalesInvoices = useCallback(() => {
     navigate({
       pathname: "/sales-invoices",
+      search: `?${createSearchParams({
+        ...(!contactId ? {} : { contactId }),
+      })}`,
+    });
+  }, [navigate, contactId]);
+
+  const onNavigateToPurchaseInvoices = useCallback(() => {
+    navigate({
+      pathname: "/purchase-invoices",
       search: `?${createSearchParams({
         ...(!contactId ? {} : { contactId }),
       })}`,
@@ -62,7 +75,9 @@ const HomePage: FC = () => {
       salesInvoices={salesInvoices}
       purchaseInvoices={purchaseInvoices}
       newSalesInvoiceLink={newSalesInvoiceLink}
+      newPurchaseInvoiceLink={newPurchaseInvoiceLink}
       onNavigateToSalesInvoices={onNavigateToSalesInvoices}
+      onNavigateToPurchaseInvoices={onNavigateToPurchaseInvoices}
     />
   );
 };

@@ -11,6 +11,8 @@ type Props = {
   newSalesInvoiceLink: Maybe<string>,
   onNavigateToSalesInvoices: () => void,
   purchaseInvoices: Array<PurchaseInvoice>,
+  newPurchaseInvoiceLink: Maybe<string>,
+  onNavigateToPurchaseInvoices: () => void,
 };
 
 const Home: FC<Props> = ({
@@ -19,6 +21,8 @@ const Home: FC<Props> = ({
   newSalesInvoiceLink,
   onNavigateToSalesInvoices,
   purchaseInvoices,
+  newPurchaseInvoiceLink,
+  onNavigateToPurchaseInvoices,
 }) => {
   return (
     <>
@@ -39,7 +43,11 @@ const Home: FC<Props> = ({
       <HorizontalDivider />
 
       <Container>
-        <PurchaseInvoices purchaseInvoices={purchaseInvoices} />
+        <PurchaseInvoices
+          purchaseInvoices={purchaseInvoices}
+          newPurchaseInvoiceLink={newPurchaseInvoiceLink}
+          onNavigateToPurchaseInvoices={onNavigateToPurchaseInvoices}
+        />
       </Container>
 
       <HorizontalDivider />

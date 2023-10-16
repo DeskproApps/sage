@@ -21,6 +21,7 @@ import {
   AdminCallbackPage,
   SalesInvoicesPage,
   NoLinkedContactPage,
+  PurchaseInvoicesPage,
   ViewSalesInvoicePage,
 } from "./pages";
 import type { FC } from "react";
@@ -79,6 +80,7 @@ const App: FC = () => {
         <Route path="/contact/edit/:contactId" element={<EditContactPage/>} />
         <Route path="/sales-invoices" element={<SalesInvoicesPage/>} />
         <Route path="/sales-invoices/:salesInvoiceId" element={<ViewSalesInvoicePage/>} />
+        <Route path="/purchase-invoices" element={<PurchaseInvoicesPage/>} />
         <Route index element={<LoadingAppPage/>} />
       </Routes>
       {!isAdmin && (<><br/><br/><br/></>)}
