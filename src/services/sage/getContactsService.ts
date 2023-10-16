@@ -1,23 +1,27 @@
 import { baseRequest } from "./baseRequest";
 import type { IDeskproClient } from "@deskpro/app-sdk";
-import type { Pagination, definitions } from "./types";
+import type { Dict } from "../../types";
+import type { Pagination, Contact } from "./types";
 
-type Options = {
+type Params = Dict<string> & {
   email?: string,
   search?: string,
 };
 
 const getContactsService = (
   client: IDeskproClient,
-  options?: Options,
+  params?: Params,
 ) => {
-  return baseRequest<Pagination<definitions["Contact"]>>(client, {
+  const { email, search, ...queryParams } = params || {};
+
+  return baseRequest<Pagination<Contact>>(client, {
     url: "/contacts",
     queryParams: {
       items_per_page: "200",
-      ...(!options?.email ? {} : { email: options.email }),
-      ...(!options?.search ? {} : { search: options.search }),
       attributes: "all",
+      ...(!email ? {} : { email }),
+      ...(!search ? {} : { search }),
+      ...queryParams,
     },
   });
 };

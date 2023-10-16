@@ -13,11 +13,11 @@ import {
 import { getContactsService } from "../services/sage";
 import { filterPaginatedContacts } from "../utils";
 import type { UserContext } from "../types";
-import type { definitions } from "../services/sage/types";
+import type { Contact } from "../services/sage/types";
 
 export type Result = {
-  findContact: () => Promise<void|definitions["Contact"]["id"]>,
-  linkContact: (contactId: Required<definitions["Contact"]>["id"]) => Promise<void>,
+  findContact: () => Promise<void|Contact["id"]>,
+  linkContact: (contactId: Contact["id"]) => Promise<void>,
 };
 
 type UseLinkedContact = () => Result;
@@ -62,7 +62,7 @@ const useLinkedContact: UseLinkedContact = () => {
     return get(contactsAdditional, [0, "id"]);
   }, [client, dpUserId, dpPrimaryEmail, dpEmails]);
 
-  const linkContact = useCallback(async (contactId: Required<definitions["Contact"]>["id"]) => {
+  const linkContact = useCallback(async (contactId: Contact["id"]) => {
     if (!client || !dpUserId) {
       throw Error("Deskpro apps client is not ready yet");
     }

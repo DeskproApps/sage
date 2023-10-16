@@ -19,7 +19,9 @@ import {
   EditContactPage,
   CreateContactPage,
   AdminCallbackPage,
+  SalesInvoicesPage,
   NoLinkedContactPage,
+  ViewSalesInvoicePage,
 } from "./pages";
 import type { FC } from "react";
 import type { EventPayload } from "./types";
@@ -75,6 +77,8 @@ const App: FC = () => {
         <Route path="/contact/view/:contactId" element={<ViewContactPage/>} />
         <Route path="/contact/create" element={<CreateContactPage/>} />
         <Route path="/contact/edit/:contactId" element={<EditContactPage/>} />
+        <Route path="/sales-invoices" element={<SalesInvoicesPage/>} />
+        <Route path="/sales-invoices/:salesInvoiceId" element={<ViewSalesInvoicePage/>} />
         <Route index element={<LoadingAppPage/>} />
       </Routes>
       {!isAdmin && (<><br/><br/><br/></>)}

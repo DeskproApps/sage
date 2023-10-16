@@ -6,3 +6,5 @@ export { Home } from "./Home";
 export { ViewContact } from "./ViewContact";
 export { CreateContact } from "./CreateContact";
 export { EditContact } from "./EditContact";
+export { SalesInvoices } from "./SalesInvoices";
+export { ViewSalesInvoice } from "./ViewSalesInvoice";

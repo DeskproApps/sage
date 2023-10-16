@@ -1,20 +1,42 @@
+import { useCallback } from "react";
+import { useNavigate, createSearchParams } from "react-router-dom";
+import { LoadingSpinner } from "@deskpro/app-sdk";
 import {
-  LoadingSpinner,
-  useDeskproElements,
-} from "@deskpro/app-sdk";
-import { useSetTitle } from "../../hooks";
-import { useContact } from "./hooks";
+  useContact,
+  useSetTitle,
+  useSalesInvoices,
+  useRegisterElements,
+  useSageExternalLink,
+} from "../../hooks";
+import { useContactId } from "./hooks";
 import { Home } from "../../components";
-
 import type { FC } from "react";
 
 const HomePage: FC = () => {
-  const { contact, salesInvoices, isLoading } = useContact();
+  const navigate = useNavigate();
+  const { contactId, isLoading: isLoadingId  } = useContactId();
+  const { contact, isLoading: isLoadingContact } = useContact(contactId);
+  const { salesInvoices, isLoading: isLoadingSalesInvoices } = useSalesInvoices(contactId);
+  const { newSalesInvoiceLink, isLoading: isLoadingLink } = useSageExternalLink(contactId);
+  const isLoading = [
+    isLoadingId,
+    isLoadingLink,
+    isLoadingContact,
+    isLoadingSalesInvoices,
+  ].some(Boolean);
+
+  const onNavigateToSalesInvoices = useCallback(() => {
+    navigate({
+      pathname: "/sales-invoices",
+      search: `?${createSearchParams({
+        ...(!contactId ? {} : { contactId }),
+      })}`,
+    });
+  }, [navigate, contactId]);
 
   useSetTitle("Sage");
 
-  useDeskproElements(({ registerElement, clearElements }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
     registerElement("menu", {
       type: "menu",
@@ -35,6 +57,8 @@ const HomePage: FC = () => {
     <Home
       contact={contact}
       salesInvoices={salesInvoices}
+      newSalesInvoiceLink={newSalesInvoiceLink}
+      onNavigateToSalesInvoices={onNavigateToSalesInvoices}
     />
   );
 };

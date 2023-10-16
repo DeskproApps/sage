@@ -7,25 +7,18 @@ import {
   useDeskproLatestAppContext,
 } from "@deskpro/app-sdk";
 import { getEntityListService } from "../../services/deskpro";
-import {
-  getContactService,
-  getSalesInvoicesService,
-} from "../../services/sage";
 import { QueryKey } from "../../query";
 import type { UserContext } from "../../types";
-import type { definitions } from "../../services/sage/types";
+import type { Contact } from "../../services/sage/types";
 
-type ContactId = Required<definitions["Contact"]>["id"];
-
-type Result = {
-  isLoading: boolean;
-  contact: definitions["Contact"];
-  salesInvoices: Array<definitions["SalesInvoice"]>;
+export type Result = {
+  isLoading: boolean,
+  contactId: Contact["id"],
 };
 
-type UseContact = () => Result;
+type UseContactId = () => Result;
 
-const useContact: UseContact = () => {
+const useContactId: UseContactId = () => {
   const navigate = useNavigate();
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
   const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
@@ -36,7 +29,7 @@ const useContact: UseContact = () => {
     {
       onSuccess: (items) => {
         if (!size(items)) {
-          navigate(`/no-linked`);
+          navigate("/no-linked");
         }
       },
     },
@@ -44,23 +37,10 @@ const useContact: UseContact = () => {
 
   const contactId = useMemo(() => get(contactIds, ["data", 0]), [contactIds]);
 
-  const contact = useQueryWithClient(
-    [QueryKey.CONTACT, contactId as ContactId],
-    (client) => getContactService(client, contactId as ContactId),
-    { enabled: Boolean(contactId) },
-  );
-
-  const salesInvoices = useQueryWithClient(
-    [QueryKey.SALES_INVOICES, contactId as ContactId],
-    (client) => getSalesInvoicesService(client, contactId),
-    { enabled: Boolean(contactId) },
-  );
-
   return {
-    isLoading: [contact, salesInvoices].some(({ isLoading }) => isLoading),
-    contact: contact.data as definitions["Contact"],
-    salesInvoices: get(salesInvoices, ["data", "$items"], []) || [],
+    isLoading: [contactIds].some(({ isLoading }) => isLoading),
+    contactId: contactId,
   };
 }
 
-export { useContact };
+export { useContactId };

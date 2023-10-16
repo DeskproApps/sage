@@ -1,14 +1,13 @@
 import { P5 } from "@deskpro/deskpro-ui";
-import { Title, useDeskproElements } from "@deskpro/app-sdk";
+import { Title } from "@deskpro/app-sdk";
 import { Container } from "../../components/common";
-import { useSetTitle } from "../../hooks";
+import { useSetTitle, useRegisterElements } from "../../hooks";
 import type { FC } from "react";
 
 const NoLinkedContactPage: FC = () => {
   useSetTitle("Sage");
 
-  useDeskproElements(({ registerElement, clearElements }) => {
-    clearElements();
+  useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
     registerElement("plus", {
       type: "plus_button",

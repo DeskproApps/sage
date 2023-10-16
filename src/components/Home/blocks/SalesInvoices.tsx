@@ -1,52 +1,48 @@
-import get from "lodash/get";
+import { useCallback} from "react";
 import size from "lodash/size";
-import { Title, HorizontalDivider, TwoProperties } from "@deskpro/app-sdk";
-import { format } from "../../../utils/date";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Title } from "@deskpro/app-sdk";
 import { isLast } from "../../../utils";
-import { NoFound } from "../../common";
-import type { FC } from "react";
-import type { definitions } from "../../../services/sage/schema";
+import { nbsp } from "../../../constants";
+import { NoFound, Link, LinkIcon } from "../../common";
+import { SalesInvoiceItem } from "../../SalesInvoiceItem";
+import type { FC, MouseEvent } from "react";
+import type { Maybe } from "../../../types";
+import type { SalesInvoice } from "../../../services/sage/types";
 
 export type Props = {
-  salesInvoices: Array<definitions["SalesInvoice"]>;
+  salesInvoices: Array<SalesInvoice>,
+  newSalesInvoiceLink?: Maybe<string>,
+  onNavigateToSalesInvoices?: () => void,
 };
 
-export type SalesInvoiceItemProps = {
-  invoice: definitions["SalesInvoice"],
-  isLast: boolean,
-};
+const SalesInvoices: FC<Props> = ({
+  salesInvoices,
+  newSalesInvoiceLink,
+  onNavigateToSalesInvoices,
+}) => {
+  const onClick = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+    onNavigateToSalesInvoices && onNavigateToSalesInvoices()
+  }, [onNavigateToSalesInvoices]);
 
-const SalesInvoiceItem: FC<SalesInvoiceItemProps> = ({ invoice, isLast }) => (
-  <>
-    <Title
-      title={get(invoice, ["displayed_as"], "-")}
-      marginBottom={7}
-    />
-
-    <TwoProperties
-      leftLabel="Reference"
-      leftText={get(invoice, ["contact_reference"], "-")}
-      rightLabel="Status"
-      rightText={get(invoice, ["status", "displayed_as"], "-")}
-    />
-
-    <TwoProperties
-      leftLabel="Invoice Date"
-      leftText={format(get(invoice, ["created_at"]))}
-      rightLabel="Due Date"
-      rightText={format(get(invoice, ["due_date"]))}
-    />
-
-    {!isLast && (
-      <HorizontalDivider style={{ marginBottom: "10px" }}/>
-    )}
-  </>
-);
-
-const SalesInvoices: FC<Props> = ({ salesInvoices }) => {
   return (
     <>
-      <Title title={`Sales Invoices (${size(salesInvoices)})`} />
+      <Title
+        title={(
+          <>
+            <Link href="#" onClick={onClick}>
+              Sales Invoices
+              {nbsp}
+              ({size(salesInvoices)})
+            </Link>
+            {nbsp}
+            {newSalesInvoiceLink && (
+              <LinkIcon href={newSalesInvoiceLink} icon={faPlus} />
+            )}
+          </>
+        )}
+      />
 
       {!Array.isArray(salesInvoices) || !size(salesInvoices)
         ? <NoFound text="No Sales Invoices found"/>
@@ -62,4 +58,4 @@ const SalesInvoices: FC<Props> = ({ salesInvoices }) => {
   );
 };
 
-export { SalesInvoiceItem, SalesInvoices };
+export { SalesInvoices };

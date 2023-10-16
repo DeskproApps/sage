@@ -6,10 +6,10 @@ import { Title, Property } from "@deskpro/app-sdk";
 import { getSageLink, getContactType } from "../../utils";
 import { Container, SageLogo } from "../common";
 import type { FC } from "react";
-import type { definitions } from "../../services/sage/types";
+import type { Contact } from "../../services/sage/types";
 
 export type Props = {
-  contact: definitions["Contact"],
+  contact: Contact,
 };
 
 const ViewContact: FC<Props> = ({ contact }) => {
@@ -38,7 +38,7 @@ const ViewContact: FC<Props> = ({ contact }) => {
 
       <Property
         label="Type"
-        text={getContactType(get(contact, ["contact_types"]))}
+        text={getContactType(get(contact, ["contact_types"]) as never)}
       />
 
       <Property

@@ -4,7 +4,7 @@ export { Container } from "./Layout";
 export * from "./Typography";
 export { NoFound } from "./NoFound";
 export { Card } from "./Card";
-export { Link, RouterLink } from "./Link";
+export { Link, RouterLink, LinkIcon } from "./Link";
 export { SageLogo } from "./SageLogo";
 export { Navigation } from "./Navigation";
 export { Label } from "./Label";

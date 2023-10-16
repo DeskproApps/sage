@@ -1,12 +1,12 @@
 import { baseRequest } from "./baseRequest";
 import type { IDeskproClient } from "@deskpro/app-sdk";
-import type { definitions } from "./types";
+import type { Contact } from "./types";
 
 const getContactService = (
   client: IDeskproClient,
-  contactId: Required<definitions["Contact"]>["id"],
+  contactId: Contact["id"],
 ) => {
-  return baseRequest<definitions["Contact"]>(client, {
+  return baseRequest<Contact>(client, {
     url: `/contacts/${contactId}`,
     queryParams: {
       attributes: "all",

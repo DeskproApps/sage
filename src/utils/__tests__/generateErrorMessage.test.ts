@@ -1,4 +1,4 @@
-import { generateErrorMessage } from "../utils";
+import { generateErrorMessage } from "../getErrors";
 
 describe("ContactForm", () => {
   describe("generateErrorMessage", () => {

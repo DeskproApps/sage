@@ -2,11 +2,11 @@ import get from "lodash/get";
 import isPlainObject from "lodash/isPlainObject";
 import { match } from "ts-pattern";
 import type { Maybe } from "../types";
-import type { definitions } from "../services/sage/types";
+import type { ContactPersonType } from "../services/sage/types";
 
 type ContactType = Maybe<
-  | definitions["ContactPersonType"]
-  | Array<definitions["ContactPersonType"]>
+  | ContactPersonType
+  | Array<ContactPersonType>
 >;
 
 const getContactType = (type: ContactType): string|undefined => {

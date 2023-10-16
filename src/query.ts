@@ -15,8 +15,10 @@ const queryClient = new QueryClient({
 const QueryKey = {
   SEARCH_QUERY: "SEARCH_QUERY",
   CONTACT: "contact",
+  CONTACTS: "contacts",
   LINKED_CONTACTS: "linkedContacts",
   SALES_INVOICES: "salesInvoices",
+  SALES_INVOICE: "salesInvoice",
   CONTACT_TYPES: "contactTypes",
   COUNTRIES: "countries",
 }

@@ -7,3 +7,5 @@ export { LinkContactPage } from "./LinkContactPage";
 export { ViewContactPage } from "./ViewContactPage";
 export { CreateContactPage } from "./CreateContactPage";
 export { EditContactPage } from "./EditContactPage";
+export { SalesInvoicesPage } from "./SalesInvoicesPage";
+export { ViewSalesInvoicePage } from "./ViewSalesInvoicePage";

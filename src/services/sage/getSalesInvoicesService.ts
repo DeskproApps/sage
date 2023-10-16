@@ -1,12 +1,12 @@
 import { baseRequest } from "./baseRequest";
 import type { IDeskproClient } from "@deskpro/app-sdk";
-import type { definitions, Pagination } from "./types";
+import type { Contact, SalesInvoice, Pagination } from "./types";
 
 const getSalesInvoicesService = (
   client: IDeskproClient,
-  contactId: Required<definitions["Contact"]>["id"],
+  contactId: Contact["id"],
 ) => {
-  return baseRequest<Pagination<definitions["SalesInvoice"]>>(client, {
+  return baseRequest<Pagination<SalesInvoice>>(client, {
     url: `/sales_invoices`,
     queryParams: {
       contact_id: contactId,

@@ -1,0 +1,352 @@
+{
+  "id": "9c5ba5b37adf4bc29487931ffee67d5f",
+  "displayed_as": "SI-2",
+  "$path": "/sales_invoices/9c5ba5b37adf4bc29487931ffee67d5f",
+  "created_at": "2023-09-29T14:11:28Z",
+  "updated_at": "2023-10-10T08:21:25Z",
+  "links": [
+    {
+      "href": "https://accounts-extra.sageone.com/invoicing/sales_invoices/9c5ba5b37adf4bc29487931ffee67d5f",
+      "rel": "alternate",
+      "type": "text/html"
+    },
+    {
+      "href": "https://accounts-extra.sageone.com/advanced_uk/online_payment/gb28ea5d1131b6f2e2c7697cba3039fe89c1df990a56919677a5dd47628afe3f52dc0492dcb90d8dc7397b483e896d21de4b3abc9851c94025a90c14c1aa1ae6f6271ed5e22724fdc969b39960b4e3df6951e1f20fad114732711c23fce9a718ce0cfd7373ec4540bf757c1eb77ab30310",
+      "rel": "bookmark",
+      "type": "text/html"
+    }
+  ],
+  "editable": true,
+  "vat_reverse_charge": false,
+  "tax_calculation_method": null,
+  "destination_consignment": false,
+  "destination_vat_rates_in_use": false,
+  "transaction": {
+    "id": "0e71dd7ecbb647498a3a515c448e4431",
+    "displayed_as": "",
+    "$path": "/transactions/0e71dd7ecbb647498a3a515c448e4431"
+  },
+  "transaction_type": {
+    "id": "SALES_INVOICE",
+    "displayed_as": "Sales Invoice",
+    "$path": "/transaction_types/SALES_INVOICE"
+  },
+  "is_cis": false,
+  "cis_applicable_amount": null,
+  "base_currency_cis_applicable_amount": null,
+  "total_after_cis_deduction": null,
+  "base_currency_total_after_cis_deduction": null,
+  "has_cis_labour": false,
+  "has_cis_materials": false,
+  "contact": {
+    "id": "be4de860ee2c447288cc31385ffa9d73",
+    "displayed_as": "Deskpro BV Customer (DP-002)",
+    "$path": "/contacts/be4de860ee2c447288cc31385ffa9d73"
+  },
+  "invoice_number_prefix": "SI-",
+  "invoice_number": "SI-2",
+  "contact_name": "Deskpro BV Customer",
+  "contact_reference": "DP-002",
+  "date": "2023-09-29",
+  "due_date": "2023-10-29",
+  "reference": "",
+  "main_address_free_form": " 79 Hartfield Rd\\nLondon\\nUnited Kingdom\\nSW19 3ES",
+  "main_address": {
+    "id": "c8477862ef0d40ffa602d74c96aeebc1",
+    "displayed_as": " 79 Hartfield Rd\\nLondon\\nUnited Kingdom\\nSW19 3ES",
+    "$path": "",
+    "address_line_1": " 79 Hartfield Rd",
+    "address_line_2": "",
+    "city": "London",
+    "postal_code": "SW19 3ES",
+    "country": {
+      "id": "GB",
+      "displayed_as": "United Kingdom (GB)",
+      "$path": "/countries/GB"
+    },
+    "address_type": {
+      "id": "SALES",
+      "displayed_as": "Sales",
+      "$path": "/address_types/SALES"
+    },
+    "region": "United Kingdom",
+    "country_group": {
+      "id": "GBIE",
+      "displayed_as": "UK & Ireland",
+      "$path": "/country_groups/GBIE"
+    }
+  },
+  "delivery_address_free_form": " 79 Hartfield Rd\\nLondon\\nUnited Kingdom\\nSW19 3ES",
+  "delivery_address": {
+    "id": "9cb7a6e3d2ad46738da7c72756832a38",
+    "displayed_as": " 79 Hartfield Rd\\nLondon\\nUnited Kingdom\\nSW19 3ES",
+    "$path": "",
+    "address_line_1": " 79 Hartfield Rd",
+    "address_line_2": "",
+    "city": "London",
+    "postal_code": "SW19 3ES",
+    "country": {
+      "id": "GB",
+      "displayed_as": "United Kingdom (GB)",
+      "$path": "/countries/GB"
+    },
+    "address_type": {
+      "id": "DELIVERY",
+      "displayed_as": "Delivery",
+      "$path": "/address_types/DELIVERY"
+    },
+    "region": "United Kingdom",
+    "country_group": {
+      "id": "GBIE",
+      "displayed_as": "UK & Ireland",
+      "$path": "/country_groups/GBIE"
+    }
+  },
+  "notes": "This is Notes Notes Notes Notes Notes Notes",
+  "terms_and_conditions": "this is Terms and Conditions Terms and Conditions Terms and Conditions Terms and Conditions Terms and Conditions Terms and Conditions ",
+  "shipping_net_amount": "0.0",
+  "shipping_tax_rate": {
+    "id": "GB_STANDARD",
+    "displayed_as": "Standard 20.00%",
+    "$path": "/tax_rates/GB_STANDARD"
+  },
+  "shipping_tax_amount": "0.0",
+  "shipping_tax_breakdown": [],
+  "shipping_total_amount": "0.0",
+  "net_amount": "5009.5",
+  "tax_amount": "1001.9",
+  "total_amount": "6011.4",
+  "payments_allocations_total_amount": "0.0",
+  "payments_allocations_total_discount": "0.0",
+  "total_paid": "0.0",
+  "outstanding_amount": "6011.4",
+  "currency": {
+    "id": "GBP",
+    "displayed_as": "Pound Sterling (GBP)",
+    "$path": "/currencies/GBP"
+  },
+  "exchange_rate": "1.0",
+  "inverse_exchange_rate": "1.0",
+  "base_currency_shipping_net_amount": "0.0",
+  "base_currency_shipping_tax_amount": "0.0",
+  "base_currency_shipping_tax_breakdown": [],
+  "base_currency_shipping_total_amount": "0.0",
+  "total_quantity": "178.0",
+  "total_discount_amount": "3.0",
+  "base_currency_total_discount_amount": "3.0",
+  "base_currency_net_amount": "5009.5",
+  "base_currency_tax_amount": "1001.9",
+  "base_currency_total_amount": "6011.4",
+  "base_currency_outstanding_amount": "6011.4",
+  "status": {
+    "id": "UNPAID",
+    "displayed_as": "Unpaid",
+    "$path": "/artefact_statuses/UNPAID"
+  },
+  "sent": false,
+  "sent_by_email": false,
+  "void_reason": null,
+  "invoice_lines": [
+    {
+      "id": "de464deaca3c48f9a6d0ae466b90eaaf",
+      "displayed_as": "A black t shirt",
+      "description": "A black t shirt",
+      "product": {
+        "id": "a1a76368caaa428dab74368ebddc280a",
+        "displayed_as": "A black t shirt",
+        "$path": "/products/a1a76368caaa428dab74368ebddc280a"
+      },
+      "service": null,
+      "ledger_account": {
+        "id": "ab00d017586c11ee99d406a292aa1b05",
+        "displayed_as": "Sales - Products (4000)",
+        "$path": "/ledger_accounts/ab00d017586c11ee99d406a292aa1b05"
+      },
+      "trade_of_asset": false,
+      "quantity": "100.0",
+      "unit_price": "30.0",
+      "net_amount": "3000.0",
+      "tax_rate": {
+        "id": "GB_STANDARD",
+        "displayed_as": "Standard 20.00%",
+        "$path": "/tax_rates/GB_STANDARD"
+      },
+      "tax_amount": "600.0",
+      "tax_breakdown": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "percentage": "20.0",
+          "amount": "600.0"
+        }
+      ],
+      "total_amount": "3600.0",
+      "base_currency_unit_price": "30.0",
+      "unit_price_includes_tax": false,
+      "base_currency_net_amount": "3000.0",
+      "base_currency_tax_amount": "600.0",
+      "base_currency_tax_breakdown": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "percentage": "20.0",
+          "amount": "600.0"
+        }
+      ],
+      "base_currency_total_amount": "3600.0",
+      "eu_goods_services_type": null,
+      "discount_amount": "0.0",
+      "base_currency_discount_amount": "0.0",
+      "discount_percentage": "0.0",
+      "eu_sales_description": null
+    },
+    {
+      "id": "229ad23505444485a0db3b6a94e9157e",
+      "displayed_as": "A white t shirt",
+      "description": "A white t shirt",
+      "product": {
+        "id": "281a1abcc3c34d8a854e261e9f3d77ff",
+        "displayed_as": "A white t shirt",
+        "$path": "/products/281a1abcc3c34d8a854e261e9f3d77ff"
+      },
+      "service": null,
+      "ledger_account": {
+        "id": "ab00d017586c11ee99d406a292aa1b05",
+        "displayed_as": "Sales - Products (4000)",
+        "$path": "/ledger_accounts/ab00d017586c11ee99d406a292aa1b05"
+      },
+      "trade_of_asset": false,
+      "quantity": "75.0",
+      "unit_price": "25.0",
+      "net_amount": "1875.0",
+      "tax_rate": {
+        "id": "GB_STANDARD",
+        "displayed_as": "Standard 20.00%",
+        "$path": "/tax_rates/GB_STANDARD"
+      },
+      "tax_amount": "375.0",
+      "tax_breakdown": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "percentage": "20.0",
+          "amount": "375.0"
+        }
+      ],
+      "total_amount": "2250.0",
+      "base_currency_unit_price": "25.0",
+      "unit_price_includes_tax": true,
+      "base_currency_net_amount": "1875.0",
+      "base_currency_tax_amount": "375.0",
+      "base_currency_tax_breakdown": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "percentage": "20.0",
+          "amount": "375.0"
+        }
+      ],
+      "base_currency_total_amount": "2250.0",
+      "eu_goods_services_type": null,
+      "discount_amount": "0.0",
+      "base_currency_discount_amount": "0.0",
+      "discount_percentage": "0.0",
+      "eu_sales_description": null
+    },
+    {
+      "id": "7f1efb3b89114d0488148ec60d8c2fa9",
+      "displayed_as": "Jeans",
+      "description": "Jeans",
+      "product": {
+        "id": "3a6cee9f4b7943209b73cee3f7473380",
+        "displayed_as": "Jeans",
+        "$path": "/products/3a6cee9f4b7943209b73cee3f7473380"
+      },
+      "service": null,
+      "ledger_account": {
+        "id": "ab00d017586c11ee99d406a292aa1b05",
+        "displayed_as": "Sales - Products (4000)",
+        "$path": "/ledger_accounts/ab00d017586c11ee99d406a292aa1b05"
+      },
+      "trade_of_asset": false,
+      "quantity": "3.0",
+      "unit_price": "45.83",
+      "net_amount": "134.5",
+      "tax_rate": {
+        "id": "GB_STANDARD",
+        "displayed_as": "Standard 20.00%",
+        "$path": "/tax_rates/GB_STANDARD"
+      },
+      "tax_amount": "26.9",
+      "tax_breakdown": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "percentage": "20.0",
+          "amount": "26.9"
+        }
+      ],
+      "total_amount": "161.4",
+      "base_currency_unit_price": "45.83",
+      "unit_price_includes_tax": true,
+      "base_currency_net_amount": "134.5",
+      "base_currency_tax_amount": "26.9",
+      "base_currency_tax_breakdown": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "percentage": "20.0",
+          "amount": "26.9"
+        }
+      ],
+      "base_currency_total_amount": "161.4",
+      "eu_goods_services_type": null,
+      "discount_amount": "3.0",
+      "base_currency_discount_amount": "3.0",
+      "discount_percentage": "2.18",
+      "eu_sales_description": null
+    }
+  ],
+  "tax_analysis": [
+    {
+      "tax_rate": {
+        "id": "GB_STANDARD",
+        "displayed_as": "Standard 20.00%",
+        "$path": "/tax_rates/GB_STANDARD"
+      },
+      "net_amount": "5009.49",
+      "tax_amount": "1001.9",
+      "total_amount": "6011.39",
+      "goods_amount": "0.0",
+      "service_amount": "0.0"
+    }
+  ],
+  "last_paid": "",
+  "original_quote_estimate": null,
+  "tax_address_region": null,
+  "delivery_performance_date": null,
+  "withholding_tax_rate": null,
+  "withholding_tax_amount": null,
+  "base_currency_withholding_tax_amount": null,
+  "tax_reconciled": false,
+  "migrated": false,
+  "pas_payment_submission": null
+}
