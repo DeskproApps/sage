@@ -18,7 +18,7 @@ const useSalesInvoices: UseSalesInvoices = (contactId) => {
   );
 
   return {
-    isLoading: [salesInvoices].some(({ isLoading }) => isLoading),
+    isLoading: salesInvoices.isLoading,
     salesInvoices: get(salesInvoices, ["data", "$items"], []) || [],
   };
 };

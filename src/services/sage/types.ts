@@ -71,3 +71,5 @@ export type SalesInvoiceLineItem = Required<definitions["SalesInvoiceLineItem"]>
 export type SalesInvoice = Omit<Required<definitions["SalesInvoice"]>, "invoice_lines"> & {
   invoice_lines?: SalesInvoiceLineItem[],
 };
+
+export type PurchaseInvoice = Required<definitions["PurchaseInvoice"]>;
