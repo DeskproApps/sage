@@ -1,17 +1,17 @@
 import { cleanup } from "@testing-library/react";
 import { render, mockSalesInvoice } from "../../../../../testing";
-import { Price } from "../Price";
-import type { Props } from "../Price";
+import { TotalPrice } from "../TotalPrice";
+import type { Props } from "../TotalPrice";
 
 const renderPrice = (props?: Partial<Props>) => render((
-  <Price
+  <TotalPrice
     currency={props?.currency || "GBP"}
     invoice={props?.invoice || mockSalesInvoice as never}
   />
 ), { wrappers: { theme: true } });
 
 describe("ViewSalesInvoice", () => {
-  describe("Price", () => {
+  describe("TotalPrice", () => {
     afterEach(() => {
       jest.clearAllMocks();
       cleanup();

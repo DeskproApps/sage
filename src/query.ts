@@ -22,6 +22,7 @@ const QueryKey = {
   CONTACT_TYPES: "contactTypes",
   COUNTRIES: "countries",
   PURCHASE_INVOICES: "purchaseInvoices",
+  PURCHASE_INVOICE: "purchaseInvoice",
 }
 
 export { queryClient, QueryKey };

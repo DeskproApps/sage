@@ -10,3 +10,4 @@ export { EditContactPage } from "./EditContactPage";
 export { SalesInvoicesPage } from "./SalesInvoicesPage";
 export { ViewSalesInvoicePage } from "./ViewSalesInvoicePage";
 export { PurchaseInvoicesPage } from "./PurchaseInvoicesPage";
+export { ViewPurchaseInvoicePage } from "./ViewPurchaseInvoicePage";

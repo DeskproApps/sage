@@ -1,5 +1,5 @@
 import { cleanup } from "@testing-library/react";
-import { render, mockSalesInvoice } from "../../../../../testing";
+import { render, mockSalesInvoice } from "../../../../testing";
 import { InvoiceLineItem } from "../InvoiceLineItem";
 import type { Props } from "../InvoiceLineItem";
 

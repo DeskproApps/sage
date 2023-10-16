@@ -9,3 +9,4 @@ export { SageLogo } from "./SageLogo";
 export { Navigation } from "./Navigation";
 export { Label } from "./Label";
 export { Select } from "./Select";
+export { Price } from "./Price";

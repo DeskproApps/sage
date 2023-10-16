@@ -11,3 +11,4 @@ export { getCountriesService } from "./getCountriesService";
 export { updatesContactService } from "./updatesContactService";
 export { getSalesInvoiceService } from "./getSalesInvoiceService";
 export { getPurchaseInvoicesService } from "./getPurchaseInvoicesService";
+export { getPurchaseInvoiceService } from "./getPurchaseInvoiceService";

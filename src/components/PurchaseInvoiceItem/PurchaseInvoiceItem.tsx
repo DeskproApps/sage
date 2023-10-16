@@ -3,7 +3,7 @@ import get from "lodash/get";
 import { Title, HorizontalDivider, TwoProperties } from "@deskpro/app-sdk";
 import { format } from "../../utils/date";
 import { getSageLink } from "../../utils";
-import { SageLogo } from "../common";
+import { SageLogo, RouterLink } from "../common";
 import type { FC } from "react";
 import type { PurchaseInvoice } from "../../services/sage/types";
 
@@ -18,7 +18,11 @@ const PurchaseInvoiceItem: FC<Props> = ({ invoice, isLast }) => {
   return (
     <>
       <Title
-        title={get(invoice, ["displayed_as"], "-")}
+        title={(
+          <RouterLink to={`/purchase-invoices/${invoice.id}`}>
+            {get(invoice, ["displayed_as"], "-")}
+          </RouterLink>
+        )}
         marginBottom={7}
         {...(!link ? {} : { icon: <SageLogo/> })}
         {...(!link ? {} : { link })}
