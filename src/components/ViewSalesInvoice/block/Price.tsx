@@ -15,11 +15,11 @@ const Price: FC<Props> = ({ invoice, currency }) => {
     <>
       <Stack justify="space-between" style={{ marginBottom: 10 }}>
         <P5>Total Net</P5>
-        <P4>{formatPrice(get(invoice, ["net_amount"]), currency)}</P4>
+        <P4>{formatPrice(get(invoice, ["net_amount"]), { currency })}</P4>
       </Stack>
       <Stack justify="space-between" style={{ marginBottom: 10 }}>
         <P5>Discount</P5>
-        <P4>{formatPrice(get(invoice, ["total_discount_amount"]), currency)}</P4>
+        <P4>{formatPrice(get(invoice, ["total_discount_amount"]), { currency })}</P4>
       </Stack>
       <Stack justify="space-between" style={{ marginBottom: 10 }}>
         <div>
@@ -32,11 +32,11 @@ const Price: FC<Props> = ({ invoice, currency }) => {
             })
           </Secondary>
         </div>
-        <P4>{formatPrice(get(invoice, ["tax_amount"]), currency)}</P4>
+        <P4>{formatPrice(get(invoice, ["tax_amount"]), { currency })}</P4>
       </Stack>
       <Stack justify="space-between" style={{ marginBottom: 10 }}>
         <P5>Total</P5>
-        <P4>{formatPrice(get(invoice, ["total_amount"]), currency)}</P4>
+        <P4>{formatPrice(get(invoice, ["total_amount"]), { currency })}</P4>
       </Stack>
     </>
   );
