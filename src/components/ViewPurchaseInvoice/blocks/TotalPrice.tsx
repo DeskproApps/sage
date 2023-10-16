@@ -3,7 +3,7 @@ import { Price } from "../../common";
 import type { FC } from "react";
 import type { PurchaseInvoice } from "../../../services/sage/types";
 
-type Props = {
+export type Props = {
   currency: string,
   invoice: PurchaseInvoice,
 };

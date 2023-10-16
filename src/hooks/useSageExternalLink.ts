@@ -13,7 +13,7 @@ export type Result = {
   newPurchaseInvoiceLink: Maybe<string>,
 };
 
-type UseSageExternalLink = (contactId: Maybe<Contact["id"]>) => Result;
+type UseSageExternalLink = (contactId?: Maybe<Contact["id"]>) => Result;
 
 const useSageExternalLink: UseSageExternalLink = (contactId) => {
   const { contact, isLoading } = useContact(contactId);

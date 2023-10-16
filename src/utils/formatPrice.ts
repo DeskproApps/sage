@@ -10,7 +10,7 @@ type Options = {
 const formatPrice = (price?: string|number, options?: Options): string => {
   const formatter = new Intl.NumberFormat("en-GB", {
     style: options?.style || "currency",
-    currency: options?.currency || "GBR",
+    currency: options?.currency || "GBP",
     currencyDisplay: "narrowSymbol",
     minimumFractionDigits: 2,
   });

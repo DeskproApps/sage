@@ -1,5 +1,6 @@
-import { SalesInvoiceItem } from "../SalesInvoiceItem";
+import { cleanup } from "@testing-library/react";
 import { mockSalesInvoices, render } from "../../../../testing";
+import { SalesInvoiceItem } from "../SalesInvoiceItem";
 import type { Props } from "../SalesInvoiceItem";
 
 const renderSalesInvoiceItem = (props?: Partial<Props>) => render((
@@ -10,6 +11,11 @@ const renderSalesInvoiceItem = (props?: Partial<Props>) => render((
 ), { wrappers: { theme: true, router: true } });
 
 describe("SalesInvoiceItem", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+    cleanup();
+  });
+
   test("render", async () => {
     const { findByText } = renderSalesInvoiceItem();
 

@@ -15,7 +15,6 @@ const renderUseLinkedContact = () => renderHook<Result, unknown>(
 jest.mock("../../../services/deskpro/getEntityListService");
 jest.mock("../../../services/sage/getContactsService");
 
-
 describe("useLinkedCards", () => {
   describe("findContact", () => {
     afterEach(() => {

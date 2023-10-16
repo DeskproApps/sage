@@ -12,7 +12,7 @@ const ViewSalesInvoicePage: FC = () => {
   const { salesInvoiceId } = useParams();
   const { isLoading, salesInvoice } = useSalesInvoice(salesInvoiceId);
   const link = useMemo(() => getSageLink(get(salesInvoice, ["links"])), [salesInvoice]);
-  const currency = useMemo(() => get(salesInvoice, ["currency", "id"], "GBR"), [salesInvoice]);
+  const currency = useMemo(() => get(salesInvoice, ["currency", "id"], "GBP"), [salesInvoice]);
 
   useSetTitle(get(salesInvoice, ["displayed_as"], ""));
 

@@ -6,7 +6,7 @@ import type { Props } from "../InvoiceLines";
 const renderInvoiceLines = (props?: Partial<Props>) => render((
   <InvoiceLines
     invoiceLines={props?.invoiceLines || mockSalesInvoice.invoice_lines as never}
-    currency={props?.currency || "GBR"}
+    currency={props?.currency || "GBP"}
   />
 ), { wrappers: { theme: true } });
 

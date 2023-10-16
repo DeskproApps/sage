@@ -12,7 +12,7 @@ const ViewPurchaseInvoicePage: FC = () => {
   const { purchaseInvoiceId } = useParams();
   const { isLoading, purchaseInvoice } = usePurchaseInvoice(purchaseInvoiceId);
   const link = useMemo(() => getSageLink(get(purchaseInvoice, ["links"])), [purchaseInvoice]);
-  const currency = useMemo(() => get(purchaseInvoice, ["currency", "id"], "GBR"), [purchaseInvoice]);
+  const currency = useMemo(() => get(purchaseInvoice, ["currency", "id"], "GBP"), [purchaseInvoice]);
 
   useSetTitle(get(purchaseInvoice, ["displayed_as"], ""));
 

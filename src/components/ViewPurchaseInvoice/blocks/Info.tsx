@@ -6,7 +6,7 @@ import { API_DATE_FORMAT } from "../../../constants";
 import type { FC } from "react";
 import type { PurchaseInvoice } from "../../../services/sage/types";
 
-type Props = {
+export type Props = {
   invoice: PurchaseInvoice
 };
 
@@ -19,7 +19,7 @@ const Info: FC<Props> = ({ invoice }) => {
       />
       <Property
         label="Reference"
-        text={get(invoice, ["contact_reference"], "contact_reference") || "-"}
+        text={get(invoice, ["contact_reference"], "-") || "-"}
       />
       <Property
         label="Invoice Status"

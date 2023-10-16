@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import get from "lodash/get";
 import { P4, P5, Stack } from "@deskpro/deskpro-ui";
 import { PropertyRow, Property, HorizontalDivider } from "@deskpro/app-sdk";
@@ -14,40 +13,38 @@ export type Props = {
 };
 
 const InvoiceLineItem: FC<Props> = ({ invoiceItem, isLast, currency, skipDiscount }) => {
-  const totalAmount = useMemo(() => {
-    return formatPrice(get(invoiceItem, ["net_amount"], "0") || "0", currency || "GBR")
-  }, [invoiceItem, currency]);
-
   return (
     <>
       <Stack justify="space-between" style={{ marginBottom: 10 }}>
         <P5>{get(invoiceItem, ["description"], "-")}</P5>
-        <P4>{totalAmount}</P4>
+        <P4>
+          {formatPrice(get(invoiceItem, ["net_amount"], "0") || "0", { currency })}
+        </P4>
       </Stack>
       <PropertyRow>
         {[
           <Property
             key="qty"
             label="Qty"
-            text={get(invoiceItem, ["quantity"], 1)}
+            text={formatPrice(get(invoiceItem, ["quantity"], "1"), { style: "decimal" })}
             marginBottom={0}
           />,
           <Property
             key="price"
             label="Price"
-            text={get(invoiceItem, ["unit_price"], 0)}
+            text={formatPrice(get(invoiceItem, ["unit_price"], "0"), { style: "decimal" })}
             marginBottom={0}
           />,
           skipDiscount ? undefined : <Property
             key="discount"
             label="Discount"
-            text={get(invoiceItem, ["discount_amount"], 0)}
+            text={formatPrice(get(invoiceItem, ["discount_amount"], "0"), { style: "decimal" })}
             marginBottom={0}
           />,
           <Property
             key="vat"
             label="VAT"
-            text={get(invoiceItem, ["tax_amount"], 0)}
+            text={formatPrice(get(invoiceItem, ["tax_amount"], "0"), { style: "decimal" })}
             marginBottom={0}
           />
         ].filter(Boolean)}
