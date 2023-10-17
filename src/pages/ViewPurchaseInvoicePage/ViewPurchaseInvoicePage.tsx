@@ -2,19 +2,19 @@ import { useMemo } from "react";
 import get from "lodash/get";
 import { useParams } from "react-router-dom";
 import { LoadingSpinner } from "@deskpro/app-sdk";
+import { usePurchaseInvoice } from "./hooks";
 import { useSetTitle, useRegisterElements } from "../../hooks";
-import { useSalesInvoice } from "./hooks";
 import { getSageLink } from "../../utils";
-import { ViewSalesInvoice } from "../../components";
+import { ViewPurchaseInvoice } from "../../components";
 import type { FC } from "react";
 
-const ViewSalesInvoicePage: FC = () => {
-  const { salesInvoiceId } = useParams();
-  const { isLoading, salesInvoice } = useSalesInvoice(salesInvoiceId);
-  const link = useMemo(() => getSageLink(get(salesInvoice, ["links"])), [salesInvoice]);
-  const currency = useMemo(() => get(salesInvoice, ["currency", "id"], "GBP"), [salesInvoice]);
+const ViewPurchaseInvoicePage: FC = () => {
+  const { purchaseInvoiceId } = useParams();
+  const { isLoading, purchaseInvoice } = usePurchaseInvoice(purchaseInvoiceId);
+  const link = useMemo(() => getSageLink(get(purchaseInvoice, ["links"])), [purchaseInvoice]);
+  const currency = useMemo(() => get(purchaseInvoice, ["currency", "id"], "GBP"), [purchaseInvoice]);
 
-  useSetTitle(get(salesInvoice, ["displayed_as"], ""));
+  useSetTitle(get(purchaseInvoice, ["displayed_as"], ""));
 
   useRegisterElements(({ registerElement }) => {
     registerElement("home", {
@@ -39,11 +39,11 @@ const ViewSalesInvoicePage: FC = () => {
   }
 
   return (
-    <ViewSalesInvoice
+    <ViewPurchaseInvoice
       currency={currency}
-      salesInvoice={salesInvoice}
+      purchaseInvoice={purchaseInvoice}
     />
   );
 };
 
-export { ViewSalesInvoicePage };
+export { ViewPurchaseInvoicePage };

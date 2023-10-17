@@ -1,0 +1,288 @@
+{
+  "$total": 1,
+  "$page": 1,
+  "$next": null,
+  "$back": null,
+  "$itemsPerPage": 20,
+  "$items": [
+    {
+      "id": "c1b882f47562460f882a8ecdd434574e",
+      "displayed_as": "DPoN-001",
+      "$path": "/purchase_invoices/c1b882f47562460f882a8ecdd434574e",
+      "created_at": "2023-10-16T07:07:32Z",
+      "updated_at": "2023-10-16T07:28:09Z",
+      "links": [
+        {
+          "href": "https://accounts-extra.sageone.com/invoicing/purchase_invoices/c1b882f47562460f882a8ecdd434574e",
+          "rel": "alternate",
+          "type": "text/html"
+        }
+      ],
+      "editable": true,
+      "vat_reverse_charge": false,
+      "transaction": {
+        "id": "38e84cdd89634ba28460c4f7a6f4afb9",
+        "displayed_as": "DPoN-001",
+        "$path": "/transactions/38e84cdd89634ba28460c4f7a6f4afb9"
+      },
+      "transaction_type": {
+        "id": "PURCHASE_INVOICE",
+        "displayed_as": "Purchase Invoice",
+        "$path": "/transaction_types/PURCHASE_INVOICE"
+      },
+      "postponed_accounting": false,
+      "import": false,
+      "vat_exempt_consignment": false,
+      "is_cis": false,
+      "cis_applicable_amount": null,
+      "base_currency_cis_applicable_amount": null,
+      "total_after_cis_deduction": null,
+      "base_currency_total_after_cis_deduction": null,
+      "has_cis_labour": false,
+      "has_cis_materials": false,
+      "contact": {
+        "id": "a8022ec756c14f999f928192bba93e57",
+        "displayed_as": "Deskpro LTD Supplier (DP-001)",
+        "$path": "/contacts/a8022ec756c14f999f928192bba93e57"
+      },
+      "base_currency_total_itc_amount": null,
+      "total_itc_amount": null,
+      "base_currency_total_itr_amount": null,
+      "total_itr_amount": null,
+      "part_recoverable": null,
+      "contact_name": "Deskpro LTD Supplier",
+      "contact_reference": "DP-001",
+      "date": "2023-10-16",
+      "due_date": "2023-11-30",
+      "reference": "DPoN-001",
+      "vendor_reference": "DPiN-001",
+      "notes": "Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes ",
+      "total_quantity": "596.0",
+      "net_amount": "7565.0",
+      "tax_amount": "1513.0",
+      "total_amount": "9078.0",
+      "payments_allocations_total_amount": "0.0",
+      "payments_allocations_total_discount": "0.0",
+      "total_paid": "0.0",
+      "outstanding_amount": "9078.0",
+      "currency": {
+        "id": "GBP",
+        "displayed_as": "Pound Sterling (GBP)",
+        "$path": "/currencies/GBP"
+      },
+      "exchange_rate": "1.0",
+      "inverse_exchange_rate": "1.0",
+      "base_currency_net_amount": "7565.0",
+      "base_currency_tax_amount": "1513.0",
+      "base_currency_total_amount": "9078.0",
+      "base_currency_outstanding_amount": "9078.0",
+      "status": {
+        "id": "UNPAID",
+        "displayed_as": "Unpaid",
+        "$path": "/artefact_statuses/UNPAID"
+      },
+      "void_reason": null,
+      "invoice_lines": [
+        {
+          "id": "a5bfe02c7f4e4e71b3f015f004b25d8a",
+          "displayed_as": "32mb PCI Video Card",
+          "is_purchase_for_resale": false,
+          "description": "32mb PCI Video Card",
+          "product": {
+            "id": "17f6affcf8064e2390c9bbe4c134b6ef",
+            "displayed_as": "32mb PCI Video Card",
+            "$path": "/products/17f6affcf8064e2390c9bbe4c134b6ef"
+          },
+          "service": null,
+          "ledger_account": {
+            "id": "ab01ce00586c11ee99d406a292aa1b05",
+            "displayed_as": "Cost of Sales - Goods (5000)",
+            "$path": "/ledger_accounts/ab01ce00586c11ee99d406a292aa1b05"
+          },
+          "trade_of_asset": false,
+          "quantity": "93.0",
+          "unit_price": "40.0",
+          "net_amount": "3720.0",
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "tax_amount": "744.0",
+          "tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "744.0"
+            }
+          ],
+          "total_amount": "4464.0",
+          "base_currency_unit_price": "40.0",
+          "unit_price_includes_tax": false,
+          "base_currency_net_amount": "3720.0",
+          "base_currency_tax_amount": "744.0",
+          "base_currency_tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "744.0"
+            }
+          ],
+          "base_currency_total_amount": "4464.0",
+          "eu_goods_services_type": null,
+          "gst_amount": null,
+          "pst_amount": null,
+          "tax_recoverable": null
+        },
+        {
+          "id": "c8871059e64142b4bed75d9e60673cc7",
+          "displayed_as": "MTH1000 Motherboard",
+          "is_purchase_for_resale": false,
+          "description": "MTH1000 Motherboard",
+          "product": {
+            "id": "4752ad20de3445baabace039570c08da",
+            "displayed_as": "MTH1000 Motherboard",
+            "$path": "/products/4752ad20de3445baabace039570c08da"
+          },
+          "service": null,
+          "ledger_account": {
+            "id": "ab01ce00586c11ee99d406a292aa1b05",
+            "displayed_as": "Cost of Sales - Goods (5000)",
+            "$path": "/ledger_accounts/ab01ce00586c11ee99d406a292aa1b05"
+          },
+          "trade_of_asset": false,
+          "quantity": "3.0",
+          "unit_price": "30.0",
+          "net_amount": "90.0",
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "tax_amount": "18.0",
+          "tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "18.0"
+            }
+          ],
+          "total_amount": "108.0",
+          "base_currency_unit_price": "30.0",
+          "unit_price_includes_tax": false,
+          "base_currency_net_amount": "90.0",
+          "base_currency_tax_amount": "18.0",
+          "base_currency_tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "18.0"
+            }
+          ],
+          "base_currency_total_amount": "108.0",
+          "eu_goods_services_type": null,
+          "gst_amount": null,
+          "pst_amount": null,
+          "tax_recoverable": null
+        },
+        {
+          "id": "4e1c7a50624844479ff94a6a8577bc92",
+          "displayed_as": "AT Mini Tower Case",
+          "is_purchase_for_resale": false,
+          "description": "AT Mini Tower Case",
+          "product": {
+            "id": "2c8532530c3c43b085a46a47ea378265",
+            "displayed_as": "AT Mini Tower Case",
+            "$path": "/products/2c8532530c3c43b085a46a47ea378265"
+          },
+          "service": null,
+          "ledger_account": {
+            "id": "ab01ce00586c11ee99d406a292aa1b05",
+            "displayed_as": "Cost of Sales - Goods (5000)",
+            "$path": "/ledger_accounts/ab01ce00586c11ee99d406a292aa1b05"
+          },
+          "trade_of_asset": false,
+          "quantity": "500.0",
+          "unit_price": "7.51",
+          "net_amount": "3755.0",
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "tax_amount": "751.0",
+          "tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "751.0"
+            }
+          ],
+          "total_amount": "4506.0",
+          "base_currency_unit_price": "7.51",
+          "unit_price_includes_tax": false,
+          "base_currency_net_amount": "3755.0",
+          "base_currency_tax_amount": "751.0",
+          "base_currency_tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "751.0"
+            }
+          ],
+          "base_currency_total_amount": "4506.0",
+          "eu_goods_services_type": null,
+          "gst_amount": null,
+          "pst_amount": null,
+          "tax_recoverable": null
+        }
+      ],
+      "tax_analysis": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "net_amount": "7565.0",
+          "tax_amount": "1513.0",
+          "total_amount": "9078.0",
+          "goods_amount": "0.0",
+          "service_amount": "0.0"
+        }
+      ],
+      "last_paid": "",
+      "tax_address_region": null,
+      "withholding_tax_rate": null,
+      "withholding_tax_amount": null,
+      "base_currency_withholding_tax_amount": null,
+      "tax_reconciled": false,
+      "migrated": false,
+      "tax_calculation_method": null
+    }
+  ]
+}

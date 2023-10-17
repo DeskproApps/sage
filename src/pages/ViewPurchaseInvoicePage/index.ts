@@ -1,0 +1,1 @@
+export { ViewPurchaseInvoicePage } from "./ViewPurchaseInvoicePage";

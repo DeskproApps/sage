@@ -5,6 +5,7 @@ import {
   useContact,
   useSetTitle,
   useSalesInvoices,
+  usePurchaseInvoices,
   useRegisterElements,
   useSageExternalLink,
 } from "../../hooks";
@@ -17,17 +18,32 @@ const HomePage: FC = () => {
   const { contactId, isLoading: isLoadingId  } = useContactId();
   const { contact, isLoading: isLoadingContact } = useContact(contactId);
   const { salesInvoices, isLoading: isLoadingSalesInvoices } = useSalesInvoices(contactId);
-  const { newSalesInvoiceLink, isLoading: isLoadingLink } = useSageExternalLink(contactId);
+  const { purchaseInvoices, isLoading: isLoadingPurchaseInvoices } = usePurchaseInvoices(contactId);
+  const {
+    newSalesInvoiceLink,
+    newPurchaseInvoiceLink,
+    isLoading: isLoadingLink,
+  } = useSageExternalLink(contactId);
   const isLoading = [
     isLoadingId,
     isLoadingLink,
     isLoadingContact,
     isLoadingSalesInvoices,
+    isLoadingPurchaseInvoices,
   ].some(Boolean);
 
   const onNavigateToSalesInvoices = useCallback(() => {
     navigate({
       pathname: "/sales-invoices",
+      search: `?${createSearchParams({
+        ...(!contactId ? {} : { contactId }),
+      })}`,
+    });
+  }, [navigate, contactId]);
+
+  const onNavigateToPurchaseInvoices = useCallback(() => {
+    navigate({
+      pathname: "/purchase-invoices",
       search: `?${createSearchParams({
         ...(!contactId ? {} : { contactId }),
       })}`,
@@ -57,8 +73,11 @@ const HomePage: FC = () => {
     <Home
       contact={contact}
       salesInvoices={salesInvoices}
+      purchaseInvoices={purchaseInvoices}
       newSalesInvoiceLink={newSalesInvoiceLink}
+      newPurchaseInvoiceLink={newPurchaseInvoiceLink}
       onNavigateToSalesInvoices={onNavigateToSalesInvoices}
+      onNavigateToPurchaseInvoices={onNavigateToPurchaseInvoices}
     />
   );
 };

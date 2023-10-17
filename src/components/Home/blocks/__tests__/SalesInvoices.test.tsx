@@ -10,8 +10,6 @@ const renderSalesInvoices = (props?: Partial<Props>) => render((
   />
 ), { wrappers: { theme: true, router: true } });
 
-
-
 describe("SalesInvoices", () => {
   afterEach(() => {
     jest.clearAllMocks();
