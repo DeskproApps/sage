@@ -9,3 +9,5 @@ export { default as mockSalesInvoice } from "./mockSalesInvoice.json";
 export { default as mockCurrentUser } from "./mockCurrentUser.json";
 export { default as mockContactTypes } from "./mockContactTypes.json";
 export { default as mockPurchaseInvoices } from "./mockPurchaseInvoices.json";
+export { default as mockSalesQuotes } from "./mockSalesQuotes.json";
+export { default as mockSalesEstimates } from "./mockSalesEstimates.json";

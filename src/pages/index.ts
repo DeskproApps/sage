@@ -11,3 +11,7 @@ export { SalesInvoicesPage } from "./SalesInvoicesPage";
 export { ViewSalesInvoicePage } from "./ViewSalesInvoicePage";
 export { PurchaseInvoicesPage } from "./PurchaseInvoicesPage";
 export { ViewPurchaseInvoicePage } from "./ViewPurchaseInvoicePage";
+export { SalesQuotesPage } from "./SalesQuotesPage";
+export { ViewSalesQuotePage } from "./ViewSalesQuotePage";
+export { SalesEstimatesPage } from "./SalesEstimatesPage";
+export { ViewSalesEstimatePage } from "./ViewSalesEstimatePage";

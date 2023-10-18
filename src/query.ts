@@ -23,6 +23,8 @@ const QueryKey = {
   COUNTRIES: "countries",
   PURCHASE_INVOICES: "purchaseInvoices",
   PURCHASE_INVOICE: "purchaseInvoice",
+  SALES_QUOTES: "salesQuotes",
+  SALES_ESTIMATES: "salesEstimates",
 }
 
 export { queryClient, QueryKey };

@@ -1,0 +1,237 @@
+{
+  "$total": 1,
+  "$page": 1,
+  "$next": null,
+  "$back": null,
+  "$itemsPerPage": 20,
+  "$items": [
+    {
+      "id": "d20d239b74ae49c3a5ff23f39249d944",
+      "displayed_as": "SQ-2",
+      "$path": "/sales_quotes/d20d239b74ae49c3a5ff23f39249d944",
+      "created_at": "2023-10-17T07:16:57Z",
+      "updated_at": "2023-10-18T05:27:36Z",
+      "links": [
+        {
+          "href": "https://accounts-extra.sageone.com/invoicing/sales_quotes/d20d239b74ae49c3a5ff23f39249d944",
+          "rel": "alternate",
+          "type": "text/html"
+        },
+        {
+          "href": "https://accounts-extra.sageone.com/advanced_uk/online_payment/gb28ea5d1131b6f2e2c7697cba3039fe89c1df990a56919677a5dd47628afe3f52836f20064a1f56fd422ba4e2c75430dea1839c0725f02d5a18c9dfd2485b69276b81da7184a4bf6cb5deb4a75892e0c1a8aa54ab58cd225a2795cc09b2d9747a762438916ddcc6cf352682251253dede",
+          "rel": "bookmark",
+          "type": "text/html"
+        }
+      ],
+      "editable": true,
+      "vat_reverse_charge": false,
+      "tax_calculation_method": null,
+      "destination_consignment": false,
+      "destination_vat_rates_in_use": false,
+      "contact": {
+        "id": "be4de860ee2c447288cc31385ffa9d73",
+        "displayed_as": "Deskpro BV Customer (DP-002)",
+        "$path": "/contacts/be4de860ee2c447288cc31385ffa9d73"
+      },
+      "quote_number_prefix": "SQ-",
+      "quote_number": "SQ-2",
+      "contact_name": "Deskpro BV Customer",
+      "contact_reference": "DP-002",
+      "date": "2023-10-15",
+      "expiry_date": "2023-11-14",
+      "reference": "",
+      "main_address_free_form": "Unit 12\\nCorporation Buildings\\nNorth Shields\\nNorth Tyneside\\nNE12 6GH",
+      "main_address": {
+        "id": "036569e984f040d6b74d341eb94a8569",
+        "displayed_as": "Unit 12\\nCorporation Buildings\\nNorth Shields\\nNorth Tyneside\\nNE12 6GH",
+        "$path": "",
+        "address_line_1": "Unit 12",
+        "address_line_2": "Corporation Buildings",
+        "city": "North Shields",
+        "postal_code": "NE12 6GH",
+        "country": {
+          "id": "GB",
+          "displayed_as": "United Kingdom (GB)",
+          "$path": "/countries/GB"
+        },
+        "address_type": {
+          "id": "SALES",
+          "displayed_as": "Sales",
+          "$path": "/address_types/SALES"
+        },
+        "region": "North Tyneside",
+        "country_group": {
+          "id": "ALL",
+          "displayed_as": "Other",
+          "$path": "/country_groups/ALL"
+        }
+      },
+      "delivery_address_free_form": "Unit 12\\nCorporation Buildings\\nNorth Shields\\nNorth Tyneside\\nNE12 6GH",
+      "delivery_address": {
+        "id": "765c8948416d4b18aac265d31c8c8b8c",
+        "displayed_as": "Unit 12\\nCorporation Buildings\\nNorth Shields\\nNorth Tyneside\\nNE12 6GH",
+        "$path": "",
+        "address_line_1": "Unit 12",
+        "address_line_2": "Corporation Buildings",
+        "city": "North Shields",
+        "postal_code": "NE12 6GH",
+        "country": {
+          "id": "GB",
+          "displayed_as": "United Kingdom (GB)",
+          "$path": "/countries/GB"
+        },
+        "address_type": {
+          "id": "DELIVERY",
+          "displayed_as": "Delivery",
+          "$path": "/address_types/DELIVERY"
+        },
+        "region": "North Tyneside",
+        "country_group": {
+          "id": "ALL",
+          "displayed_as": "Other",
+          "$path": "/country_groups/ALL"
+        }
+      },
+      "notes": "Notes Notes Notes Notes Notes Notes",
+      "terms_and_conditions": "Terms and ConditionsTerms and ConditionsTerms and ConditionsTerms and ConditionsTerms and ConditionsTerms and ConditionsTerms and Conditions",
+      "shipping_net_amount": "0.0",
+      "shipping_tax_rate": {
+        "id": "GB_STANDARD",
+        "displayed_as": "Standard 20.00%",
+        "$path": "/tax_rates/GB_STANDARD"
+      },
+      "shipping_tax_amount": "0.0",
+      "shipping_tax_breakdown": [],
+      "shipping_total_amount": "0.0",
+      "net_amount": "6.0",
+      "tax_amount": "1.2",
+      "total_amount": "7.2",
+      "currency": {
+        "id": "GBP",
+        "displayed_as": "Pound Sterling (GBP)",
+        "$path": "/currencies/GBP"
+      },
+      "exchange_rate": "1.0",
+      "inverse_exchange_rate": "1.0",
+      "base_currency_shipping_net_amount": "0.0",
+      "base_currency_shipping_tax_amount": "0.0",
+      "base_currency_shipping_tax_breakdown": [],
+      "base_currency_shipping_total_amount": "0.0",
+      "total_quantity": "1.0",
+      "total_discount_amount": "1.0",
+      "base_currency_total_discount_amount": "1.0",
+      "base_currency_net_amount": "6.0",
+      "base_currency_tax_amount": "1.2",
+      "base_currency_total_amount": "7.2",
+      "payments_allocations_total_amount": "0.0",
+      "payments_allocations_total_discount": "0.0",
+      "total_paid": "0.0",
+      "status": {
+        "id": "PENDING",
+        "displayed_as": "Pending"
+      },
+      "sent": false,
+      "sent_by_email": false,
+      "quote_lines": [
+        {
+          "id": "5616638366f3474dbedf94803ee37c8d",
+          "displayed_as": "32mb PCI Video Card",
+          "analysis_type_categories": [],
+          "description": "32mb PCI Video Card",
+          "product": {
+            "id": "17f6affcf8064e2390c9bbe4c134b6ef",
+            "displayed_as": "32mb PCI Video Card",
+            "$path": "/products/17f6affcf8064e2390c9bbe4c134b6ef"
+          },
+          "service": null,
+          "ledger_account": {
+            "id": "ab00d017586c11ee99d406a292aa1b05",
+            "displayed_as": "Sales - Products (4000)",
+            "$path": "/ledger_accounts/ab00d017586c11ee99d406a292aa1b05"
+          },
+          "trade_of_asset": false,
+          "quantity": "1.0",
+          "unit_price": "7.0",
+          "net_amount": "6.0",
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "tax_amount": "1.2",
+          "tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "1.2"
+            }
+          ],
+          "total_amount": "7.2",
+          "base_currency_unit_price": "7.0",
+          "unit_price_includes_tax": false,
+          "base_currency_net_amount": "6.0",
+          "base_currency_tax_amount": "1.2",
+          "base_currency_tax_breakdown": [
+            {
+              "tax_rate": {
+                "id": "GB_STANDARD",
+                "displayed_as": "Standard 20.00%",
+                "$path": "/tax_rates/GB_STANDARD"
+              },
+              "percentage": "20.0",
+              "amount": "1.2"
+            }
+          ],
+          "base_currency_total_amount": "7.2",
+          "eu_goods_services_type": null,
+          "discount_amount": "1.0",
+          "base_currency_discount_amount": "1.0",
+          "discount_percentage": "14.29",
+          "eu_sales_description": null
+        }
+      ],
+      "tax_analysis": [
+        {
+          "tax_rate": {
+            "id": "GB_STANDARD",
+            "displayed_as": "Standard 20.00%",
+            "$path": "/tax_rates/GB_STANDARD"
+          },
+          "net_amount": "6.0",
+          "tax_amount": "1.2",
+          "total_amount": "7.2",
+          "goods_amount": "0.0",
+          "service_amount": "0.0"
+        }
+      ],
+      "tax_address_region": null,
+      "withholding_tax_rate": null,
+      "withholding_tax_amount": null,
+      "base_currency_withholding_tax_amount": null,
+      "profit_analysis": {
+        "total": {
+          "description": "",
+          "total_cost": "40.0",
+          "total_sale": "6.0",
+          "profit": "-34.0",
+          "profit_percentage": "-567.0"
+        },
+        "line_breakdown": [
+          {
+            "description": "32mb PCI Video Card",
+            "total_cost": "40.0",
+            "total_sale": "6.0",
+            "profit": "-34.0",
+            "profit_percentage": "-567.0"
+          }
+        ]
+      },
+      "tax_reconciled": false,
+      "invoice": null
+    }
+  ]
+}

@@ -17,12 +17,16 @@ import {
   LinkContactPage,
   ViewContactPage,
   EditContactPage,
+  SalesQuotesPage,
   CreateContactPage,
   AdminCallbackPage,
   SalesInvoicesPage,
+  ViewSalesQuotePage,
+  SalesEstimatesPage,
   NoLinkedContactPage,
   PurchaseInvoicesPage,
   ViewSalesInvoicePage,
+  ViewSalesEstimatePage,
   ViewPurchaseInvoicePage,
 } from "./pages";
 import type { FC } from "react";
@@ -83,6 +87,10 @@ const App: FC = () => {
         <Route path="/sales-invoices/:salesInvoiceId" element={<ViewSalesInvoicePage/>} />
         <Route path="/purchase-invoices" element={<PurchaseInvoicesPage/>} />
         <Route path="/purchase-invoices/:purchaseInvoiceId" element={<ViewPurchaseInvoicePage/>} />
+        <Route path="/sales-quotes" element={<SalesQuotesPage/>} />
+        <Route path="/sales-quotes/:quoteId" element={<ViewSalesQuotePage/>} />
+        <Route path="/sales-estimates" element={<SalesEstimatesPage/>} />
+        <Route path="/sales-estimates/:estimateId" element={<ViewSalesEstimatePage/>} />
         <Route index element={<LoadingAppPage/>} />
       </Routes>
       {!isAdmin && (<><br/><br/><br/></>)}

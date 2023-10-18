@@ -1,9 +1,21 @@
 import { HorizontalDivider } from "@deskpro/app-sdk";
 import { Container } from "../common";
-import { ContactInfo, SalesInvoices, PurchaseInvoices } from "./blocks";
+import {
+  ContactInfo,
+  SalesQuotes,
+  SalesInvoices,
+  SalesEstimates,
+  PurchaseInvoices,
+} from "./blocks";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
-import type { Contact, SalesInvoice, PurchaseInvoice } from "../../services/sage/types";
+import type {
+  Contact,
+  SalesQuote,
+  SalesInvoice,
+  SalesEstimate,
+  PurchaseInvoice,
+} from "../../services/sage/types";
 
 type Props = {
   contact: Maybe<Contact>,
@@ -13,15 +25,27 @@ type Props = {
   purchaseInvoices: Array<PurchaseInvoice>,
   newPurchaseInvoiceLink: Maybe<string>,
   onNavigateToPurchaseInvoices: () => void,
+  quotes: Array<SalesQuote>,
+  estimates: Array<SalesEstimate>,
+  onNavigateToSalesQuotes: () => void,
+  onNavigateToSalesEstimates: () => void,
+  newSalesQuoteLink: Maybe<string>,
+  newSalesEstimateLink: Maybe<string>,
 };
 
 const Home: FC<Props> = ({
+  quotes,
   contact,
+  estimates,
   salesInvoices,
-  newSalesInvoiceLink,
-  onNavigateToSalesInvoices,
   purchaseInvoices,
+  newSalesQuoteLink,
+  newSalesInvoiceLink,
+  newSalesEstimateLink,
   newPurchaseInvoiceLink,
+  onNavigateToSalesQuotes,
+  onNavigateToSalesInvoices,
+  onNavigateToSalesEstimates,
   onNavigateToPurchaseInvoices,
 }) => {
   return (
@@ -51,6 +75,24 @@ const Home: FC<Props> = ({
       </Container>
 
       <HorizontalDivider />
+
+      <Container>
+        <SalesQuotes
+          quotes={quotes}
+          newSalesQuoteLink={newSalesQuoteLink}
+          onNavigateToSalesQuotes={onNavigateToSalesQuotes}
+        />
+      </Container>
+
+      <HorizontalDivider />
+
+      <Container>
+        <SalesEstimates
+          estimates={estimates}
+          newSalesEstimateLink={newSalesEstimateLink}
+          onNavigateToSalesEstimates={onNavigateToSalesEstimates}
+        />
+      </Container>
     </>
   );
 };
