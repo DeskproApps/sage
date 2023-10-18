@@ -1,4 +1,5 @@
 import { cleanup } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { render, mockSalesInvoices } from "../../../../../testing";
 import { SalesInvoices } from "../SalesInvoices";
 import type { Props } from "../SalesInvoices";
@@ -25,5 +26,13 @@ describe("SalesInvoices", () => {
     expect(await findByText(/SI-5/i)).toBeInTheDocument();
   });
 
-  test.todo("should navigate to SalesInvoice page");
+  test("should navigate to SalesInvoice page", async () => {
+    const mockOnNavigate = jest.fn();
+    const { findByRole } = renderSalesInvoices({ onNavigateToSalesInvoices: mockOnNavigate });
+    const link = await findByRole("link", { name: /Sales Invoices/i });
+
+    await userEvent.click(link);
+
+    expect(mockOnNavigate).toHaveBeenCalled();
+  });
 });

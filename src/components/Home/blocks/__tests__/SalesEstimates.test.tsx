@@ -1,4 +1,5 @@
 import { cleanup } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { render, mockSalesEstimates } from "../../../../../testing";
 import { SalesEstimates } from "../SalesEstimates";
 import type { Props } from "../SalesEstimates";
@@ -24,5 +25,16 @@ describe("SalesEstimates", () => {
     expect(await findByText(/SE-1/i)).toBeInTheDocument();
   });
 
-  test.todo("should navigate to SalesEstimates page");
+  test("should navigate to SalesEstimates page", async () => {
+    const mockOnNavigate = jest.fn();
+
+    const { findByRole } = renderSalesEstimates({
+      onNavigateToSalesEstimates: mockOnNavigate,
+    });
+    const link = await findByRole("link", { name: /Sales Estimates/i });
+
+    await userEvent.click(link);
+
+    expect(mockOnNavigate).toHaveBeenCalled();
+  });
 });
