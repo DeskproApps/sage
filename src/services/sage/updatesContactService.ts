@@ -23,7 +23,7 @@ const updatesContactService = (
   contactId: Contact["id"],
   data: Data,
 ) => {
-  return baseRequest(client, {
+  return baseRequest<Contact>(client, {
     url: `/contacts/${contactId}`,
     method: "PUT",
     data: {

@@ -1,7 +1,7 @@
 import type { To, ParamKeyValuePair } from "react-router-dom";
 import type { DropdownValueType } from "@deskpro/deskpro-ui";
 import type { Context, IDeskproClient } from "@deskpro/app-sdk";
-import type { Response } from "./services/sage/types";
+import type { Response, Contact, ContactPerson } from "./services/sage/types";
 
 /** Common types */
 export type Maybe<T> = T | undefined | null;
@@ -74,3 +74,10 @@ export type EventPayload =
 ;
 
 /** Entities */
+export type EntityMetadata = {
+  id: Contact["id"],
+  contact: Contact["name"],
+  contactType?: "Customer"|"Supplier"|string,
+  personPrimary?: ContactPerson["name"],
+  personEmail?: ContactPerson["email"],
+};

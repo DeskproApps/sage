@@ -1,10 +1,12 @@
 import { useState, useMemo, useCallback } from "react";
+import find from "lodash/find";
 import { useNavigate } from "react-router-dom";
 import {
   useDeskproAppClient,
   useDeskproLatestAppContext,
 } from "@deskpro/app-sdk";
 import { setEntityService } from "../../services/deskpro";
+import { getEntityMetadata } from "../../utils";
 import { useSetTitle, useAsyncError, useRegisterElements } from "../../hooks";
 import { useSearchContacts } from "./hooks";
 import { LinkContact } from "../../components";
@@ -39,11 +41,11 @@ const LinkContactPage: FC = () => {
 
     setIsSubmitting(true);
 
-    setEntityService(client, dpUserId, selectedContact)
+    setEntityService(client, dpUserId, selectedContact, getEntityMetadata(find(contacts, { id: selectedContact })))
       .then(() => navigate("/home"))
       .catch(asyncErrorHandler)
       .finally(() => setIsSubmitting(false));
-  }, [client, dpUserId, selectedContact, asyncErrorHandler, navigate]);
+  }, [client, dpUserId, selectedContact, asyncErrorHandler, navigate, contacts]);
 
   useSetTitle("Link Contact");
 

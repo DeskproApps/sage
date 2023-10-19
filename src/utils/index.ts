@@ -9,3 +9,4 @@ export { getContactType } from "./getContactType";
 export { retryUntilHavePagination } from "./retryUntilHavePagination";
 export { formatPrice } from "./formatPrice";
 export { getErrors } from "./getErrors";
+export { getEntityMetadata } from "./getEntityMetadata";
