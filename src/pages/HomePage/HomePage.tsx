@@ -4,7 +4,9 @@ import { LoadingSpinner } from "@deskpro/app-sdk";
 import {
   useContact,
   useSetTitle,
+  useSalesQuotes,
   useSalesInvoices,
+  useSalesEstimates,
   usePurchaseInvoices,
   useRegisterElements,
   useSageExternalLink,
@@ -19,8 +21,12 @@ const HomePage: FC = () => {
   const { contact, isLoading: isLoadingContact } = useContact(contactId);
   const { salesInvoices, isLoading: isLoadingSalesInvoices } = useSalesInvoices(contactId);
   const { purchaseInvoices, isLoading: isLoadingPurchaseInvoices } = usePurchaseInvoices(contactId);
+  const { quotes, isLoading: isLoadingQuotes } = useSalesQuotes(contactId);
+  const { estimates, isLoading: isLoadingEstimates } = useSalesEstimates(contactId);
   const {
+    newSalesQuoteLink,
     newSalesInvoiceLink,
+    newSalesEstimateLink,
     newPurchaseInvoiceLink,
     isLoading: isLoadingLink,
   } = useSageExternalLink(contactId);
@@ -28,6 +34,8 @@ const HomePage: FC = () => {
     isLoadingId,
     isLoadingLink,
     isLoadingContact,
+    isLoadingQuotes,
+    isLoadingEstimates,
     isLoadingSalesInvoices,
     isLoadingPurchaseInvoices,
   ].some(Boolean);
@@ -44,6 +52,24 @@ const HomePage: FC = () => {
   const onNavigateToPurchaseInvoices = useCallback(() => {
     navigate({
       pathname: "/purchase-invoices",
+      search: `?${createSearchParams({
+        ...(!contactId ? {} : { contactId }),
+      })}`,
+    });
+  }, [navigate, contactId]);
+
+  const onNavigateToSalesQuotes = useCallback(() => {
+    navigate({
+      pathname: "/sales-quotes",
+      search: `?${createSearchParams({
+        ...(!contactId ? {} : { contactId }),
+      })}`,
+    });
+  }, [navigate, contactId]);
+
+  const onNavigateToSalesEstimates = useCallback(() => {
+    navigate({
+      pathname: "/sales-estimates",
       search: `?${createSearchParams({
         ...(!contactId ? {} : { contactId }),
       })}`,
@@ -71,12 +97,18 @@ const HomePage: FC = () => {
 
   return (
     <Home
+      quotes={quotes}
       contact={contact}
+      estimates={estimates}
       salesInvoices={salesInvoices}
       purchaseInvoices={purchaseInvoices}
+      newSalesQuoteLink={newSalesQuoteLink}
       newSalesInvoiceLink={newSalesInvoiceLink}
+      newSalesEstimateLink={newSalesEstimateLink}
       newPurchaseInvoiceLink={newPurchaseInvoiceLink}
+      onNavigateToSalesQuotes={onNavigateToSalesQuotes}
       onNavigateToSalesInvoices={onNavigateToSalesInvoices}
+      onNavigateToSalesEstimates={onNavigateToSalesEstimates}
       onNavigateToPurchaseInvoices={onNavigateToPurchaseInvoices}
     />
   );

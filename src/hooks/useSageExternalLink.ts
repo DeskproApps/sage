@@ -11,6 +11,8 @@ export type Result = {
   contactLink: Maybe<string>,
   newSalesInvoiceLink: Maybe<string>,
   newPurchaseInvoiceLink: Maybe<string>,
+  newSalesQuoteLink: Maybe<string>,
+  newSalesEstimateLink: Maybe<string>,
 };
 
 type UseSageExternalLink = (contactId?: Maybe<Contact["id"]>) => Result;
@@ -20,6 +22,8 @@ const useSageExternalLink: UseSageExternalLink = (contactId) => {
   const [contactLink, setContactLink] = useState<Maybe<string>>(null);
   const [newSalesInvoiceLink, setNewSalesInvoiceLink] = useState<Maybe<string>>(null);
   const [newPurchaseInvoiceLink, setNewPurchaseInvoiceLink] = useState<Maybe<string>>(null);
+  const [newSalesQuoteLink, setNewSalesQuoteLink] = useState<Maybe<string>>(null);
+  const [newSalesEstimateLink, setNewSalesEstimateLink] = useState<Maybe<string>>(null);
 
   useEffect(() => {
     const sageContactLink = getSageLink(get(contact, ["links"]));
@@ -37,14 +41,25 @@ const useSageExternalLink: UseSageExternalLink = (contactId) => {
       if (origin && contactNumber) {
         setNewSalesInvoiceLink(`${origin}/invoicing/sales_invoices/new?contact_id=${contactNumber}`);
         setNewPurchaseInvoiceLink(`${origin}/invoicing/purchase_invoices/new?contact_id=${contactNumber}`);
+        setNewSalesEstimateLink(`https://accounts-extra.sageone.com/invoicing/sales_estimates/new?contact_id=${contactNumber}`);
+        setNewSalesQuoteLink(`https://accounts-extra.sageone.com/invoicing/sales_quotes/new?contact_id=${contactNumber}`);
       } else if (origin) {
         setNewSalesInvoiceLink(`${origin}/invoicing/sales_invoices/new`);
         setNewPurchaseInvoiceLink(`${origin}/invoicing/purchase_invoices/new`);
+        setNewSalesEstimateLink(`https://accounts-extra.sageone.com/invoicing/sales_estimates/new`);
+        setNewSalesQuoteLink(`https://accounts-extra.sageone.com/invoicing/sales_quotes/new`);
       }
     }
   }, [contactLink]);
 
-  return { isLoading, contactLink, newSalesInvoiceLink, newPurchaseInvoiceLink };
+  return {
+    isLoading,
+    contactLink,
+    newSalesQuoteLink,
+    newSalesInvoiceLink,
+    newSalesEstimateLink,
+    newPurchaseInvoiceLink,
+  };
 };
 
 export { useSageExternalLink };

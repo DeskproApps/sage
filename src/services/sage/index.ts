@@ -12,3 +12,7 @@ export { updatesContactService } from "./updatesContactService";
 export { getSalesInvoiceService } from "./getSalesInvoiceService";
 export { getPurchaseInvoicesService } from "./getPurchaseInvoicesService";
 export { getPurchaseInvoiceService } from "./getPurchaseInvoiceService";
+export { getSalesEstimatesServices } from "./getSalesEstimatesServices";
+export { getSalesEstimateServices } from "./getSalesEstimateServices";
+export { getSalesQuotesService } from "./getSalesQuotesService";
+export { getSalesQuoteService } from "./getSalesQuoteService";

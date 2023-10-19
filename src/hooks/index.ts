@@ -8,3 +8,5 @@ export { useSalesInvoices } from "./useSalesInvoices";
 export { usePurchaseInvoices } from "./usePurchaseInvoices";
 export { useRegisterElements } from "./useRegisterElements";
 export { useSageExternalLink } from "./useSageExternalLink";
+export { useSalesQuotes } from "./useSalesQuotes";
+export { useSalesEstimates } from "./useSalesEstimates";

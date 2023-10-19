@@ -77,3 +77,13 @@ export type PurchaseInvoiceLineItem = Required<definitions["PurchaseInvoiceLineI
 export type PurchaseInvoice = Omit<Required<definitions["PurchaseInvoice"]>, "invoice_lines"> & {
   invoice_lines?: PurchaseInvoiceLineItem[],
 };
+
+export type SalesQuoteLineItem = Required<definitions["SalesQuoteLineItem"]>;
+
+export type SalesEstimate = Required<Omit<definitions["SalesEstimate"], "estimate_lines">> & {
+  estimate_lines: SalesQuoteLineItem[],
+};
+
+export type SalesQuote = Required<Omit<definitions["SalesQuote"], "quote_lines">> & {
+  quote_lines: SalesQuoteLineItem[],
+};
