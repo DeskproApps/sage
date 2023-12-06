@@ -9,7 +9,7 @@ import { SageLogo, RouterLink } from "../common";
 import type { FC } from "react";
 import type { SalesQuote } from "../../services/sage/types";
 
-type Props = {
+export type Props = {
   isLast: boolean,
   quote: SalesQuote,
 };

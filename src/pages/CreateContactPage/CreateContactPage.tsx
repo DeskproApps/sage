@@ -10,7 +10,7 @@ import { useDeskproUserAsContact } from "./hooks";
 import { setEntityService } from "../../services/deskpro";
 import { createContactService } from "../../services/sage";
 import { getContactValues } from "../../components/ContactForm";
-import { getErrors } from "../../utils";
+import { getErrors, getEntityMetadata } from "../../utils";
 import { CreateContact } from "../../components";
 import type { FC } from "react";
 import type { Maybe, UserContext } from "../../types";
@@ -36,7 +36,7 @@ const CreateContactPage: FC = () => {
     setError(null);
 
     return createContactService(client, getContactValues(values) as never)
-      .then((contact) => setEntityService(client, dpUserId, contact.id))
+      .then((contact) => setEntityService(client, dpUserId, contact.id, getEntityMetadata(contact)))
       .then(() => navigate("/home"))
       .catch((err) => setError(getErrors(get(err, ["data"]))));
   }, [client, dpUserId, navigate]);
