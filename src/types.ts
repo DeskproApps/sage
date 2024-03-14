@@ -1,6 +1,6 @@
 import type { To, ParamKeyValuePair } from "react-router-dom";
 import type { DropdownValueType } from "@deskpro/deskpro-ui";
-import type { Context, IDeskproClient } from "@deskpro/app-sdk";
+import type { Context, IDeskproClient, V2ProxyRequestInitBody } from "@deskpro/app-sdk";
 import type { Response, Contact, ContactPerson } from "./services/sage/types";
 
 /** Common types */
@@ -23,10 +23,14 @@ export type RequestParams = {
   url?: string,
   rawUrl?: string,
   method?: ApiRequestMethod,
-  data?: object,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: Dict<any>|RequestInit["body"]|V2ProxyRequestInitBody["body"]
   headers?: Dict<string>,
   queryParams?: string|Dict<string>|ParamKeyValuePair[],
 };
+
+// V2ProxyRequestInit
+export type FetchOptions = Pick<RequestParams, "method"|"headers"> & V2ProxyRequestInitBody;
 
 export type Request = <T>(
   client: IDeskproClient,

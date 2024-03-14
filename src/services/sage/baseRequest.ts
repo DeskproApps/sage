@@ -4,7 +4,7 @@ import { BASE_URL, placeholders } from "../../constants";
 import { getQueryParams } from "../../utils";
 import { renewAccessTokenService } from "./renewAccessTokenService";
 import { SageError } from "./SageError";
-import type { Request } from "../../types";
+import type { Request, FetchOptions } from "../../types";
 
 const baseRequest: Request = async (client, {
   url,
@@ -20,7 +20,7 @@ const baseRequest: Request = async (client, {
   const params = getQueryParams(queryParams);
 
   const requestUrl = `${baseUrl}${isEmpty(params) ? "": `?${params}`}`;
-  const options: RequestInit = {
+  const options: FetchOptions = {
     method,
     headers: {
       "Authorization": `Bearer ${placeholders.ACCESS_TOKEN}`,
