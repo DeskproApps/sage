@@ -7,7 +7,7 @@ import type { Result } from "../useSageExternalLink";
 const renderUseLinkedContact = () => renderHook<Result, unknown>(
   () => useSageExternalLink("contact-001"),
   {
-    wrapper: ({ children }) => wrap(children, { query: true })
+    wrapper: ({ children }) => wrap(children as never, { query: true })
   },
 );
 

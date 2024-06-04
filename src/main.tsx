@@ -13,7 +13,6 @@ import "simplebar/dist/simplebar.min.css";
 import "@deskpro/deskpro-ui/dist/deskpro-ui.css";
 import "@deskpro/deskpro-ui/dist/deskpro-custom-icons.css";
 
-
 const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 root.render((
   <React.StrictMode>

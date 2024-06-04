@@ -11,7 +11,7 @@ import type { Result } from "../../useLinkedContact";
 const renderUseLinkedContact = () => renderHook<Result, unknown>(
   () => useLinkedContact(),
   {
-    wrapper: ({ children }) => wrap(children, { query: true })
+    wrapper: ({ children }) => wrap(children as never, { query: true })
   },
 );
 
