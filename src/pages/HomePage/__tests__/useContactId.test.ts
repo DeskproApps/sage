@@ -13,7 +13,7 @@ jest.mock("../../../services/deskpro/getEntityListService");
 
 const renderUseContactId = () => renderHook<Result, unknown>(
   () => useContactId(),
-  { wrapper: ({ children }) => wrap(children, { query: true, router: true }) },
+  { wrapper: ({ children }) => wrap(children as never, { query: true, router: true }) },
 );
 
 describe("useContactId", () => {
