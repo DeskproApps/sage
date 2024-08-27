@@ -1,5 +1,4 @@
-import { useMemo } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useDebouncedCallback } from "use-debounce";
 import { match } from "ts-pattern";
 import {
@@ -34,11 +33,9 @@ import type { EventPayload } from "./types";
 
 const App: FC = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
   const { client } = useDeskproAppClient();
   const { logout, isLoading: isLoadingLogout } = useLogout();
   const { unlink, isLoading: isLoadingUnlink } = useUnlinkContact();
-  const isAdmin = useMemo(() => pathname.includes("/admin/"), [pathname]);
   const isLoading = [isLoadingLogout, isLoadingUnlink].some(Boolean)
 
   useDeskproElements(({ registerElement }) => {
@@ -68,33 +65,30 @@ const App: FC = () => {
 
   if (!client || isLoading) {
     return (
-      <LoadingSpinner/>
+      <LoadingSpinner />
     );
   }
 
   return (
-    <>
-      <Routes>
-        <Route path="/admin/callback" element={<AdminCallbackPage/>}/>)
-        <Route path="/login" element={<LoginPage/>}/>)
-        <Route path="/home" element={<HomePage/>}/>)
-        <Route path="/no-linked" element={<NoLinkedContactPage/>}/>
-        <Route path="/contact/link" element={<LinkContactPage/>} />
-        <Route path="/contact/view/:contactId" element={<ViewContactPage/>} />
-        <Route path="/contact/create" element={<CreateContactPage/>} />
-        <Route path="/contact/edit/:contactId" element={<EditContactPage/>} />
-        <Route path="/sales-invoices" element={<SalesInvoicesPage/>} />
-        <Route path="/sales-invoices/:salesInvoiceId" element={<ViewSalesInvoicePage/>} />
-        <Route path="/purchase-invoices" element={<PurchaseInvoicesPage/>} />
-        <Route path="/purchase-invoices/:purchaseInvoiceId" element={<ViewPurchaseInvoicePage/>} />
-        <Route path="/sales-quotes" element={<SalesQuotesPage/>} />
-        <Route path="/sales-quotes/:quoteId" element={<ViewSalesQuotePage/>} />
-        <Route path="/sales-estimates" element={<SalesEstimatesPage/>} />
-        <Route path="/sales-estimates/:estimateId" element={<ViewSalesEstimatePage/>} />
-        <Route index element={<LoadingAppPage/>} />
-      </Routes>
-      {!isAdmin && (<><br/><br/><br/></>)}
-    </>
+    <Routes>
+      <Route path="/admin/callback" element={<AdminCallbackPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/no-linked" element={<NoLinkedContactPage />} />
+      <Route path="/contact/link" element={<LinkContactPage />} />
+      <Route path="/contact/view/:contactId" element={<ViewContactPage />} />
+      <Route path="/contact/create" element={<CreateContactPage />} />
+      <Route path="/contact/edit/:contactId" element={<EditContactPage />} />
+      <Route path="/sales-invoices" element={<SalesInvoicesPage />} />
+      <Route path="/sales-invoices/:salesInvoiceId" element={<ViewSalesInvoicePage />} />
+      <Route path="/purchase-invoices" element={<PurchaseInvoicesPage />} />
+      <Route path="/purchase-invoices/:purchaseInvoiceId" element={<ViewPurchaseInvoicePage />} />
+      <Route path="/sales-quotes" element={<SalesQuotesPage />} />
+      <Route path="/sales-quotes/:quoteId" element={<ViewSalesQuotePage />} />
+      <Route path="/sales-estimates" element={<SalesEstimatesPage />} />
+      <Route path="/sales-estimates/:estimateId" element={<ViewSalesEstimatePage />} />
+      <Route index element={<LoadingAppPage />} />
+    </Routes>
   );
 }
 
