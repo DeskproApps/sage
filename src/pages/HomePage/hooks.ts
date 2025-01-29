@@ -1,6 +1,4 @@
-import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import get from "lodash/get";
 import size from "lodash/size";
 import {
   useQueryWithClient,
@@ -35,7 +33,7 @@ const useContactId: UseContactId = () => {
     },
   );
 
-  const contactId = useMemo(() => get(contactIds, ["data", 0]), [contactIds]);
+  const contactId = contactIds.data?.[0] ?? "";
 
   return {
     isLoading: [contactIds].some(({ isLoading }) => isLoading),
