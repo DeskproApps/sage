@@ -38,7 +38,7 @@ const EditContactPage: FC = () => {
 
     return updatesContactService(client, contactId, getContactValues(values) as never)
       .then((contact) => {
-        return setEntityService(client, dpUserId, contact.id, getEntityMetadata(contact));
+        return setEntityService(client, dpUserId ?? "", contact.id, getEntityMetadata(contact));
       })
       .then(() => navigate(`/contact/view/${contactId}`))
       .catch((err) => setError(getErrors(get(err, ["data"]))));

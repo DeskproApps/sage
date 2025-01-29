@@ -21,11 +21,11 @@ type UseContactId = () => Result;
 const useContactId: UseContactId = () => {
   const navigate = useNavigate();
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
-  const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
+  const dpUserId = context.data?.user.id;
 
   const contactIds = useQueryWithClient(
-    [QueryKey.LINKED_CONTACTS, dpUserId],
-    (client) => getEntityListService(client, dpUserId),
+    [QueryKey.LINKED_CONTACTS, dpUserId ?? ""],
+    (client) => getEntityListService(client, dpUserId ?? ""),
     {
       onSuccess: (items) => {
         if (!size(items)) {
