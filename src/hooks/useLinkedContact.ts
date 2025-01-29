@@ -45,7 +45,7 @@ const useLinkedContact: UseLinkedContact = () => {
     }
 
     // 2. Trying to find a contact by primary email
-    const contactsByPrimaryEmail = await getContactsService(client, { email: dpPrimaryEmail });
+    const contactsByPrimaryEmail = await getContactsService(client, { email: dpPrimaryEmail?? "" });
     const contactIdByPrimaryEmail = get(contactsByPrimaryEmail, ["$items", 0, "id"]);
 
     if (contactIdByPrimaryEmail) {
@@ -54,7 +54,7 @@ const useLinkedContact: UseLinkedContact = () => {
 
     // 3. Trying to find a contact by additional emails
     const contactsByAdditionalEmails = await Promise.all(
-      dpEmails.map((email) => getContactsService(client, { email }))
+      dpEmails.map((email) => getContactsService(client, { email: email?? "" }))
     );
 
     const contactsAdditional = filterPaginatedContacts(contactsByAdditionalEmails);

@@ -1,6 +1,4 @@
-import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import get from "lodash/get";
 import size from "lodash/size";
 import {
   useQueryWithClient,
@@ -21,11 +19,11 @@ type UseContactId = () => Result;
 const useContactId: UseContactId = () => {
   const navigate = useNavigate();
   const { context } = useDeskproLatestAppContext() as { context: UserContext };
-  const dpUserId = useMemo(() => get(context, ["data", "user", "id"]), [context]);
+  const dpUserId = context.data?.user.id;
 
   const contactIds = useQueryWithClient(
-    [QueryKey.LINKED_CONTACTS, dpUserId],
-    (client) => getEntityListService(client, dpUserId),
+    [QueryKey.LINKED_CONTACTS, dpUserId ?? ""],
+    (client) => getEntityListService(client, dpUserId ?? ""),
     {
       onSuccess: (items) => {
         if (!size(items)) {
@@ -35,7 +33,7 @@ const useContactId: UseContactId = () => {
     },
   );
 
-  const contactId = useMemo(() => get(contactIds, ["data", 0]), [contactIds]);
+  const contactId = contactIds.data?.[0] ?? "";
 
   return {
     isLoading: [contactIds].some(({ isLoading }) => isLoading),
