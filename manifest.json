@@ -24,8 +24,9 @@
   },
   "settings": {
     "use_deskpro_saas": {
-      "title": "Use Deskpro Saas",
+      "title": "One-Click Installation",
       "type": "boolean",
+      "default": true,
       "isRequired": false,
       "isBackendOnly": false,
       "order": 5
