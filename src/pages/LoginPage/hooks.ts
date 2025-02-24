@@ -67,7 +67,7 @@ const useLogin = (): Result => {
 
         await setAccessTokenService(client, result.data.access_token)
         if (result.data.refresh_token) {
-          setRefreshTokenService(client, result.data.refresh_token)
+          await setRefreshTokenService(client, result.data.refresh_token)
         }
 
         // Redirect to the "LoadingApp" page, that will decide which
