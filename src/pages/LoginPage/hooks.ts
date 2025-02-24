@@ -64,10 +64,11 @@ const useLogin = (): Result => {
 
       try {
         const result = await oauth2.poll()
-        await Promise.all([
-          setAccessTokenService(client, result.data.access_token),
-          result.data.refresh_token ? setRefreshTokenService(client, result.data.refresh_token) : Promise.resolve(undefined)
-        ])
+
+        await setAccessTokenService(client, result.data.access_token)
+        if (result.data.refresh_token) {
+          setRefreshTokenService(client, result.data.refresh_token)
+        }
 
         // Redirect to the "LoadingApp" page, that will decide which
         // page to send the user to
