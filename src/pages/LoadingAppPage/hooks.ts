@@ -29,7 +29,9 @@ const useCheckAuth = () => {
           navigate("/contact/link");
         }
       })
-      .catch(() => navigate("/login"));
+      .catch(() =>{
+        navigate("/login")
+      });
   }, [dpUserId]);
 };
 

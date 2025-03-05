@@ -6,8 +6,14 @@
   "scope": "agent",
   "isSingleInstall": false,
   "hasDevMode": true,
-  "targets": [{ "target": "user_sidebar", "entrypoint": "index.html" }],
+  "targets": [
+    {
+      "target": "user_sidebar",
+      "entrypoint": "index.html"
+    }
+  ],
   "serveUrl": "https://apps-cdn.deskpro-service.com/__name__/__version__",
+  "secrets": "M5TfPvC/8KLjrKuCEPDK372/Xl3Xw2Myt/2jsjIbRc95wjv6H0Ze8e5tm2Xyr3jfI0xTZ/UCJdilaxgqPJd7Ke69GkFpkrzBDjTa2JiFKdQSLeCCpUQpFM0DaYp8eiZqM5Lz976CpziNtYdFHpKeaFTJM30EUYgDps7G6d2m9VFuIgcZgujJE4epVR6BQDnxs0UDIdPV/qWFrbdsROxLI6Jx2h4nPUkOGybg0GWVfnryGCqEgks2lytXxTeKqNpDqnoIOIX/hpPo+irBZz3qIaifnB69KYKi8IK268+kAKHB+qFdBrhupxXKK0NVETrGqOkb4BCOeCW+Xl6YOMq7YrjU3jh5uUlKtvplm8dWxC0KoNUzIzTuaZ0ygmR45kYzFAj+FRC3ZkSJU5rnQooGCXfl0VD7DyyVP54HMc6vSBW2Ao3PU2PPvkJNYyo97qNAp/5bAOGSzfiI5E50ontNh0zWKuNNnoQednujylO28fqG/fW9fYWDoHPvOR/f9So+s1KL4z7flq3CWfW2ouLOxu0i7kxiPnT7cCG8Tfh4FraV7D+h7JqkQQ6iIacDVkP4GGjwRX4aB37HYBMVLXxir9Jjm6JTf6ExQjbjLzRL/ZXBH+cL9wphO9aIM4xAWhus6ZxV9LAHIYZJ/kAkb2tif6g1hNz7UeyIO5oktDEaBMLAWYdzNuuzYzduu4/sPqoWnT1F3EupF1McF1zslAWjK/EcRUtkFkP+ylK32jtDiKcnBoonlaBEoUjajrGEf/7Vbai6lA+lwIffaFH5UP5g4qZF+9CwUMDX+0LzehQ4rm/uaYs5z3onkQ5jeVJxqY95kP/FBQi5XeyoywkUPyhBTavvZs4bbt1FGq/psVrrAH0FzgM9urzl10vv9XgM+fKftYHCJjn8y9wnk1/phYkIlucsGvf2xUxwP4mcLDIkX/itPKbZg14QqSWq/gyRuns/fVmozdEGa3SV72zdCzL1mrJQU3xlVZ/y2NDXAmdGVTHM+Rrv24hvTW6o3Eg8wzPtfuVI1WodVwSpAsm9qnEfeEPKeaLwtl5bntFFYX0zbpmsGTRJd1lzmyEK6qmStHIm6Dwj5vgNk7znCxtSnTiC01E4ZYg2ihiI6EoDI/R0WYzuTVj7q92eTv+8/ddKRDdE",
   "appStoreUrl": "https://www.deskpro.com/product-embed/apps/sage",
   "entityAssociations": {
     "linkedSageContact": {
@@ -17,24 +23,37 @@
     }
   },
   "settings": {
+    "use_deskpro_saas": {
+      "title": "One-Click Installation",
+      "type": "boolean",
+      "default": true,
+      "isRequired": false,
+      "isBackendOnly": false,
+      "order": 5
+    },
     "client_id": {
       "title": "Client ID",
       "type": "string",
-      "isRequired": true,
+      "isRequired": false,
       "isBackendOnly": false,
+      "condition": "settings.use_deskpro_saas != true",
       "order": 10
     },
     "client_secret": {
       "title": "Client Secret",
       "type": "string",
-      "isRequired": true,
+      "isRequired": false,
       "isBackendOnly": true,
+      "condition": "settings.use_deskpro_saas != true",
       "order": 20
     },
     "callback_url": {
       "title": "Callback URL",
       "type": "app_embedded",
-      "options": { "entrypoint": "#/admin/callback" },
+      "options": {
+        "entrypoint": "#/admin/callback"
+      },
+      "condition": "settings.use_deskpro_saas != true",
       "isRequired": false,
       "isBackendOnly": true,
       "order": 30
@@ -44,12 +63,18 @@
     "whitelist": [
       {
         "url": "https://oauth.accounting.sage.com/.*",
-        "methods": ["POST"],
+        "methods": [
+          "POST"
+        ],
         "timeout": 20
       },
       {
         "url": "https://api.accounting.sage.com/v3.1/.*",
-        "methods": ["GET", "POST", "PUT"],
+        "methods": [
+          "GET",
+          "POST",
+          "PUT"
+        ],
         "timeout": 20
       }
     ]
