@@ -24,6 +24,7 @@ const Login: FC<Props> = ({ authUrl, onLogin, isLoading, error }) => (
       loading={isLoading}
       disabled={!authUrl || isLoading}
     />
+    <br/>
     {nbsp}
     {error && <Invalid>{error}</Invalid>}
   </Container>
