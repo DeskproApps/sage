@@ -18,7 +18,7 @@ const useLogin = (): Result => {
   const [authUrl, setAuthUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isPolling, setIsPolling] = useState(false)
-  const [oauth2, setOauth2] = useState<IOAuth2 | null>(null)
+  const [oauth2Context, setOAuth2Context] = useState<IOAuth2 | null>(null)
 
   const { context } = useDeskproLatestAppContext<unknown, Settings>()
   const { findContact, linkContact } = useLinkedContact();
@@ -43,7 +43,7 @@ const useLogin = (): Result => {
       }
 
       // Start OAuth process depending on the authentication mode
-      const oauth2Temp =
+      const oauth2Response =
         mode === 'local'
           // Local Version (custom/self-hosted app)
           ? await client.startOauth2Local(
@@ -53,7 +53,7 @@ const useLogin = (): Result => {
             /\?code=(?<code>.+?)&/,
             async (code: string): Promise<OAuth2Result> => {
               // Extract the callback URL from the authorization URL
-              const url = new URL(oauth2Temp.authorizationUrl);
+              const url = new URL(oauth2Response.authorizationUrl);
               const redirectUri = url.searchParams.get("redirect_uri");
 
               if (!redirectUri) {
@@ -69,20 +69,20 @@ const useLogin = (): Result => {
           // Global Proxy Service
           : await client.startOauth2Global("a30eb717-39ff-ca9e-b3a5-dd74caa0e407/13793110-36c5-45b9-acea-83df98d39e7f");
 
-      setAuthUrl(oauth2Temp.authorizationUrl)
-      setOauth2(oauth2Temp)
+      setAuthUrl(oauth2Response.authorizationUrl)
+      setOAuth2Context(oauth2Response)
     },
     [setAuthUrl, context?.settings.client_id, context?.settings.use_deskpro_saas]);
 
 
   useInitialisedDeskproAppClient((client) => {
-    if (!oauth2) {
+    if (!oauth2Context) {
       return
     }
 
     const startPolling = async () => {
       try {
-        const result = await oauth2.poll()
+        const result = await oauth2Context.poll()
 
         await setAccessTokenService(client, result.data.access_token)
         if (result.data.refresh_token) {
@@ -124,7 +124,7 @@ const useLogin = (): Result => {
     if (isPolling) {
       startPolling()
     }
-  }, [isPolling, oauth2, navigate, findContact, linkContact])
+  }, [isPolling, oauth2Context, navigate, findContact, linkContact])
 
   const onSignIn = useCallback(() => {
     setIsLoading(true);
