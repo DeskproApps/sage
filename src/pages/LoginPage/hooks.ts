@@ -1,8 +1,9 @@
-import { getAccessTokenService } from "../../services/sage";
+import { getAccessTokenService, getCurrentUserService } from "../../services/sage";
+import { IOAuth2, OAuth2Result, useDeskproAppClient, useDeskproLatestAppContext, useInitialisedDeskproAppClient, } from "@deskpro/app-sdk";
 import { setAccessTokenService, setRefreshTokenService } from "../../services/deskpro";
+import { useLinkedContact } from "../../hooks";
 import { useNavigate } from "react-router-dom";
-import { useState, useCallback, } from "react";
-import { OAuth2Result, useDeskproLatestAppContext, useInitialisedDeskproAppClient, } from "@deskpro/app-sdk";
+import { useState, useCallback, useEffect, } from "react";
 import type { Maybe, Settings } from "../../types";
 
 export type Result = {
@@ -16,8 +17,16 @@ const useLogin = (): Result => {
   const [error, setError] = useState<Maybe<string>>(null);
   const [authUrl, setAuthUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { context } = useDeskproLatestAppContext<unknown, Settings>();
+  const [isPolling, setIsPolling] = useState(false)
+  const [oauth2, setOauth2] = useState<IOAuth2 | null>(null)
+
+  const { client } = useDeskproAppClient()
+  const { context } = useDeskproLatestAppContext<unknown, Settings>()
+  const { findContact, linkContact } = useLinkedContact();
+
+
   const navigate = useNavigate()
+
   useInitialisedDeskproAppClient(
     async (client) => {
       if (context?.settings.use_deskpro_saas === undefined) {
@@ -28,12 +37,14 @@ const useLogin = (): Result => {
       const clientId = context?.settings.client_id;
       const mode = context?.settings.use_deskpro_saas ? 'global' : 'local';
 
-      if (mode === 'local' && typeof clientId !== 'string') {
+      if (mode === 'local' && (typeof clientId !== 'string' || clientId.trim() === "")) {
         // Local mode requires a clientId.
+        setError("A client ID is required");
         return;
       }
 
-      const oauth2 =
+      // Start OAuth process depending on the authentication mode
+      const oauth2Temp =
         mode === 'local'
           // Local Version (custom/self-hosted app)
           ? await client.startOauth2Local(
@@ -43,7 +54,7 @@ const useLogin = (): Result => {
             /\?code=(?<code>.+?)&/,
             async (code: string): Promise<OAuth2Result> => {
               // Extract the callback URL from the authorization URL
-              const url = new URL(oauth2.authorizationUrl);
+              const url = new URL(oauth2Temp.authorizationUrl);
               const redirectUri = url.searchParams.get("redirect_uri");
 
               if (!redirectUri) {
@@ -59,9 +70,18 @@ const useLogin = (): Result => {
           // Global Proxy Service
           : await client.startOauth2Global("a30eb717-39ff-ca9e-b3a5-dd74caa0e407/13793110-36c5-45b9-acea-83df98d39e7f");
 
-      setAuthUrl(oauth2.authorizationUrl)
-      setIsLoading(false)
+      setAuthUrl(oauth2Temp.authorizationUrl)
+      setOauth2(oauth2Temp)
+    },
+    [setAuthUrl, context?.settings.client_id, context?.settings.use_deskpro_saas]);
 
+
+  useEffect(() => {
+    if (!client || !oauth2) {
+      return
+    }
+
+    const startPolling = async () => {
       try {
         const result = await oauth2.poll()
 
@@ -70,20 +90,47 @@ const useLogin = (): Result => {
           await setRefreshTokenService(client, result.data.refresh_token)
         }
 
+        try {
+          await getCurrentUserService(client)
+        } catch {
+          throw new Error(`Error authenticating user`)
+        }
+
+
+        // Decide which page to navigate the user to
+        const contactId = await findContact()
+
+        try {
+          if (contactId) {
+            await linkContact(contactId)
+            navigate("/home")
+          } else {
+            navigate("/contact/link");
+          }
+        } catch {
+          navigate("/contact/link");
+        }
+
         // Redirect to the "LoadingApp" page, that will decide which
         // page to send the user to
         navigate("/")
       } catch (error) {
         setError(error instanceof Error ? error.message : 'Unknown error');
-        setIsLoading(false);
+      } finally {
+        setIsLoading(false)
+        setIsPolling(false)
       }
-    },
-    [setAuthUrl, context?.settings.client_id, context?.settings.use_deskpro_saas]
+    }
 
-  );
+    if (isPolling) {
+      startPolling()
+    }
+  }, [isPolling, client, oauth2, navigate, findContact, linkContact])
 
   const onSignIn = useCallback(() => {
     setIsLoading(true);
+    setIsPolling(true);
+
     window.open(authUrl ?? "", '_blank');
   }, [setIsLoading, authUrl]);
 
