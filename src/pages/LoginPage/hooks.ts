@@ -1,9 +1,9 @@
 import { getAccessTokenService, getCurrentUserService } from "../../services/sage";
-import { IOAuth2, OAuth2Result, useDeskproAppClient, useDeskproLatestAppContext, useInitialisedDeskproAppClient, } from "@deskpro/app-sdk";
+import { IOAuth2, OAuth2Result, useDeskproLatestAppContext, useInitialisedDeskproAppClient, } from "@deskpro/app-sdk";
 import { setAccessTokenService, setRefreshTokenService } from "../../services/deskpro";
 import { useLinkedContact } from "../../hooks";
 import { useNavigate } from "react-router-dom";
-import { useState, useCallback, useEffect, } from "react";
+import { useState, useCallback } from "react";
 import type { Maybe, Settings } from "../../types";
 
 export type Result = {
@@ -20,7 +20,6 @@ const useLogin = (): Result => {
   const [isPolling, setIsPolling] = useState(false)
   const [oauth2, setOauth2] = useState<IOAuth2 | null>(null)
 
-  const { client } = useDeskproAppClient()
   const { context } = useDeskproLatestAppContext<unknown, Settings>()
   const { findContact, linkContact } = useLinkedContact();
 
@@ -76,8 +75,8 @@ const useLogin = (): Result => {
     [setAuthUrl, context?.settings.client_id, context?.settings.use_deskpro_saas]);
 
 
-  useEffect(() => {
-    if (!client || !oauth2) {
+  useInitialisedDeskproAppClient((client) => {
+    if (!oauth2) {
       return
     }
 
@@ -125,7 +124,7 @@ const useLogin = (): Result => {
     if (isPolling) {
       startPolling()
     }
-  }, [isPolling, client, oauth2, navigate, findContact, linkContact])
+  }, [isPolling, oauth2, navigate, findContact, linkContact])
 
   const onSignIn = useCallback(() => {
     setIsLoading(true);
