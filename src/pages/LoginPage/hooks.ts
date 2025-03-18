@@ -29,7 +29,7 @@ const useLogin = (): Result => {
     async (client) => {
 
       const clientId = context?.settings.client_id;
-      const mode = context?.settings.use_advanced_connect ? 'local' : 'global';
+      const mode = context?.settings.use_advanced_connect === false ? 'global' : 'local';
 
       if (mode === 'local' && (typeof clientId !== 'string' || clientId.trim() === "")) {
         // Local mode requires a clientId.
