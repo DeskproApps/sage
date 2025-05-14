@@ -2,7 +2,7 @@
   "name": "@deskpro-apps/sage",
   "title": "Sage",
   "description": "Link your Sage customers and suppliers to the users you have in your Deskpro instance to streamline communication with users by giving you information on their invoices and payments.",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "scope": "agent",
   "isSingleInstall": false,
   "hasDevMode": true,
