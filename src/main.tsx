@@ -1,4 +1,3 @@
-import * as Sentry from '@sentry/react';
 import './instrument';
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
@@ -15,9 +14,10 @@ import "@deskpro/deskpro-ui/dist/deskpro-custom-icons.css";
 import "./main.css";
 import "simplebar/dist/simplebar.min.css";
 import { Scrollbar } from "@deskpro/deskpro-ui";
+import { ErrorBoundary, reactErrorHandler } from '@sentry/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as Element, {
-  onRecoverableError: Sentry.reactErrorHandler(),
+  onRecoverableError: reactErrorHandler(),
 });
 root.render((
   <React.StrictMode>
@@ -26,9 +26,9 @@ root.render((
         <HashRouter>
           <QueryClientProvider client={queryClient}>
             <Suspense fallback={<LoadingSpinner />}>
-              <Sentry.ErrorBoundary FallbackComponent={ErrorFallback}>
+              <ErrorBoundary fallback={ErrorFallback}>
                 <App />
-              </Sentry.ErrorBoundary>
+              </ErrorBoundary>
             </Suspense>
           </QueryClientProvider>
         </HashRouter>
