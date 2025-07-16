@@ -5,6 +5,7 @@ import { Icon } from "@deskpro/deskpro-ui";
 import type { FC } from "react";
 import type { LinkProps } from "react-router-dom";
 import type { IconProps, ThemeColors, AnyIcon } from "@deskpro/deskpro-ui";
+import { DeskproAppTheme } from "@deskpro/app-sdk";
 
 export type Props = {
   href?: string,
@@ -12,7 +13,7 @@ export type Props = {
   size?: IconProps["size"];
 };
 
-const Link = styled.a<{ color?: keyof ThemeColors }>`
+const Link = styled.a<{ color?: keyof ThemeColors } & DeskproAppTheme>`
   color: ${({ theme, color = "cyan100" }) => theme.colors[color]};
   text-decoration: none;
 `;
