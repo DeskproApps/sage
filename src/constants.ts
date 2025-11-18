@@ -21,7 +21,7 @@ export const placeholders = {
   REFRESH_TOKEN: `[user[${REFRESH_TOKEN_PATH}]]`,
   CLIENT_ID: "__client_id__",
   CLIENT_SECRET: "__client_secret__",
-};
+} as const;
 
 export const DEFAULT_ERROR = "There was an error!"
 
